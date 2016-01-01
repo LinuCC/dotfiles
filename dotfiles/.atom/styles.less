@@ -1,0 +1,64 @@
+@import "ui-variables";
+
+atom-text-editor {
+  // -webkit-font-smoothing: subpixel-antialiased;
+  // font-smoothing: subpixel-antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-font-feature-settings: "liga" 1;
+  font-feature-settings: "liga" 1;
+
+  background-color: #202020;
+}
+
+body /deep/ ::-webkit-scrollbar {
+  &-track, &-corner, &-thumb {
+    //display: none;
+  }
+}
+
+atom-text-editor::shadow {
+  // The cursor line important to use rgba for opacity, also requires !important
+  // to override any theme.
+  .line.highlight-line {
+      //background: rgba(255, 0, 0, 0.3) !important;
+      text-rendering: optimizeSpeed !important;
+      -webkit-font-feature-settings:  normal !important;
+      font-feature-settings: normal !important;
+  }
+
+  // Replace 'solid', with 'dashed' or 'dotted' depending of what you have
+  // set in the settings page.
+  // This is for the bottom line (underline)
+  .line.highlight-line-multi-line-solid-bottom {
+    // border-bottom-color: #AACC33 !important;
+  }
+
+  // This is for the top line when you have the selection borders enabled.
+  .line.highlight-line-multi-line-solid-top {
+    // border-top-color: #AACC33 !important;
+  }
+
+  .multi-wrap-guide:nth-child(1) .multi-wrap-guide-line {
+    background-color: fadeout(white, 80%);
+    width: 1px;
+  }
+  .multi-wrap-guide:nth-child(2) .multi-wrap-guide-line {
+    background-color: fadeout(#FFAA00, 70%);
+    width: 1px;
+  }
+}
+
+/* fix for https://github.com/atom/atom/issues/3622 */
+atom-text-editor:not(.mini)::shadow,
+atom-text-editor:not(.mini)::shadow .blink-off,
+atom-text-editor.vim-mode.command-mode,
+atom-text-editor.vim-mode.operator-pending-mode,
+atom-text-editor.vim-mode.visual-mode,
+.editor.is-focused,
+.editor:not(.is-focused),
+{
+  .cursor, .cursor.blink-off {
+    visibility: visible !important;
+    // opacity: 1 !important;
+  }
+}

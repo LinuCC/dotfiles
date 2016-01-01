@@ -1,0 +1,7 @@
+'.source.ruby.rails, .source.ruby.embedded.haml':
+  'railsdebug':
+    'prefix': 'rade'
+    'body': 'Rails.logger.debug "${1}".to_yaml.lines.map{|x|x.prepend(\'DEBUG: \')}.join'
+  'pry':
+    'prefix': 'pry'
+    'body': 'require \'pry\'\; binding.pry'

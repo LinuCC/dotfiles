@@ -1,0 +1,132 @@
+"*":
+  "exception-reporting":
+    userId: "c39a5722-f26c-ca60-77f1-a73b1e598e40"
+  welcome:
+    showOnStartup: false
+  core:
+    themes: [
+      "atom-material-ui"
+      "peacock-syntax"
+    ]
+    disabledPackages: [
+      "wrap-guide"
+      "spell-check"
+      "atomatigit"
+      "vim-mode-visual-block"
+      "vim-mode-clipboard-plus"
+      "highlight-selected"
+    ]
+    autoHideMenuBar: true
+    destroyEmptyPanes: false
+  editor:
+    invisibles:
+      tab: "▻"
+    showInvisibles: true
+    showIndentGuide: true
+    softWrapAtPreferredLineLength: true
+    softWrap: true
+    preferredLineLength: 100
+    softWrapHangingIndent: 2
+    backUpBeforeSaving: true
+    fontFamily: "fira code"
+    scrollPastEnd: true
+    fontSize: 13
+  "vim-mode":
+    useSmartcaseForSearch: true
+  "git-plus":
+    openInPane: false
+  "multi-wrap-guide":
+    locked: true
+    columns: [
+      80
+      100
+    ]
+    silent: true
+  pigments:
+    mergeColorDuplicates: true
+  "autocomplete-plus":
+    confirmCompletion: "tab"
+  "highlight-selected":
+    onlyHighlightWholeWords: false
+  "highlight-line":
+    enableUnderline: true
+    enableSelectionBorder: true
+  "atom-material-ui":
+    fonts: {}
+    ui:
+      panelShadows: true
+      panelContrast: true
+    tabs: {}
+    treeView:
+      compactList: true
+    colors:
+      abaseColor:
+        red: 135
+        green: 171
+        blue: 4
+        alpha: 1
+      accentColor:
+        red: 231
+        green: 231
+        blue: 231
+        alpha: 1
+      genAccent: true
+  "project-manager": {}
+  "keyboard-localization":
+    useKeyboardLayoutFromPath: "/home/linucc/.atom/gb_locale.json"
+  "save-session":
+    dataSaveFolder: "/home/linucc/.atom/packages/save-session/projects"
+".js.rails.source source.jquery.js":
+  editor:
+    preferredLineLength: 100
+    softWrapHangingIndent: 2
+".rails.rjs.ruby.source":
+  editor:
+    preferredLineLength: 100
+    softWrapHangingIndent: 2
+".latex.tex.text":
+  "multi-wrap-guide":
+    columns: [
+      80
+      100
+    ]
+  editor:
+    preferredLineLength: 100
+".html.ruby.text":
+  editor:
+    preferredLineLength: 100
+    softWrapHangingIndent: 2
+".rails.ruby.source":
+  editor:
+    preferredLineLength: 100
+    softWrapHangingIndent: 2
+".ruby.source.sql":
+  editor:
+    preferredLineLength: 100
+    softWrapHangingIndent: 2
+".haml.text":
+  editor:
+    preferredLineLength: 100
+    softWrapHangingIndent: 2
+  "multi-wrap-guide":
+    columns: [
+      80
+      100
+    ]
+".ruby.source":
+  "multi-wrap-guide":
+    columns: [
+      80
+      100
+    ]
+    rows: []
+  editor:
+    preferredLineLength: 100
+".hamlc.text":
+  editor:
+    preferredLineLength: 100
+    softWrapHangingIndent: 2
+".diff.source":
+  editor:
+    preferredLineLength: 100
+    softWrapHangingIndent: 2

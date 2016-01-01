@@ -1,0 +1,2 @@
+'atom-text-editor':
+  "ctrl-i": 'fuzzy-finder:toggle-buffer-finder'

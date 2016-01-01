@@ -1,0 +1,47 @@
+bl:
+  title: "bl"
+  icon: "icon-rocket"
+  paths: [
+    "/home/linucc/proggen/brandslisten/bl"
+  ]
+bl_eon:
+  title: "bl_eon"
+  icon: "icon-globe"
+  paths: [
+    "/home/linucc/proggen/brandslisten/bl_eon"
+  ]
+bl_ee:
+  title: "bl_ee"
+  icon: "icon-squirrel"
+  paths: [
+    "/home/linucc/proggen/brandslisten/bl_ee"
+  ]
+bl_um:
+  title: "bl_um"
+  icon: "icon-broadcast"
+  paths: [
+    "/home/linucc/proggen/brandslisten/bl_unity_media"
+  ]
+bl_rv:
+  title: "bl_rv"
+  icon: "icon-flame"
+  paths: [
+    "/home/linucc/proggen/brandslisten/bl_rv24"
+  ]
+bl_dg:
+  title: "bl_dg"
+  icon: "icon-credit-card"
+  paths: [
+    "/home/linucc/proggen/brandslisten/bl_douglas"
+  ]
+basch:
+  title: "basch"
+  icon: "icon-ruby"
+  paths: [
+    "/home/linucc/proggen/basch"
+  ]
+sturo:
+  title: "sturo"
+  paths: [
+    "/home/linucc/proggen/fh/sturo"
+  ]
