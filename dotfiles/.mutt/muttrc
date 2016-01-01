@@ -1,0 +1,38 @@
+source ~/.mutt/passes
+source ~/.mutt/colors
+source ~/.mutt/spacing
+
+set alias_file = "~/.mutt/aliases"
+set sort_alias = alias
+set reverse_alias = yes
+source $alias_file
+
+# My gMail Imap
+
+set imap_user = pascal.cc.ernst@gmail.com
+set imap_pass = "$my_personal_gmail_pass"
+set realname = "Pascal Ernst"
+
+set spoolfile = imaps://imap.gmail.com:993/INBOX
+set folder = "imaps://imap.gmail.com:993"
+set ssl_force_tls = yes
+set ssl_starttls = yes
+
+set record = "+[Gmail]/Sent Mail"
+mailboxes = +INBOX
+set postponed = +[Gmail]/Drafts
+
+set header_cache = ~/.mutt/cache/headers
+set message_cachedir = ~/.mutt/cache/bodies
+
+unset imap_passive
+set imap_keepalive = 300
+set mail_check = 60
+
+# My gMail SMTP
+
+set from = pascal.cc.ernst@gmail.com
+set use_from = yes
+set smtp_url = smtp://$imap_user:$imap_pass@smtp.gmail.com
+
+
