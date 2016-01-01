@@ -1,0 +1,12 @@
+[user]
+	email = pascal.cc.ernst@gmail.com
+	name = Pascal Ernst
+[editor]
+	default = nvim
+[core]
+	editor = nvim
+	excludesfile = /home/linucc/.gitignore
+[push]
+	default = current
+[alias]
+  br = for-each-ref --sort=committerdate refs/heads/ --format='%(HEAD) %(color:yellow)%(refname:short)%(color:reset) - %(color:red)%(objectname:short)%(color:reset) - %(contents:subject) - %(authorname) (%(color:green)%(committerdate:relative)%(color:reset))'
