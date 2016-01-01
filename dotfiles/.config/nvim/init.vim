@@ -3,18 +3,18 @@ filetype off                  " required
 
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+"call vundle#begin()
 " alternatively, pass a path where Vundle should install plugins
 "call vundle#begin('~/some/path/here')
 
 " let Vundle manage Vundle, required
-Plugin 'gmarik/Vundle.vim'
+"Plugin 'gmarik/Vundle.vim'
 " The following are examples of different formats supported.
 " Keep Plugin commands between vundle#begin/end.
 " plugin on GitHub repo
 "Plugin 'tpope/vim-fugitive'
 " plugin from http://vim-scripts.org/vim/scripts.html
-Plugin 'L9'
+"Plugin 'L9'
 " Git plugin not hosted on GitHub
 "Plugin 'git://git.wincent.com/command-t.git'
 " git repos on your local machine (i.e. when working on your own plugin)
@@ -26,50 +26,50 @@ Plugin 'L9'
 "Plugin 'user/L9', {'name': 'newL9'}
 
 " ControlP Plugin
-Plugin 'kien/ctrlp.vim'
+"Plugin 'kien/ctrlp.vim'
 
 " BufExplorer Plugin
 " Plugin ''
 
 " A filetree
-Plugin 'scrooloose/nerdtree'
-
-Plugin 'Townk/vim-autoclose'
-
-Plugin 'jeffkreeftmeijer/vim-numbertoggle'
-
-Plugin 'altercation/vim-colors-solarized'
-
-Plugin 'tpope/vim-rails'
-
-Plugin 'bling/vim-airline'
-
-Plugin 'airblade/vim-gitgutter'
-
-Plugin 'tpope/vim-fugitive'
-
-Plugin 'nathanaelkane/vim-indent-guides'
-
-Plugin 'roryokane/detectindent'
-
-Plugin 'blueyed/smarty.vim'
-
-Plugin 'xolox/vim-misc'
-
-Plugin 'xolox/vim-easytags'
-
-Plugin 'terryma/vim-multiple-cursors'
-
-Plugin 'vim-scripts/taglist.vim'
-
-Plugin 'scrooloose/nerdcommenter'
-
-Plugin 'tpope/vim-surround'
-
-Bundle 'farseer90718/vim-taskwarrior'
+"Plugin 'scrooloose/nerdtree'
+"
+"Plugin 'Townk/vim-autoclose'
+"
+"Plugin 'jeffkreeftmeijer/vim-numbertoggle'
+"
+"Plugin 'altercation/vim-colors-solarized'
+"
+"Plugin 'tpope/vim-rails'
+"
+"Plugin 'bling/vim-airline'
+"
+"Plugin 'airblade/vim-gitgutter'
+"
+"Plugin 'tpope/vim-fugitive'
+"
+"Plugin 'nathanaelkane/vim-indent-guides'
+"
+"Plugin 'roryokane/detectindent'
+"
+"Plugin 'blueyed/smarty.vim'
+"
+"Plugin 'xolox/vim-misc'
+"
+"Plugin 'xolox/vim-easytags'
+"
+"Plugin 'terryma/vim-multiple-cursors'
+"
+"Plugin 'vim-scripts/taglist.vim'
+"
+"Plugin 'scrooloose/nerdcommenter'
+"
+"Plugin 'tpope/vim-surround'
+"
+"Bundle 'farseer90718/vim-taskwarrior'
 
 " All of your Plugins must be added before the following line
-call vundle#end()            " required
+"call vundle#end()            " required
 filetype plugin indent on    " required
 " To ignore plugin indent changes, instead use:
 "filetype plugin on
@@ -112,7 +112,7 @@ set autoindent
 set t_Co=256
 let g:solarized_termcolors=256
 set background=dark
-colorscheme Tomorrow-Night
+"colorscheme Tomorrow-Night
 
 if exists('+colorcolumn')
   set colorcolumn=80
