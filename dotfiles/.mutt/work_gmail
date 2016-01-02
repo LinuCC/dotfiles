@@ -1,0 +1,27 @@
+source ~/.mutt/passes
+
+# Receive
+
+set imap_user = p.ernst@brandslisten.com
+set imap_pass = "$my_bl_gmail_pass"
+
+set spoolfile = imaps://imap.gmail.com:993/INBOX
+set record = "+[Gmail]/Sent Mail"
+mailboxes = +INBOX
+set postponed = +[Gmail]/Drafts
+
+set folder = "imaps://p.ernst@imap.brandslisten.com:993"
+set ssl_force_tls = yes
+set ssl_starttls = yes
+
+# Send
+
+set smtp_url = smtp://$imap_user:$imap_pass@smtp.brandslisten.com
+set realname = "Pascal Ernst"
+set from = p.ernst@brandslisten.com
+set hostname = "brandslisten.com"
+set use_from = yes
+
+# account-hook $folder "\
+#   set imap_user = p.ernst@brandslisten.com \
+#       imap_pass = $my_bl_gmail_pass"

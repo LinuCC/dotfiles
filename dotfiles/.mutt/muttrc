@@ -7,21 +7,6 @@ set sort_alias = alias
 set reverse_alias = yes
 source $alias_file
 
-# My gMail Imap
-
-set imap_user = pascal.cc.ernst@gmail.com
-set imap_pass = "$my_personal_gmail_pass"
-set realname = "Pascal Ernst"
-
-set spoolfile = imaps://imap.gmail.com:993/INBOX
-set folder = "imaps://imap.gmail.com:993"
-set ssl_force_tls = yes
-set ssl_starttls = yes
-
-set record = "+[Gmail]/Sent Mail"
-mailboxes = +INBOX
-set postponed = +[Gmail]/Drafts
-
 set header_cache = ~/.mutt/cache/headers
 set message_cachedir = ~/.mutt/cache/bodies
 
@@ -29,10 +14,24 @@ unset imap_passive
 set imap_keepalive = 300
 set mail_check = 60
 
-# My gMail SMTP
+set send_charset = "utf-8"
+set editor = nvim
 
-set from = pascal.cc.ernst@gmail.com
-set use_from = yes
-set smtp_url = smtp://$imap_user:$imap_pass@smtp.gmail.com
+auto_view text/html
 
+## GMail Personal
 
+# source "~/.mutt/personal_gmail"
+# folder-hook $folder 'source ~/.mutt/personal_gmail'
+# macro index,pager <f2> '<sync-mailbox><enter-command>source ~/.mutt/personal_gmail<enter><change-folder>!<enter>'
+
+## GMail Bl
+
+# source "~/.mutt/work_gmail"
+# folder-hook $folder 'source ~/.mutt/work_gmail'
+# macro index,pager <f3> '<sync-mailbox><enter-command>source ~/.mutt/work_gmail<enter><change-folder>!<enter>'
+
+macro index 1 '<sync-mailbox><enter-command>source ~/.mutt/personal_gmail<enter><change-folder>!<enter>'
+macro index 2 '<sync-mailbox><enter-command>source ~/.mutt/work_gmail<enter><change-folder>!<enter>'
+
+source "~/.mutt/personal_gmail"
