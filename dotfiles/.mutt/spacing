@@ -1,9 +1,0 @@
-## From field gets 30% of remaining space, Subject gets 70%.
-## Remaining space is the total width minus the other fields (35), minus the sidebar (24)
-set my_index_format_pre='set my_col_from = `echo $((30 * ($(tput cols)-35-24) / 100))`; set my_col_subject = `echo $((70 * ($(tput cols)-35-24) / 100))`; set index_format="%2C | %Z [%d] %-$my_col_from.${my_col_from}'
-set my_index_format_post=' (%-4.4c) %?M?<%M> ?%-$my_col_subject.${my_col_subject}s"'
-
-folder-hook .*[sS]ent.* "$my_index_format_pre"t"$my_index_format_post"
-folder-hook ! .*[sS]ent.* "$my_index_format_pre"F"$my_index_format_post"
-
-macro index,pager \CL "<enter-command>$my_index_format_pre"F"$my_index_format_post<enter><redraw-screen>"

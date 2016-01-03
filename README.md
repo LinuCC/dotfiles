@@ -7,7 +7,9 @@ My personal dotfiles.
 You need GNU `stow` installed.
 Just call `./bootstrap.sh` to setup.
 
-## Pass
+## Manual Config
+
+### Pass
 
 Use `pass` to store the passwords that arent in the config files.
 You need to generate a key with `gnugpg`: `gpg --full-gen-key`.
@@ -18,11 +20,6 @@ Then you can add passwords with `pass insert <key>`, for example
 
 See [Arch Wiki](https://wiki.archlinux.org/index.php/OfflineIMAP#Using_pass).
 
-## Manual Config
-
-### Mutt
-
-For mutt you need to create the file `~/.mutt/passes` and set the passwords
-needed for the email-accounts.
+==============
 
 No problem future me :P
