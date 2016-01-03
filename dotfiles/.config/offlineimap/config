@@ -1,0 +1,43 @@
+[general]
+pythonfile = ~/scripts/offlineimap.py
+accounts = personal,bl
+ui = ttyui
+
+[Account personal]
+localrepository = personal-local
+remoterepository = personal-remote
+status_backend = sqlite
+
+[Repository personal-local]
+type = Maildir
+localfolders = ~/mail/personal
+nametrans = lambda folder: {'archive': '[Google Mail]/All Mail'}.get(folder, folder)
+
+[Repository personal-remote]
+type = Gmail
+auth_mechanisms = LOGIN
+remoteuser = pascal.cc.ernst@gmail.com
+remotepasseval = get_pass('personal')
+nametrans = lambda folder: {'[Google Mail]/All Mail': 'archive'}.get(folder, folder)
+folderfilter = lambda folder: folder == '[Google Mail]/All Mail'
+sslcacertfile = /etc/ssl/certs/ca-certificates.crt
+
+[Account bl]
+localrepository = bl-local
+remoterepository = bl-remote
+status_backend = sqlite
+
+[Repository bl-local]
+type = Maildir
+localfolders = ~/mail/bl
+nametrans = lambda folder: {'archive': '[Gmail]/All Mail'}.get(folder, folder)
+
+[Repository bl-remote]
+type = Gmail
+auth_mechanisms = LOGIN
+remoteuser = p.ernst@brandslisten.com
+remotepasseval = get_pass('bl')
+nametrans = lambda folder: {'[Gmail]/All Mail': 'archive'}.get(folder, folder)
+folderfilter = lambda folder: folder == '[Gmail]/All Mail'
+sslcacertfile = /etc/ssl/certs/ca-certificates.crt
+

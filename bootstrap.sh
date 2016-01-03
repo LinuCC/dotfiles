@@ -1,8 +1,6 @@
 #! /bin/zsh
 
-# Create some directories for mutt
-[ -d ~/.mutt/caching ] || mkdir -p ~/.mutt/caching
-[ -d ~/.mutt/caching ] || mkdir -p ~/.mutt/certificates
-[ -f ~/.mutt/aliases ] || touch ~/.mutt/aliases
+[ -d ~/mail/personal ] || mkdir -p ~/mail/personal
+[ -d ~/mail/bl ] || mkdir -p ~/mail/bl
 
 stow dotfiles -t ~
