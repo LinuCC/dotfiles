@@ -1,0 +1,109 @@
+full_text=
+align=center
+color=#586e75
+separator=false
+separator_block_width=7
+markup=pango
+
+# [separator]
+
+# [mic]
+# separator_block_width=4
+# full_text=
+# command=~/.config/i3blocks/mic
+# color=#d33682
+# interval=once
+# signal=12
+
+[volume]
+full_text=
+#label=♪
+label=:
+command=~/.config/i3blocks/volume 2
+color=#d33682
+interval=5
+signal=12
+
+# [mpd]
+# full_text=
+# instance=naYUGgDyP00dNqoq42xorUnjWXlHd1r
+# command=~/.config/i3blocks/mpd
+# color=#d33682
+# interval=5
+
+#[separator]
+#
+#[roman.7074131337.net]
+#separator_block_width=2
+#full_text=<span size='large' color='#dc322f'></span>
+#interval=99999
+#
+#[athena.7074131337.net]
+#separator_block_width=2
+#full_text=<span size='large' color='#b58900'></span>
+#interval=99999
+#
+#[icarus.7074131337.net]
+##separator_block_width=2
+#full_text=<span size='large' color='#859900'></span>
+#interval=99999
+
+#[separator]
+#
+#[wireless]
+#label=
+#instance=wlp3s0
+#command=~/.config/i3blocks/iface
+#color=#00FF00
+#interval=30
+
+# [separator]
+#
+# [teksavvy]
+# label=TekSavvy:
+# command=echo "$(curl -sLH 'TekSavvy-APIKey:' 'https://api.teksavvy.com/web/Usage/UsageSummaryRecords' | jq '.value[-1:][].OnPeakDownload')/300GB (+$(curl -sLH 'TekSavvy-APIKey:' 'https://api.teksavvy.com/web/Usage/UsageRecords?$skip=56' | jq '.value[-1:][].OnPeakDownload')GB)"
+# color=#839496
+# interval=once
+
+[separator]
+
+[ethernet]
+label=
+instance=enp0s31f6
+command=~/.config/i3blocks/iface
+color=#859900
+interval=30
+
+#[separator]
+#
+#[battery]
+#label=
+#command=~/.config/i3blocks/battery
+#color=#FFFFFF
+#interval=30
+
+[separator]
+
+#[calng]
+#full_text=<span color='#ffb0b0'></span> <span color='#268bd2'></span> <span color='#268bd2'></span>
+#interval=99999
+
+[datetime]
+command=date "+%Y<span color='#586e75'>-</span>%m<span color='#586e75'>-</span>%d<span color='#586e75'> </span> %H<span color='#586e75'>:</span>%M<span color='#586e75'>:</span>%S"
+color=#ffffff
+interval=5
+
+# [rss]
+# separator_block_width=3
+# full_text=
+# command=~/bin/rss i3blocks
+# color=#cb4b16
+# interval=1800
+#
+# [email]
+# separator_block_width=3
+# full_text=
+# command=~/.local/share/i3blocks/mutt
+# color=#cb4b16
+# interval=once
+# signal=10
