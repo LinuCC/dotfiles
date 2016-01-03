@@ -141,6 +141,23 @@ bindsym $mod+backslash workspace back_and_forth
 bindsym $mod+Shift+z move scratchpad
 bindsym $mod+z scratchpad show
 
+# Workspace position
+
+workspace 7 output DisplayPort-0
+workspace 8 output DisplayPort-0
+workspace 9 output DisplayPort-0
+
+workspace 10 output HDMI-0
+workspace ":D" output HDMI-0
+workspace ":-@" output HDMI-0
+
+# Windows to workspaces
+
+assign [class="^Atom$"] 9
+assign [class="^Firefox$"] 10
+assign [class="^chromium$"] :-@
+assign [class="^Spotify$"] :D
+
 # resize window (you can also use the mouse for that)
 mode "resize" {
         # These bindings trigger as soon as you enter the resize mode
