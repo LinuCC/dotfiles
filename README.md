@@ -20,6 +20,13 @@ Then you can add passwords with `pass insert <key>`, for example
 
 See [Arch Wiki](https://wiki.archlinux.org/index.php/OfflineIMAP#Using_pass).
 
+### I3
+
+You need `i3blocks` for the top bar to look nice.
+
+The `i3blocks` command needs `playerctl` enabled.
+Due to a bug with spotify, install the current `playerctl-git` package.
+
 ==============
 
 No problem future me :P

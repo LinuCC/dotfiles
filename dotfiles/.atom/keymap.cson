@@ -1,2 +1,3 @@
 'atom-text-editor':
   "ctrl-i": 'fuzzy-finder:toggle-buffer-finder'
+  'alt-shift-u': 'unicode-input:toggle'
