@@ -27,6 +27,28 @@ You need `i3blocks` for the top bar to look nice.
 The `i3blocks` command needs `playerctl` enabled.
 Due to a bug with spotify, install the current `playerctl-git` package.
 
+### Emails
+
+Use systemd to autostart `offlineimap`.
+Put this in `/etc/systemd/system/offlineimap@.service`:
+```
+[Unit]
+Description=Start offlineimap as a daemon
+Requires=network-online.target
+After=network.target
+
+[Service]
+User=%i
+ExecStart=/usr/bin/offlineimap
+KillSignal=SIGUSR2
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
+```
+
+Then enable the service.
+
 ==============
 
 No problem future me :P

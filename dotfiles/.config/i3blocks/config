@@ -34,6 +34,26 @@ color=#d33682
 interval=5
 signal=12
 
+[separator]
+
+[personal-newofflineimap]
+command=~/.config/i3blocks/newofflineimap
+instance=personal/archive
+label= 
+color=#d33682
+interval=30
+# signal=12
+
+[separator]
+
+[bl-newofflineimap]
+command=~/.config/i3blocks/newofflineimap
+instance=bl/archive
+label= 
+color=#d33682
+interval=30
+# signal=12
+
 # [mpd]
 # full_text=
 # instance=naYUGgDyP00dNqoq42xorUnjWXlHd1r
