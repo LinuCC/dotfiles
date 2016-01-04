@@ -121,7 +121,7 @@ interval=30
 [datetime]
 command=date "+%Y<span color='#586e75'>-</span>%m<span color='#586e75'>-</span>%d<span color='#586e75'> </span> %H<span color='#586e75'>:</span>%M<span color='#586e75'>:</span>%S"
 color=#ffffff
-interval=5
+interval=1
 
 # [rss]
 # separator_block_width=3

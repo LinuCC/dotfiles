@@ -48,6 +48,8 @@ WantedBy=multi-user.target
 ```
 
 Then enable the service.
+Problem:
+The `pass` command is not able to ask for the password when systemd calls it.
 
 ==============
 
