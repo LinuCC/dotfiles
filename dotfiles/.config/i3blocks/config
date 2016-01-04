@@ -21,7 +21,7 @@ instance=spotify
 interval=5
 signal=10
 color=#d33682
-label=
+label=
 
 [separator]
 
@@ -39,8 +39,8 @@ signal=12
 [personal-newofflineimap]
 command=~/.config/i3blocks/newofflineimap
 instance=personal/archive
-label= 
-color=#d33682
+label= 
+color=#b58900
 interval=30
 # signal=12
 
@@ -49,8 +49,8 @@ interval=30
 [bl-newofflineimap]
 command=~/.config/i3blocks/newofflineimap
 instance=bl/archive
-label= 
-color=#d33682
+label= 
+color=#b58900
 interval=30
 # signal=12
 
