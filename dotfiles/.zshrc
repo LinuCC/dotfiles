@@ -90,8 +90,8 @@ export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 source "$HOME/.rvm/scripts/rvm"
 source "$HOME/scripts/my_methods"
 
-ALTERNATIVE_BRANCH="release-0.11.1"
-RELEASE_BRANCH="release-0.12.0-polar-beer"
+ALTERNATIVE_BRANCH="release-0.12.0-polar-beer"
+RELEASE_BRANCH="release-0.13.0-firestarter"
 
 alias gcd="git checkout development"
 alias gcar="git checkout $ALTERNATIVE_BRANCH"

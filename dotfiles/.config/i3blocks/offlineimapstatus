@@ -1,0 +1,11 @@
+#!/bin/bash
+
+RES=$(pgrep -l offlineimap)
+if [[ -z $RES ]]
+then
+  echo "Stopped"
+  exit 33
+else
+  echo "OK"
+  exit 0
+fi

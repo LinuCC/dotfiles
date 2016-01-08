@@ -100,13 +100,14 @@ sub playerctl {
 
     buttons;
 
-    push(@metadata, $artist) if $artist;
+    push(@metadata, $artist) if $artist and not $artist eq '(null)';
 
     my $title = qx(playerctl $player_arg metadata title);
     exit(0) if $?;
-    push(@metadata, $title) if $title;
+    push(@metadata, $title) if $title and not $title eq '(null)';
 
     print(join(" - ", @metadata)) if @metadata;
+    print('Nothing playing') if not @metadata;
 }
 
 if ($player_arg eq '' or $player_arg eq 'mpd') {

@@ -5,3 +5,35 @@
   'pry':
     'prefix': 'pry'
     'body': 'require \'pry\'\; binding.pry'
+  'classtest':
+    'prefix': 'classtest'
+    'body': """
+        require 'test_helper'
+        module Bl
+          module Backend
+            class $1 < ActionDispatch::IntegrationTest
+
+            protected
+
+              setup do
+                Warden.test_mode!
+                @index = Search::IndexManager['main']
+                @index.create!
+                @agent = create(:agent)
+                login_as @agent
+              end
+
+              def teardown
+                @index.delete
+                WebMock.enable!
+              end
+
+              def index_topics(topics)
+                @index.index_records topics
+                @index.refresh
+              end
+
+            end
+          end
+        end
+      """

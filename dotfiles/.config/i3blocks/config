@@ -36,22 +36,40 @@ signal=12
 
 [separator]
 
-[personal-newofflineimap]
-command=~/.config/i3blocks/newofflineimap
-instance=personal/archive
-label= 
-color=#b58900
-interval=30
+[offlineimapstatus]
+command=~/.config/i3blocks/offlineimapstatus
+label=
+color=#999999
+interval=10
 # signal=12
 
 [separator]
 
-[bl-newofflineimap]
-command=~/.config/i3blocks/newofflineimap
+[personal-mailbox]
+command=~/.config/i3blocks/mailboxstatus
+instance=personal/archive
+label= 
+color=#b58900
+interval=10
+# signal=12
+
+[separator]
+
+[bl-mailbox]
+command=~/.config/i3blocks/mailboxstatus
 instance=bl/archive
 label= 
 color=#b58900
-interval=30
+interval=10
+# signal=12
+
+[separator]
+
+[bl-running-server]
+command=~/scripts/bl_running_server
+label=
+color=#859900
+interval=1
 # signal=12
 
 # [mpd]
@@ -101,7 +119,7 @@ interval=30
 label=
 instance=enp0s31f6
 command=~/.config/i3blocks/iface
-color=#859900
+color=#268bd2
 interval=30
 
 #[separator]

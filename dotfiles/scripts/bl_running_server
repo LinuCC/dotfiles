@@ -1,0 +1,21 @@
+#/bin/bash
+BLPATH="/home/linucc/proggen/brandslisten"
+servers=("douglas" "dummy" "eon" "unity_media" "ee")
+
+server_running=false
+
+for sv in ${servers[*]}
+do
+  if [ -r "$BLPATH/bl_${sv}/tmp/pids/server.pid" ]
+  then
+    server_running="$sv"
+  fi
+done
+if [ $server_running != false ]
+then
+  echo $server_running
+  exit 0
+else
+  echo ""
+  exit 0
+fi

@@ -6,7 +6,7 @@
   core:
     themes: [
       "atom-material-ui"
-      "peacock-syntax"
+      "seti-syntax"
     ]
     disabledPackages: [
       "wrap-guide"

@@ -9,6 +9,8 @@ compton -b &
 
 feh --bg-fill --randomize ~/pictures/walls/active
 
+xss-lock -- /usr/bin/i3lock -c '#11bab4' --show-failed-attempts &
+
 dropboxd &
 
 # exec awesome
