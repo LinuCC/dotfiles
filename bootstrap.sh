@@ -6,6 +6,6 @@
 [ -d ~/.sup ] || mkdir -p ~/.sup
 
 # Manually link gitignore since stow ignores it
-[ -f ~/.gitignore ] || ln -s .gitignore .dot/dotfiles/.gitignore
+[ -f ~/.gitignore ] || ln -s .dot/dotfiles/.gitignore ~/.gitignore
 
 stow dotfiles -t ~
