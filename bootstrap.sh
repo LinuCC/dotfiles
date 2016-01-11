@@ -4,6 +4,7 @@
 [ -d ~/mail/bl ] || mkdir -p ~/mail/bl
 
 [ -d ~/.sup ] || mkdir -p ~/.sup
+[ -d ~/.sup/hooks ] || mkdir -p ~/.sup/hooks
 
 # Manually link gitignore since stow ignores it
 [ -f ~/.gitignore ] || ln -s .dot/dotfiles/.gitignore ~/.gitignore
