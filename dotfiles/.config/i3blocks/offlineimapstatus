@@ -1,7 +1,7 @@
 #!/bin/bash
 
-RES=$(pgrep -l offlineimap)
-if [[ -z $RES ]]
+grepres=$(pgrep -lf "/usr/bin/offlineimap")
+if test -z "$grepres"
 then
   echo "Stopped"
   exit 33
