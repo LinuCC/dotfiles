@@ -1,0 +1,23 @@
+rofi.opacity: 92
+rofi.width: 100
+rofi.lines: 5
+rofi.columns: 1
+rofi.font: FiraCode 9
+rofi.fg: #1aa
+rofi.bg: #333
+rofi.hlfg: #333
+rofi.hlbg: #1aa
+rofi.bc: #1aa
+rofi.bw: 2
+rofi.location: 1
+rofi.padding: 2
+rofi.yoffset: -2
+rofi.xoffset: 0
+rofi.fixed-num-lines: false
+rofi.hmode: false
+rofi.terminal: x-terminal-emulator
+rofi.ssh-set-title: true
+rofi.key: F12
+rofi.rkey: mod1+F2
+rofi.skey: mod1+F3
+

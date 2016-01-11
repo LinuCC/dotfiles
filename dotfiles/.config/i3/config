@@ -11,7 +11,7 @@
 
 set $mod Mod4
 set $term termite
-set $menu dmenu_run
+set $menu rofi -show run
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
@@ -103,12 +103,12 @@ bindsym $mod+3 workspace 3
 bindsym $mod+4 workspace 4
 bindsym $mod+5 workspace 5
 bindsym $mod+6 workspace 6
-bindsym $mod+7 workspace 7
-bindsym $mod+8 workspace 8
-bindsym $mod+9 workspace 9
-bindsym $mod+0 workspace 10
-bindsym $mod+minus workspace :-@
-bindsym $mod+equal workspace :D
+bindsym $mod+7 workspace 
+bindsym $mod+8 workspace 
+bindsym $mod+9 workspace 
+bindsym $mod+0 workspace 
+bindsym $mod+minus workspace 
+bindsym $mod+equal workspace 
 
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace 1
@@ -117,12 +117,12 @@ bindsym $mod+Shift+3 move container to workspace 3
 bindsym $mod+Shift+4 move container to workspace 4
 bindsym $mod+Shift+5 move container to workspace 5
 bindsym $mod+Shift+6 move container to workspace 6
-bindsym $mod+Shift+7 move container to workspace 7
-bindsym $mod+Shift+8 move container to workspace 8
-bindsym $mod+Shift+9 move container to workspace 9
-bindsym $mod+Shift+0 move container to workspace 10
-bindsym $mod+Shift+minus move container to workspace :-@
-bindsym $mod+Shift+equal move container to workspace :D
+bindsym $mod+Shift+7 move container to workspace 
+bindsym $mod+Shift+8 move container to workspace 
+bindsym $mod+Shift+9 move container to workspace 
+bindsym $mod+Shift+0 move container to workspace 
+bindsym $mod+Shift+minus move container to workspace 
+bindsym $mod+Shift+equal move container to workspace 
 
 # reload the configuration file
 bindsym $mod+Shift+i reload
@@ -143,13 +143,21 @@ bindsym $mod+z scratchpad show
 
 # Workspace position
 
-workspace 7 output DisplayPort-0
-workspace 8 output DisplayPort-0
-workspace 9 output DisplayPort-0
+workspace  output DisplayPort-0
+workspace  output DisplayPort-0
+workspace  output DisplayPort-0
 
-workspace 10 output HDMI-0
-workspace ":D" output HDMI-0
-workspace ":-@" output HDMI-0
+workspace  output HDMI-0
+workspace  output HDMI-0
+workspace  output HDMI-0
+
+# workspace 7 output HDMI1
+# workspace 8 output HDMI1
+# workspace 9 output HDMI1
+#
+# workspace 10 output eDP1
+# workspace ":D" output eDP1
+# workspace ":-@" output eDP1
 
 # Windows to workspaces
 
@@ -166,10 +174,10 @@ mode "resize" {
         # Pressing right will grow the window’s width.
         # Pressing up will shrink the window’s height.
         # Pressing down will grow the window’s height.
-        bindsym j resize shrink width 10 px or 10 ppt
-        bindsym k resize grow height 10 px or 10 ppt
-        bindsym l resize shrink height 10 px or 10 ppt
-        bindsym semicolon resize grow width 10 px or 10 ppt
+        bindsym h resize shrink width 10 px or 10 ppt
+        bindsym j resize grow height 10 px or 10 ppt
+        bindsym k resize shrink height 10 px or 10 ppt
+        bindsym l resize grow width 10 px or 10 ppt
 
         # same bindings, but for the arrow keys
         bindsym Left resize shrink width 10 px or 10 ppt
