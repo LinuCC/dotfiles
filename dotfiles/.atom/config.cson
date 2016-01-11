@@ -84,18 +84,6 @@
   editor:
     preferredLineLength: 100
     softWrapHangingIndent: 2
-".ruby.source.sql":
-  editor:
-    preferredLineLength: 100
-    softWrapHangingIndent: 2
-".rails.ruby.source":
-  editor:
-    preferredLineLength: 100
-    softWrapHangingIndent: 2
-".html.ruby.text":
-  editor:
-    preferredLineLength: 100
-    softWrapHangingIndent: 2
 ".latex.tex.text":
   "multi-wrap-guide":
     columns: [
@@ -104,23 +92,18 @@
     ]
   editor:
     preferredLineLength: 100
-".diff.source":
+".html.ruby.text":
   editor:
     preferredLineLength: 100
     softWrapHangingIndent: 2
-".hamlc.text":
+".rails.ruby.source":
   editor:
     preferredLineLength: 100
     softWrapHangingIndent: 2
-".ruby.source":
-  "multi-wrap-guide":
-    columns: [
-      80
-      100
-    ]
-    rows: []
+".ruby.source.sql":
   editor:
     preferredLineLength: 100
+    softWrapHangingIndent: 2
 ".haml.text":
   editor:
     preferredLineLength: 100
@@ -130,3 +113,20 @@
       80
       100
     ]
+".ruby.source":
+  "multi-wrap-guide":
+    columns: [
+      80
+      100
+    ]
+    rows: []
+  editor:
+    preferredLineLength: 100
+".hamlc.text":
+  editor:
+    preferredLineLength: 100
+    softWrapHangingIndent: 2
+".diff.source":
+  editor:
+    preferredLineLength: 100
+    softWrapHangingIndent: 2
