@@ -15,6 +15,13 @@ markup=pango
 # interval=once
 # signal=12
 
+[doit]
+full_text=JUST DO IT
+color=#05BBFF
+interval=once
+
+[separator]
+
 [mediaplayer]
 command=~/.config/i3blocks/mediaplayer
 instance=spotify
