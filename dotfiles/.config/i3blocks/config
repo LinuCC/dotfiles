@@ -22,6 +22,14 @@ interval=once
 
 [separator]
 
+[tomerge]
+command=cat ~/.to-merge
+color=#777777
+interval=10
+label=
+
+[separator]
+
 [mediaplayer]
 command=~/.config/i3blocks/mediaplayer
 instance=spotify

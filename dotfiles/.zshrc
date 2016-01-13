@@ -87,8 +87,9 @@ source $ZSH/oh-my-zsh.sh
 alias net="netctl"
 
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
-source "$HOME/.rvm/scripts/rvm"
 source "$HOME/scripts/my_methods"
+source "$HOME/scripts/system_specific"
+source "$HOME/.rvm/scripts/rvm"
 
 ALTERNATIVE_BRANCH="release-0.12.0-polar-beer"
 RELEASE_BRANCH="release-0.13.0-firestarter"
@@ -100,7 +101,3 @@ alias gmm="git merge master"
 alias gmar="git merge $ALTERNATIVE_BRANCH"
 alias gmr="git merge $RELEASE_BRANCH"
 alias bundleofsticks="bundle install"
-
-# Somehow cant set "system" itself as default. It always uses a specific ruby
-# version. Explicitly use default, which sets the version to "system".
-rvm use default &> /dev/null
