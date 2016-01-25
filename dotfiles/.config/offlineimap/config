@@ -1,6 +1,6 @@
 [general]
 pythonfile = ~/scripts/offlineimap.py
-accounts = personal,bl
+accounts = personal,bl,ostfalia
 ui = ttyui
 maxsyncaccounts = 3
 
@@ -16,6 +16,13 @@ autorefresh = 5
 quick = 10
 localrepository = bl-local
 remoterepository = bl-remote
+status_backend = sqlite
+
+[Account ostfalia]
+autorefresh = 5
+quick = 10
+localrepository = ostfalia-local
+remoterepository = ostfalia-remote
 status_backend = sqlite
 
 [Repository personal-local]
@@ -48,3 +55,15 @@ folderfilter = lambda folder: folder == '[Gmail]/All Mail'
 sslcacertfile = /etc/ssl/certs/ca-certificates.crt
 keepalive = 60
 
+[Repository ostfalia-local]
+type = Maildir
+localfolders = ~/mail/ostfalia
+
+[Repository ostfalia-remote]
+type=IMAP
+ssl=yes
+remotehost=mail.sonia.de
+remoteusereval = get_pass('ostfaliaId')
+remotepasseval = get_pass('ostfalia')
+sslcacertfile = /etc/ssl/certs/ca-certificates.crt
+folderfilter = lambda folder: folder == 'INBOX'
