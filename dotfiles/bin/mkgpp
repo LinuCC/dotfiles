@@ -1,0 +1,14 @@
+#!/bin/bash
+
+# Creates a new git branch
+
+downcase() {
+  local var="$@"
+  var=$((echo $var) | tr -c '[:alnum:] ' ' ' | tr '[:upper:]' '[:lower:]')
+  var=$((echo $var) | tr -s ' ' | tr ' ' '_')
+  echo $var
+}
+
+story_id=$(ruby ~/scripts/bl/pivotal.rb last_started_story id)
+name=${1:-$(downcase $(ruby ~/scripts/bl/pivotal.rb last_started_story name))}
+git checkout -b `date +%y%m%d`_pe_${story_id}_${name}

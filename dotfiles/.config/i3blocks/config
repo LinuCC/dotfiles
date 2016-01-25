@@ -15,10 +15,28 @@ markup=pango
 # interval=once
 # signal=12
 
-[doit]
-full_text=JUST DO IT
-color=#05BBFF
-interval=once
+[pivotal_story]
+command=ruby ~/scripts/bl/pivotal.rb last_started_story name
+interval=30
+color=#3682d3
+label=
+
+[separator]
+
+[pivotal_done_stories]
+command=ruby ~/scripts/bl/pivotal.rb my_done_stories
+interval=30
+color=#3682d3
+label=
+
+
+[separator]
+
+[pivotal_unfinished_stories]
+command=ruby ~/scripts/bl/pivotal.rb my_open_stories
+interval=30
+color=#3682d3
+label=
 
 [separator]
 
@@ -132,18 +150,18 @@ interval=1
 
 [ethernet]
 label=
-instance=enp0s31f6
+instance=enp1s0
 command=~/.config/i3blocks/iface
 color=#268bd2
 interval=30
 
-#[separator]
-#
-#[battery]
-#label=
-#command=~/.config/i3blocks/battery
-#color=#FFFFFF
-#interval=30
+[separator]
+
+[battery]
+label=
+command=~/.config/i3blocks/battery | tail -n 1
+color=#FFFFFF
+interval=30
 
 [separator]
 

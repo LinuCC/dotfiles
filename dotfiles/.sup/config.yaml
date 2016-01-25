@@ -1,5 +1,5 @@
 ---
-:editor: "/usr/bin/nvim -f -c 'setlocal spell spelllang=en_us' -c 'set filetype=mail'"
+:editor: "/usr/bin/nvim -f -c 'set filetype=mail'"
 :thread_by_subject: false
 :edit_signature: false
 :ask_for_from: false
@@ -38,5 +38,12 @@
     :email: p.ernst@brandslisten.com
     :alternates: []
     :sendmail: "msmtp -t --read-envelope-from -a bl"
+    :signature: "/home/linucc/.signature"
+    :gpgkey: ''
+  :ostfalia:
+    :name: Pascal Ernst
+    :email: p.ernst@ostfalia.de
+    :alternates: []
+    :sendmail: "msmtp -t --read-envelope-from -a ostfalia"
     :signature: "/home/linucc/.signature"
     :gpgkey: ''
