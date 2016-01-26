@@ -7,6 +7,8 @@ xrdb ~/.Xresources &
 # Compositing, like transparency for windows
 compton -b &
 
+conky &
+
 feh --bg-fill --randomize ~/pictures/walls/active
 
 # xss-lock -- lock

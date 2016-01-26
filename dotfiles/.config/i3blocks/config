@@ -78,20 +78,10 @@ interval=10
 
 [separator]
 
-[personal-mailbox]
-command=~/.config/i3blocks/mailboxstatus
-instance=personal/archive
-label= 
-color=#b58900
-interval=10
-# signal=12
 
-[separator]
-
-[bl-mailbox]
+[mailbox]
 command=~/.config/i3blocks/mailboxstatus
-instance=bl/archive
-label= 
+label=
 color=#b58900
 interval=10
 # signal=12

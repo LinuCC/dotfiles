@@ -1,9 +1,8 @@
 #!/bin/bash
-MBOX="${BLOCK_INSTANCE:-personal/archive}"
-MBOXES=(maildir1 maildir2)
+MBOXES=(/home/linucc/mail/bl/archive/new /home/linucc/mail/personal/archive/new /home/linucc/mail/ostfalia/archive/new)
 
 STATUS=""
-COUNT=$(find /home/linucc/mail/$MBOX/new -type f | wc -l)
+COUNT=$(find $MBOXES -type f | wc -l)
 if [ $COUNT -gt 0 ];
 then
   STATUS="$COUNT"
