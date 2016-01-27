@@ -1,0 +1,1 @@
+zsh -c "source /home/linucc/.zshrc && $*"

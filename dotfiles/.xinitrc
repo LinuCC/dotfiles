@@ -4,6 +4,8 @@ export LANG=en_US.UTF-8
 xsetroot -cursor_name left_ptr
 xrdb ~/.Xresources &
 
+source ~/scripts/my_methods
+
 # Compositing, like transparency for windows
 compton -b &
 

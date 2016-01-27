@@ -206,12 +206,12 @@ bindsym $mod+r mode "resize"
 bindsym $mod+ctrl+m exec "expr $(cat ~/.to-merge) - 1 > ~/.to-merge"
 bindsym $mod+ctrl+p exec "expr $(cat ~/.to-merge) + 2 > ~/.to-merge"
 
-bindsym $mod+ctrl+shift+bracketleft exec "cmdpasta ruby /home/linucc/scripts/bl/pivotal.rb last_started_story id"
-bindsym $mod+ctrl+shift+bracketright exec "cmdpasta ruby /home/linucc/scripts/bl/pivotal.rb last_started_story url"
-bindsym $mod+ctrl+bracketleft exec "pasta ruby /home/linucc/scripts/bl/pivotal.rb last_started_story id"
-bindsym $mod+ctrl+bracketright exec "pasta ruby /home/linucc/scripts/bl/pivotal.rb last_started_story url"
+bindsym $mod+ctrl+shift+bracketleft exec zshdo cmdpasta ruby /home/linucc/scripts/bl/pivotal.rb last_started_story id
+bindsym $mod+ctrl+shift+bracketright exec zshdo cmdpasta ruby /home/linucc/scripts/bl/pivotal.rb last_started_story url
+bindsym $mod+ctrl+bracketleft exec zshdo pasta ruby /home/linucc/scripts/bl/pivotal.rb last_started_story id
+bindsym $mod+ctrl+bracketright exec zshdo pasta ruby /home/linucc/scripts/bl/pivotal.rb last_started_story url
 
-bindsym $mod+ctrl+semicolon exec 'pasta blgithubprstorylink'
+bindsym $mod+ctrl+semicolon exec zshdo pasta blgithubprstorylink
 
 bindsym XF86AudioPlay exec playerctl play-pause
 bindsym XF86AudioNext exec playerctl next
