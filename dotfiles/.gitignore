@@ -1,3 +1,12 @@
 *.sublime-*
 *.userprefs
 .tags
+
+# Latex
+*.fdb_latexmk
+*.aux
+*.fls
+*.synctex.gz
+
+
+*.log

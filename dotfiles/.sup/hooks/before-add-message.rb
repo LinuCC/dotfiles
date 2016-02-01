@@ -10,6 +10,10 @@ if message.from.email == 'notifications@pivotaltracker.com'
   message.add_label :blpivotal
 end
 
+if message.from.email == 'notifications@github.com'
+  message.add_label :github
+end
+
 if down_subj.start_with? '[slack] notifications'
   message.remove_label :inbox
   message.add_label :blslack
