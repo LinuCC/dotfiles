@@ -1,3 +1,5 @@
 'atom-text-editor':
   "ctrl-i": 'fuzzy-finder:toggle-buffer-finder'
   'alt-shift-u': 'unicode-input:toggle'
+  'ctrl-shift-T': 'pane:reopen-closed-item'
+  #'ctrl-shift-~': 'ruby-test:test-file'

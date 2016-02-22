@@ -1,0 +1,19 @@
+theme = sup
+
+[tags]
+  [[flagged]]
+    translated = ⚑
+    normal = '','','light red','','light red',''
+    focus = '','','light red','','light red',''
+  [[starred]]
+    translated = ★
+    normal = '','','light red','','light red',''
+    focus = '','','light red','','light red',''
+  [[inbox]]
+    translated = ✉
+    normal = '','','light green','','light green',''
+    focus = '','','light green','','light green',''
+
+[bindings]
+  [[search]]
+    A = toggletags unread,inbox

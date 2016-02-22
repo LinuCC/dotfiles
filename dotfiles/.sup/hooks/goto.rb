@@ -1,1 +1,1 @@
-system("firefox \"#{uri}\" > /dev/null")
+system("firefox #{uri} > /dev/null")

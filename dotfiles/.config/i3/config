@@ -212,6 +212,7 @@ bindsym $mod+ctrl+bracketleft exec zshdo pasta ruby /home/linucc/scripts/bl/pivo
 bindsym $mod+ctrl+bracketright exec zshdo pasta ruby /home/linucc/scripts/bl/pivotal.rb last_started_story url
 
 bindsym $mod+ctrl+semicolon exec zshdo pasta blgithubprstorylink
+bindsym $mod+ctrl+l exec zshdo pasta bltimeneyestorylink
 
 bindsym XF86AudioPlay exec playerctl play-pause
 bindsym XF86AudioNext exec playerctl next

@@ -89,15 +89,23 @@ alias net="netctl"
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 source "$HOME/scripts/my_methods"
 source "$HOME/scripts/system_specific"
+source "/etc/profile.d/fzf.zsh"
 source "$HOME/.rvm/scripts/rvm"
 
-ALTERNATIVE_BRANCH="release-0.12.0-polar-beer"
-RELEASE_BRANCH="release-0.13.0-firestarter"
+ALTERNATIVE_BRANCH="release-0.13.0-firestarter"
+RELEASE_BRANCH="release-0.14.0-aceofspades"
 
-alias gcd="git checkout development"
+ALTERNATIVE_CLIENT_BRANCH="v0.13.0"
+RELEASE_CLIENT_BRANCH="v0.14.0"
+
 alias gcar="git checkout $ALTERNATIVE_BRANCH"
 alias gcr="git checkout $RELEASE_BRANCH"
+alias gcarc="git checkout $ALTERNATIVE_CLIENT_BRANCH"
+alias gcrc="git checkout $RELEASE_CLIENT_BRANCH"
 alias gmm="git merge master"
 alias gmar="git merge $ALTERNATIVE_BRANCH"
 alias gmr="git merge $RELEASE_BRANCH"
+alias gmarc="git merge $ALTERNATIVE_CLIENT_BRANCH"
+alias gmrc="git merge $RELEASE_CLIENT_BRANCH"
 alias bundleofsticks="bundle install"
+

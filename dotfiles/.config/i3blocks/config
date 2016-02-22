@@ -16,7 +16,7 @@ markup=pango
 # signal=12
 
 [pivotal_story]
-command=ruby ~/scripts/bl/pivotal.rb last_started_story name
+command=(ruby ~/scripts/bl/pivotal.rb last_started_story name) | tr '&' '+'
 interval=30
 color=#3682d3
 label=

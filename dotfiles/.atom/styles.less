@@ -1,9 +1,17 @@
 @import "ui-variables";
 
+html, body {
+  font-size: 10px;
+  font-family: "input serif condensed" !important;
+}
+
 atom-text-editor {
   // -webkit-font-smoothing: subpixel-antialiased;
+  -webkit-font-smoothing: auto;
   // font-smoothing: subpixel-antialiased;
   text-rendering: optimizeLegibility;
+  // text-rendering: optimizeSpeed;
+  text-shadow: 1px 1px 1px #000;
   -webkit-font-feature-settings: "liga" 1;
   font-feature-settings: "liga" 1;
 
@@ -21,9 +29,9 @@ atom-text-editor::shadow {
   // to override any theme.
   .line.highlight-line {
       //background: rgba(255, 0, 0, 0.3) !important;
-      // text-rendering: optimizeSpeed !important;
-      // -webkit-font-feature-settings:  normal !important;
-      // font-feature-settings: normal !important;
+      text-rendering: optimizeSpeed !important;
+      -webkit-font-feature-settings:  "liga" 0 !important;
+      font-feature-settings: "liga" 0 !important;
   }
 
   // Replace 'solid', with 'dashed' or 'dotted' depending of what you have
@@ -48,6 +56,12 @@ atom-text-editor::shadow {
   }
 }
 
+// Input fields
+atom-text-editor.mini {
+  font-family: "input sans" !important;
+  font-stretch: narrow;
+}
+
 /* fix for https://github.com/atom/atom/issues/3622 */
 atom-text-editor:not(.mini)::shadow,
 atom-text-editor:not(.mini)::shadow .blink-off,
@@ -60,5 +74,15 @@ atom-text-editor.vim-mode.visual-mode,
   .cursor, .cursor.blink-off {
     visibility: visible !important;
     // opacity: 1 !important;
+  }
+}
+
+.tab-bar {
+  .tab {
+    border-right: 1px solid #222 !important;
+    border-left: none;
+    .title:not(:hover) {
+      padding-right: 0px;
+    }
   }
 }
