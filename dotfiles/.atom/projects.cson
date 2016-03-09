@@ -45,3 +45,8 @@ sturo:
   paths: [
     "/home/linucc/proggen/fh/sturo"
   ]
+babesk:
+  title: "babesk"
+  paths: [
+    "/opt/lampp/htdocs/babesk"
+  ]

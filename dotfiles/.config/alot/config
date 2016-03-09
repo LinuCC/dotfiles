@@ -1,6 +1,14 @@
-theme = sup
+theme = my_sup
+bug_on_exit = true
+colourmode = 16
+editor_cmd = /usr/bin/nvim
+prefer_plaintext = true
 
 [tags]
+  [[attachment]]
+    translated = ✉
+    normal = '','','light green','','light green',''
+    focus = '','','light green','','light green',''
   [[flagged]]
     translated = ⚑
     normal = '','','light red','','light red',''
@@ -10,10 +18,46 @@ theme = sup
     normal = '','','light red','','light red',''
     focus = '','','light red','','light red',''
   [[inbox]]
-    translated = ✉
+    translated = ◈
     normal = '','','light green','','light green',''
     focus = '','','light green','','light green',''
 
 [bindings]
   [[search]]
     A = toggletags unread,inbox
+
+[accounts]
+  [[personal]]
+    realname = Pascal Ernst
+    address = pascal.cc.ernst@gmail.com
+    sendmail_command = msmtp -t --read-envelope-from -a personal
+    sent_box = maildir:///home/linucc/mail/personal/sent
+    draft_box = maildir:///home/linucc/mail/personal/drafts
+    [[[abook]]]
+      type = shellcommand
+      command = "notmuch address --output=recipients date:1Y.. AND from:pascal.cc.ernst@gmail.com"
+      regexp = (\"?(?P<name>.+)\"?)?\s*<(?P<email>.*@.+?)>
+      shellcommand_external_filtering = False
+  [[bl]]
+    realname = Pascal Ernst
+    address = p.ernst@brandslisten.com
+    sendmail_command = msmtp -t --read-envelope-from -a bl
+    sent_box = maildir:///home/linucc/mail/bl/sent
+    draft_box = maildir:///home/linucc/mail/bl/drafts
+    [[[abook]]]
+      type = shellcommand
+      command = "notmuch address --output=recipients date:1Y.. AND from:p.ernst@brandslisten.com"
+      regexp = (\"?(?P<name>.+)\"?)?\s*<(?P<email>.*@.+?)>
+      shellcommand_external_filtering = False
+  [[ostfalia]]
+    realname = Pascal Ernst
+    address = p.ernst@ostfalia.de
+    sendmail_command = msmtp -t --read-envelope-from -a ostfalia
+    sent_box = maildir:///home/linucc/mail/ostfalia/sent
+    draft_box = maildir:///home/linucc/mail/ostfalia/drafts
+    [[[abook]]]
+      type = shellcommand
+      command = "notmuch address --output=recipients date:1Y.. AND from:p.ernst@ostfalia.de"
+      regexp = (\"?(?P<name>.+)\"?)?\s*<(?P<email>.*@.+?)>
+      shellcommand_external_filtering = False
+    

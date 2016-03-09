@@ -10,7 +10,7 @@ quick = 10
 localrepository = personal-local
 remoterepository = personal-remote
 status_backend = sqlite
-postsynchook = notmuch new && afew --tag --new
+postsynchook = notmuch new
 
 [Account bl]
 autorefresh = 5
@@ -18,7 +18,7 @@ quick = 10
 localrepository = bl-local
 remoterepository = bl-remote
 status_backend = sqlite
-postsynchook = notmuch new && afew --tag --new
+postsynchook = notmuch new
 
 [Account ostfalia]
 autorefresh = 5
@@ -26,7 +26,7 @@ quick = 10
 localrepository = ostfalia-local
 remoterepository = ostfalia-remote
 status_backend = sqlite
-postsynchook = notmuch new && afew --tag --new
+postsynchook = notmuch new
 
 [Repository personal-local]
 type = Maildir

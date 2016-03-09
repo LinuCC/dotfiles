@@ -2,21 +2,25 @@
   "atom-material-ui":
     colors:
       abaseColor:
-        red: 135
-        green: 171
+        alpha: 1
         blue: 4
-        alpha: 1
+        green: 171
+        red: 135
       accentColor:
-        red: 231
-        green: 231
-        blue: 231
         alpha: 1
+        blue: 231
+        green: 231
+        red: 231
       genAccent: true
     fonts: {}
+    panels:
+      depth: true
+      panelContrast: true
     tabs: {}
     treeView:
       compactList: true
     ui:
+      accentColor: "Green"
       panelContrast: true
       panelShadows: true
   "autocomplete-plus":
@@ -32,13 +36,12 @@
       "highlight-selected"
     ]
     themes: [
-      "atom-material-ui"
+      "isotope-ui"
       "itg-dark-syntax"
     ]
   editor:
     backUpBeforeSaving: true
-    fontFamily: "input mono"
-    fontSize: 13
+    fontFamily: "InputMono Light"
     invisibles:
       tab: "▻"
     preferredLineLength: 100
@@ -50,6 +53,9 @@
     softWrapHangingIndent: 2
   "exception-reporting":
     userId: "c39a5722-f26c-ca60-77f1-a73b1e598e40"
+  "fuzzy-finder":
+    preserveLastSearch: true
+    searchAllPanes: true
   "git-plus":
     openInPane: false
   "highlight-line":
@@ -57,6 +63,14 @@
     enableUnderline: true
   "highlight-selected":
     onlyHighlightWholeWords: false
+  "isotope-ui":
+    customBackgroundColorPicker:
+      red: 38
+      green: 38
+      blue: 38
+      alpha: 1
+    lowContrastTooltip: true
+    minimalMode: true
   "keyboard-localization":
     useKeyboardLayoutFromPath: "/home/linucc/.atom/gb_locale.json"
   "multi-wrap-guide":

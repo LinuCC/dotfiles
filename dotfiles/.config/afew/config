@@ -1,0 +1,28 @@
+# This is the default filter chain
+[SpamFilter]
+# [ClassifyingFilter]
+[KillThreadsFilter]
+[ListMailsFilter]
+[ArchiveSentMailsFilter]
+
+[Filter.1]
+message = Delete Honeybadger messages
+query = 'from:notifications@honeybadger.io AND subject:brandslisten'
+tags = +deleted;+bl;+badger;-new;-unread
+
+[Filter.2]
+message = Delete Pivotaltracker messages
+query = 'from:notifications@pivotaltracker.com'
+tags = +deleted;+bl;+pivotal;-new;-unread
+
+[Filter.3]
+message = gh
+query = 'from:notifications@github.com'
+tags = +github
+
+[Filter.4]
+message = bl gh
+query = 'tag:github,tag:lists/bl'
+tags = +bl
+
+[InboxFilter]

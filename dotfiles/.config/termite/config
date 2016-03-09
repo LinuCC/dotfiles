@@ -56,38 +56,43 @@ highlight = #2f2f2f
 # color14 = #93e0e3
 # color15 = #ffffff
 
+# special
+foreground      = #c5c5c5
+foreground_bold = #c5c5c5
+cursor          = #c5c5c5
+background      = #1c1c1c
+
 # black
-color0  = #303030
-color8  = #5f5f5f
+color0  = #1c1c1c
+color8  = #666666
 
 # red
-color1  = #c03000
-color9  = #ff3a78
+color1  = #ff005b
+color9  = #ff00a0
 
 # green
-color2  = #b1d631
-color10 = #a6cd07
+color2  = #cee318
+color10 = #ccff00
 
 # yellow
-color3  = #fecf35
-color11 = #b5c865
+color3  = #ffe755
+color11 = #ff9f00
 
 # blue
-color4  = #426870
-color12 = #4a7781
+color4  = #048ac7
+color12 = #48c6ff
 
 # magenta
-color5  = #6d506d
-color13 = #ff3b77
+color5  = #833c9f
+color13 = #be67e1
 
 # cyan
-color6  = #4bb5c1
-color14 = #4bb5c1
+color6  = #0ac1cd
+color14 = #63e7f0
 
 # white
-color7  = #e2e2e5
-color15 = #e2e2e5
-
+color7  = #e5e5e5
+color15 = #f3f3f3
 
 
 [hints]

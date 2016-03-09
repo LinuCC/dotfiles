@@ -48,7 +48,7 @@ other_email=p.ernst@brandslisten.com;p.ernst@ostfalia.de;
 #		in the mail store.
 #
 [new]
-tags=unread;inbox;
+tags=new
 ignore=
 
 # Search configuration
