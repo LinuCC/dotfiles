@@ -1,0 +1,15 @@
+colorscheme:railslog
+cs_re:green:Completed 200|Started
+cs_re:red:Completed (404|422|500)
+cs_re:cyan:"(\/.+)+"
+cs_re:red,black,bold:(ActionController\:\:)?\b.*Error\b
+cs_re:red:.*Error.*
+cs_re:cyan:DEBUG
+filterscheme:railslog
+rule:em:.*Completed.*
+rule:em:.*DEBUG.*
+rule:em:.*Error.*
+rule:ev:.*asset.*|.*media.*
+rule:em:.*Started.*
+rule:em:    \d{1,3}\:.*
+usefilterscheme:railslog:\*\/development.log
