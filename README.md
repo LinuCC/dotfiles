@@ -50,6 +50,25 @@ Install `dein.vim` by running the following (see the
 For `fzf` you need the `the_silver_searcher`(`ag`) installed from your 
 favourite package manager.
 
+#### YouCompleteMe
+
+To install the vim-plugin, see its 
+[Readme](https://github.com/Valloric/YouCompleteMe).
+
+Notes:
+
+Install it by adding `call dein#add('valloric/youcompleteme')` to the RC-file.
+Then cd to the installed directory (for example
+`~/.config/dein.vim/repos/github.com/valloric/youcompleteme`) and execute
+`./install.sh --racer-complete --term-complete` (JS and Rust).
+Then add an `call dein#update()` to your RC-file, start `nvim`, let it update,
+close it and remove the call from the file (Yes yes, this is stupid).
+
+*Todo: find out how to call these functions directly from within neovim*
+
+Also dont forget to `pacaur -S python2-neovim`.
+
+
 ### Ctags
 
 For proper Tags, create a `.ctags`-file in every project with the following

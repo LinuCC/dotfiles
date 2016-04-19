@@ -25,7 +25,7 @@ call dein#add('easymotion/vim-easymotion', {
 \        let g:EasyMotion_verbose = 0\n
 \    "
 \ })
-call dein#add('Townk/vim-autoclose')
+call dein#add('Raimondi/delimitMate')
 call dein#add('bling/vim-airline', {
 \  'hook_add': "
 \    let g:airline_theme=\"base16_default\"\n
@@ -62,16 +62,26 @@ call dein#add('junegunn/fzf.vim', {
 \     imap <c-x><c-l> <plug>(fzf-complete-line)\n
 \     map <c-p> :Files<CR>\n
 \     map <C-@> :Buffers<CR>\n
+\     map <leader>q :BTags<CR>\n
 \     map <c-q> :Tags<CR>\n
 \   "
 \ })
 call dein#add('chriskempson/base16-vim')
+call dein#add('valloric/youcompleteme')
+call dein#add('scrooloose/nerdtree', {
+\   'hook_add': "
+\     map <leader>n :NERDTreeToggle<CR>\n
+\   "
+\ })
+call dein#add('tpope/vim-eunuch')
 
 " TODO add syntastic checking
 
 if dein#check_install()
   call dein#install()
 endif
+
+set tags=./.tags;,.tags;
 
 set cursorline
 if exists('+colorcolumn')
