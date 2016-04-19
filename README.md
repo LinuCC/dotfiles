@@ -34,6 +34,9 @@ You need `i3blocks` for the top bar to look nice.
 The `i3blocks` command needs `playerctl` enabled.
 Due to a bug with spotify, install the current `playerctl-git` package.
 
+You also need to install `font-awesome` as a package, so the icons get
+correctly displayed.
+
 ### Neovim
 
 Install `dein.vim` by running the following (see the 
@@ -87,25 +90,34 @@ The `pass` command is not able to ask for the password when systemd calls it.
 
 ### Neovim
 
-[`fzf`](https://github.com/junegunn/fzf.vim) is friggin awesome.
-[`multiple cursors`](https://github.com/terryma/vim-multiple-cursors).
-[`easytags`](https://github.com/xolox/vim-easytags).
-[`dein`](https://github.com/Shougo/dein.vim).
+* [`fzf`](https://github.com/junegunn/fzf.vim) is friggin awesome.
+* [`multiple cursors`](https://github.com/terryma/vim-multiple-cursors).
+* [`easytags`](https://github.com/xolox/vim-easytags).
+* [`dein`](https://github.com/Shougo/dein.vim).
 
 #### Shortcuts
 
-`c-p` - Files
-`c-q` - Tags
-`c-space` - Buffers
+* `c-p` - Files
+* `c-q` - Tags
+* `c-space` - Buffers
+* While in any of these searches:
+  * `c-x`, `c-v` to split instead of opening a new buffer
 
 #### Commands
 
-Advanced Open File like:
+Advanced Open File:
 ```
 :e %:h/filename
 ```
 (`%`^= current file, `:h` ^= modifier for its directory)
 
+Buffers:
+
+Its best to just `c-p` to open a new buffer, automatically hides the current
+one.
+
+* `:hide` "close" buffer
+* `:bd` delete buffer
 
 ==============
 
