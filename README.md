@@ -102,6 +102,7 @@ The `pass` command is not able to ask for the password when systemd calls it.
 * `c-space` - Buffers
 * While in any of these searches:
   * `c-x`, `c-v` to split instead of opening a new buffer
+* `c-w =` Equalize size of vertically split windows
 
 #### Commands
 
