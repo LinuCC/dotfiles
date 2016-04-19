@@ -9,6 +9,13 @@ Just call `./bootstrap.sh` to setup.
 
 ## Manual Config
 
+### ZSH
+
+I use `base16-shell` for some nice colors:
+```
+git clone https://github.com/chriskempson/base16-shell.git ~/.config/base16-shell
+```
+
 ### Pass
 
 Use `pass` to store the passwords that arent in the config files.
@@ -26,6 +33,31 @@ You need `i3blocks` for the top bar to look nice.
 
 The `i3blocks` command needs `playerctl` enabled.
 Due to a bug with spotify, install the current `playerctl-git` package.
+
+### Neovim
+
+Install `dein.vim` by running the following (see the 
+[Repo](https://github.com/Shougo/dein.vim):
+
+```
+ $ curl https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh > installer.sh
+ $ sh ./installer.sh {specify the installation directory}
+```
+
+For `fzf` you need the `the_silver_searcher`(`ag`) installed from your 
+favourite package manager.
+
+### Ctags
+
+For proper Tags, create a `.ctags`-file in every project with the following
+content to exclude project-specific libs:
+
+```
+--exclude=node_modules
+--exclude=.git
+```
+
+Execute `ctags -R -f ./.tags .` in every project-dir you want to use ctags for.
 
 ### Emails
 
@@ -51,6 +83,31 @@ Then enable the service.
 Problem:
 The `pass` command is not able to ask for the password when systemd calls it.
 
+## Cheatsheet'N Stuff
+
+### Neovim
+
+[`fzf`](https://github.com/junegunn/fzf.vim) is friggin awesome.
+[`multiple cursors`](https://github.com/terryma/vim-multiple-cursors).
+[`easytags`](https://github.com/xolox/vim-easytags).
+[`dein`](https://github.com/Shougo/dein.vim).
+
+#### Shortcuts
+
+`c-p` - Files
+`c-q` - Tags
+`c-space` - Buffers
+
+#### Commands
+
+Advanced Open File like:
+```
+:e %:h/filename
+```
+(`%`^= current file, `:h` ^= modifier for its directory)
+
+
 ==============
 
 No problem future me :P
+

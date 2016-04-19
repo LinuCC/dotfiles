@@ -1,159 +1,101 @@
-set nocompatible              " be iMproved, required
-filetype off                  " required
+set runtimepath^=/home/linucc/.config/dein.vim/repos/github.com/Shougo/dein.vim
+call dein#begin(expand('/home/linucc/.config/dein.vim'))
 
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-"call vundle#begin()
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
+call dein#add('tpope/vim-repeat', {
+  \ 'lazy': 1,
+  \ 'on_map': '.'})
+call dein#add('tpope/vim-surround', {
+  \ 'depends': ['vim-repeat'],
+  \ 'on_map': 'cs'})
+call dein#add('tomtom/tcomment_vim', {
+  \ 'on_map': ['gc', 'g<', 'g>', '<C-_>', '<Leader>_'],
+  \ })
+call dein#add('easymotion/vim-easymotion', {
+\    'on_map': [['n', '<Plug>']],
+\    'hook_add': "
+\        nmap w <Plug>(easymotion-lineforward)\n
+\        nnoremap W     w\n
+\        nmap b <Plug>(easymotion-linebackward)\n
+\        nnoremap B     b\n
+\        nmap [Alt]j <Plug>(easymotion-j)\n
+\        nmap [Alt]k <Plug>(easymotion-k)\n
+\        nmap ' <Plug>(easymotion-prefix)\n
+\        let g:EasyMotion_startofline = 0\n
+\        let g:EasyMotion_show_prompt = 0\n
+\        let g:EasyMotion_verbose = 0\n
+\    "
+\ })
+call dein#add('Townk/vim-autoclose')
+call dein#add('bling/vim-airline', {
+\  'hook_add': "
+\    let g:airline_theme=\"base16_default\"\n
+\    let g:airline_powerline_fonts = 1\n
+\    let g:airline#extensions#tabline#enabled = 1\n
+\    let g:airline#extensions#branch#enabled = 1\n
+\  "
+\ })
+call dein#add('vim-airline/vim-airline-themes')
+" call dein#add('nathanaelkane/vim-indent-guides')
+call dein#add('roryokane/detectindent')
+call dein#add('tpope/vim-rails')
+call dein#add('terryma/vim-multiple-cursors')
+call dein#add('xolox/vim-misc')
+call dein#add('xolox/vim-easytags', {
+\   'hook_add': "
+\     let g:easytags_file = '~/.config/nvim/tags'\n
+\     set tags=./.tags\n
+\     let g:easytags_dynamic_files = 1
+\   "
+\ })
+call dein#add('scrooloose/syntastic')
+call dein#add('junegunn/fzf', {'build': './install', 'merged': 0})
+call dein#add('junegunn/fzf.vim', { 
+\   'depends': 'fzf',
+\   'hook_add': "
+\     let g:fzf_buffers_jump = 1\n
+\     nmap <leader><tab> <plug>(fzf-maps-n)\n
+\     xmap <leader><tab> <plug>(fzf-maps-x)\n
+\     omap <leader><tab> <plug>(fzf-maps-o)\n
+\     imap <c-x><c-k> <plug>(fzf-complete-word)\n
+\     imap <c-x><c-f> <plug>(fzf-complete-path)\n
+\     imap <c-x><c-j> <plug>(fzf-complete-file-ag)\n
+\     imap <c-x><c-l> <plug>(fzf-complete-line)\n
+\     map <c-p> :Files<CR>\n
+\     map <C-@> :Buffers<CR>\n
+\     map <c-q> :Tags<CR>\n
+\   "
+\ })
+call dein#add('chriskempson/base16-vim')
 
-" let Vundle manage Vundle, required
-"Plugin 'gmarik/Vundle.vim'
-" The following are examples of different formats supported.
-" Keep Plugin commands between vundle#begin/end.
-" plugin on GitHub repo
-"Plugin 'tpope/vim-fugitive'
-" plugin from http://vim-scripts.org/vim/scripts.html
-"Plugin 'L9'
-" Git plugin not hosted on GitHub
-"Plugin 'git://git.wincent.com/command-t.git'
-" git repos on your local machine (i.e. when working on your own plugin)
-"Plugin 'file:///home/gmarik/path/to/plugin'
-" The sparkup vim script is in a subdirectory of this repo called vim.
-" Pass the path to set the runtimepath properly.
-"Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
-" Avoid a name conflict with L9
-"Plugin 'user/L9', {'name': 'newL9'}
+" TODO add syntastic checking
 
-" ControlP Plugin
-"Plugin 'kien/ctrlp.vim'
+if dein#check_install()
+  call dein#install()
+endif
 
-" BufExplorer Plugin
-" Plugin ''
+set cursorline
+if exists('+colorcolumn')
+  set colorcolumn=80
+endif
+set background=dark
 
-" A filetree
-"Plugin 'scrooloose/nerdtree'
-"
-"Plugin 'Townk/vim-autoclose'
-"
-"Plugin 'jeffkreeftmeijer/vim-numbertoggle'
-"
-"Plugin 'altercation/vim-colors-solarized'
-"
-"Plugin 'tpope/vim-rails'
-"
-"Plugin 'bling/vim-airline'
-"
-"Plugin 'airblade/vim-gitgutter'
-"
-"Plugin 'tpope/vim-fugitive'
-"
-"Plugin 'nathanaelkane/vim-indent-guides'
-"
-"Plugin 'roryokane/detectindent'
-"
-"Plugin 'blueyed/smarty.vim'
-"
-"Plugin 'xolox/vim-misc'
-"
-"Plugin 'xolox/vim-easytags'
-"
-"Plugin 'terryma/vim-multiple-cursors'
-"
-"Plugin 'vim-scripts/taglist.vim'
-"
-"Plugin 'scrooloose/nerdcommenter'
-"
-"Plugin 'tpope/vim-surround'
-"
-"Bundle 'farseer90718/vim-taskwarrior'
-
-" All of your Plugins must be added before the following line
-"call vundle#end()            " required
-filetype plugin indent on    " required
-" To ignore plugin indent changes, instead use:
-"filetype plugin on
-"
-" Brief help
-" :PluginList          - list configured plugins
-" :PluginInstall(!)    - install (update) plugins
-" :PluginSearch(!) foo - search (or refresh cache first) for foo
-" :PluginClean(!)      - confirm (or auto-approve) removal of unused plugins
-"
-" see :h vundle for more details or wiki for FAQ
-" Put your non-Plugin stuff after this line
-
-set encoding=utf-8
+syntax enable
+filetype plugin indent on
 
 set listchars=tab:▸\ ,trail:·,nbsp:·
 set list
-
-let mapleader=","
-
-"Show linenumbers
-set nu 
-"Newline after 80 characters
-set tw=80
-
-"Tabs to Spaces
-set expandtab
-"2 Spaces Tab width
 set ts=2 sts=2 sw=2 expandtab
-"set tabstop=4
+set tw=80
+set rnu
+let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
+let base16colorspace=256
+colorscheme base16-railscasts
 
-"syntax enable
-"set background=dark
-syntax on
-
-set modeline
-set nocompatible
-set autoindent
-
-set t_Co=256
-let g:solarized_termcolors=256
-set background=dark
-"colorscheme Tomorrow-Night
-
-if exists('+colorcolumn')
-  set colorcolumn=80
-else
-  au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\%>80v.\+', -1)
-endif
-
-"Configurations for Plugin Airline
-let g:airline_theme="dark"
-let g:airline_powerline_fonts = 1
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#branch#enabled = 1
-
-set cursorline
-
-
-"Default with vim-airline is to only show if window is split at least 1 times.
-"Display always
-set laststatus=2
-
-"NERDTree
-
-nmap <leader>nt :NERDTreeToggle <CR>
-
-"indent guides
-
-let g:indent_guides_auto_colors = 0
-autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=black   ctermbg=3
-autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=darkgrey ctermbg=4
-
-"Train moving around with hjkl, not arrows
-nnoremap <Left> :echoe "Use h"<CR>
-nnoremap <Right> :echoe "Use l"<CR>
-nnoremap <Up> :echoe "Use k"<CR>
-nnoremap <Down> :echoe "Use j"<CR>
-
-"Insert a newline without going into insert-mode
-nmap <S-Enter> O<Esc>j
-nmap <CR> o<Esc>k
-
-if &term =~ "xterm\\|rxvt"
+let &t_SI = "\<Esc>]12;orange\x7"
+" use a red cursor otherwise
+let &t_EI = "\<Esc>]12;red\x7"
+silent !echo -ne "\033]12;red\007"
+if &term =~ "xterm\\|rxvt\\|xterm-termite"
   " use an orange cursor in insert mode
   let &t_SI = "\<Esc>]12;orange\x7"
   " use a red cursor otherwise
@@ -161,11 +103,5 @@ if &term =~ "xterm\\|rxvt"
   silent !echo -ne "\033]12;red\007"
   " reset cursor when vim exits
   autocmd VimLeave * silent !echo -ne "\033]112\007"
-  " use \003]12;gray\007 for gnome-terminal
 endif
 
-"Better colors for vim-fugitive with the theme
-hi! DiffAdd      ctermbg=22
-hi! DiffChange   ctermbg=17
-hi! DiffDelete   ctermbg=52
-hi! DiffText     ctermbg=58

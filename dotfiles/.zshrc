@@ -88,7 +88,7 @@ alias net="netctl"
 
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 source "$HOME/scripts/my_methods"
-source "$HOME/scripts/system_specific"
+# source "$HOME/scripts/system_specific"
 source "/etc/profile.d/fzf.zsh"
 source "$HOME/.rvm/scripts/rvm"
 
@@ -109,3 +109,11 @@ alias gmarc="git merge $ALTERNATIVE_CLIENT_BRANCH"
 alias gmrc="git merge $RELEASE_CLIENT_BRANCH"
 alias bundleofsticks="bundle install"
 
+# Base16 Shell
+BASE16_SHELL="$HOME/.config/base16-shell/base16-railscasts.dark.sh"
+# BASE16_SHELL="$HOME/.config/base16-shell/my-codeschool.sh"
+[[ -s $BASE16_SHELL ]] && source $BASE16_SHELL
+
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+export FZF_DEFAULT_COMMAND='ag -g ""'
