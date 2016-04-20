@@ -1,5 +1,5 @@
-set runtimepath^=/home/linucc/.config/dein.vim/repos/github.com/Shougo/dein.vim
-call dein#begin(expand('/home/linucc/.config/dein.vim'))
+set runtimepath^=/home/linucc/.config/nvim/bundles/repos/github.com/Shougo/dein.vim
+call dein#begin(expand('/home/linucc/.config/nvim/bundles'))
 
 call dein#add('tpope/vim-repeat', {
   \ 'lazy': 1,
@@ -68,7 +68,7 @@ call dein#add('junegunn/fzf.vim', {
 \   "
 \ })
 call dein#add('chriskempson/base16-vim')
-call dein#add('valloric/youcompleteme')
+call dein#add('valloric/youcompleteme', {'merged': 0})
 call dein#add('scrooloose/nerdtree', {
 \   'hook_add': "
 \     map <leader>n :NERDTreeToggle<CR>\n
@@ -76,11 +76,17 @@ call dein#add('scrooloose/nerdtree', {
 \ })
 call dein#add('tpope/vim-eunuch')
 
+call dein#end()
+
 " TODO add syntastic checking
 
 if dein#check_install()
   call dein#install()
 endif
+
+
+" call dein#update()
+
 
 set tags=./.tags;,.tags;
 

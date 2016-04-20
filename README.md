@@ -47,6 +47,8 @@ Install `dein.vim` by running the following (see the
  $ sh ./installer.sh {specify the installation directory}
 ```
 
+Also install the package `rsync`.
+
 For `fzf` you need the `the_silver_searcher`(`ag`) installed from your 
 favourite package manager.
 
@@ -60,7 +62,7 @@ Notes:
 Install it by adding `call dein#add('valloric/youcompleteme')` to the RC-file.
 Then cd to the installed directory (for example
 `~/.config/dein.vim/repos/github.com/valloric/youcompleteme`) and execute
-`./install.sh --racer-complete --term-complete` (JS and Rust).
+`./install.sh --racer-complete --tern-complete` (JS and Rust).
 Then add an `call dein#update()` to your RC-file, start `nvim`, let it update,
 close it and remove the call from the file (Yes yes, this is stupid).
 
