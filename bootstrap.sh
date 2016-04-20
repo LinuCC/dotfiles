@@ -1,5 +1,7 @@
 #! /bin/zsh
 
+[ -d ~/mail/linucc ] || mkdir -p ~/mail/linucc
+[ -d ~/mail/ernst_linucc ] || mkdir -p ~/mail/ernst_linucc
 [ -d ~/mail/personal ] || mkdir -p ~/mail/personal
 [ -d ~/mail/bl ] || mkdir -p ~/mail/bl
 
@@ -7,6 +9,11 @@
 
 [ -d ~/.sup ] || mkdir -p ~/.sup
 [ -d ~/.sup/hooks ] || mkdir -p ~/.sup/hooks
+
+[ -d ~/.config/nvim ] || mkdir -p ~/.config/nvim
+[ -d ~/.config/dein.nvim ] || mkdir -p ~/.config/dein.nvim
+
+[ -d ~/.config/twmn ] || mkdir -p ~/.config/twmn
 
 # Manually link gitignore since stow ignores it
 [ -f ~/.gitignore ] || ln -s .dot/dotfiles/.gitignore ~/.gitignore

@@ -3,6 +3,7 @@ bug_on_exit = true
 colourmode = 16
 editor_cmd = /usr/bin/nvim
 prefer_plaintext = true
+attachment_prefix=~/downloads/mail/attachments
 
 [tags]
   [[attachment]]
@@ -27,6 +28,28 @@ prefer_plaintext = true
     A = toggletags unread,inbox
 
 [accounts]
+  [[linucc]]
+    realname = LinuCC
+    address = linucc@linu.cc
+    sendmail_command = msmtp -t --read-envelope-from -a internetme
+    sent_box = maildir:///home/linucc/mail/linucc/INBOX.Sent
+    draft_box = maildir:///home/linucc/mail/linucc/INBOX.Drafts
+    [[[abook]]]
+      type = shellcommand
+      command = "notmuch address --output=recipients date:1Y.. AND from:linucc@linu.cc"
+      regexp = (\"?(?P<name>.+)\"?)?\s*<(?P<email>.*@.+?)>
+      shellcommand_external_filtering = False
+  [[work]]
+    realname = Pascal Ernst
+    address = p.ernst@linu.cc
+    sendmail_command = msmtp -t --read-envelope-from -a realme
+    sent_box = maildir:///home/linucc/mail/work/INBOX.Sent
+    draft_box = maildir:///home/linucc/mail/work/INBOX.Drafts
+    [[[abook]]]
+      type = shellcommand
+      command = "notmuch address --output=recipients date:1Y.. AND from:p.ernst@linu.cc"
+      regexp = (\"?(?P<name>.+)\"?)?\s*<(?P<email>.*@.+?)>
+      shellcommand_external_filtering = False
   [[personal]]
     realname = Pascal Ernst
     address = pascal.cc.ernst@gmail.com

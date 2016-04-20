@@ -5,6 +5,9 @@
   'pry':
     'prefix': 'pry'
     'body': 'require \'pry\'\; binding.pry'
+  'pry-remote':
+    'prefix': 'rpry'
+    'body': 'binding.pry_remote'
   'classtest':
     'prefix': 'classtest'
     'body': """
@@ -37,3 +40,64 @@
           end
         end
       """
+'.source.js.jsx':
+  'react-bootstrap COL':
+    'prefix': 'COL'
+    'body': '<Col md=\{${1}\}>${2}</Col>'
+'.source.js.jsx, .source.js':
+
+  ################################################################
+  # JS
+  ################################################################
+
+  ##########
+  # COMMENTS
+  'Block Comment with 1x Param and 1x Return':
+    'prefix': 'com-bpr'
+    'body': """
+      /**
+       * ${1:description}.
+       * @param {${2:Object}} ${3:name} - ${4:description}.
+       * @returns {${5:Object}} - ${6:description}.
+       */
+    """
+  'Block Comment with 1x Return':
+    'prefix': 'com-br'
+    'body': """
+      /**
+       * ${1:description}.
+       * @returns {${2:Object}} - ${3:description}.
+       */
+    """
+  'Block Comment':
+    'prefix': 'com-b'
+    'body': """
+      /**
+       * ${1:description}.
+       */
+    """
+  '@param':
+    'prefix': '@p'
+    'body': '* @param {${1:Object}} ${2:name} - ${3:description}.'
+  '@returns':
+    'prefix': '@r'
+    'body': '* @returns {${1:Object}} - ${3:description}.'
+
+  ################################################################
+  # React
+  ################################################################
+
+  'new React class file':
+    'prefix': 'class-react'
+    'body': """
+      import React from 'react'
+      import BaseComponent from 'libs/components/BaseComponent'
+
+      import css from './${1:Class}.scss'
+
+      export default class ${1:Class} extends BaseComponent {
+        render() {
+          return <div />
+        }
+      }
+    """

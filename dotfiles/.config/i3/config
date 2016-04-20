@@ -13,8 +13,8 @@ set $mod Mod4
 set $term termite
 set $menu rofi -show run
 
-set $monitor1 HDMI1
-set $monitor2 eDP1
+set $monitor1 DisplayPort-0
+set $monitor2 HDMI-0
 
 set $WS1 "1:"
 set $WS2 "2:"

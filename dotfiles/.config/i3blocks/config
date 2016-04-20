@@ -140,18 +140,18 @@ interval=1
 
 [ethernet]
 label=
-instance=enp1s0
+instance=enp0s31f6
 command=~/.config/i3blocks/iface
 color=#268bd2
 interval=30
 
-[separator]
-
-[battery]
-label=
-command=~/.config/i3blocks/battery | tail -n 1
-color=#FFFFFF
-interval=30
+#[separator]
+#
+#[battery]
+#label=
+#command=~/.config/i3blocks/battery | tail -n 1
+#color=#FFFFFF
+#interval=30
 
 [separator]
 

@@ -13,18 +13,14 @@
         red: 231
       genAccent: true
     fonts: {}
-    panels:
-      depth: true
-      panelContrast: true
     tabs: {}
     treeView:
       compactList: true
     ui:
-      accentColor: "Green"
       panelContrast: true
       panelShadows: true
   "autocomplete-plus":
-    confirmCompletion: "tab"
+    confirmCompletion: "enter"
   core:
     autoHideMenuBar: true
     destroyEmptyPanes: false
@@ -36,8 +32,8 @@
       "highlight-selected"
     ]
     themes: [
-      "isotope-ui"
-      "itg-dark-syntax"
+      "seti-ui"
+      "gruvbox"
     ]
   editor:
     backUpBeforeSaving: true
@@ -65,14 +61,16 @@
     onlyHighlightWholeWords: false
   "isotope-ui":
     customBackgroundColorPicker:
-      red: 38
-      green: 38
-      blue: 38
       alpha: 1
+      blue: 38
+      green: 38
+      red: 38
     lowContrastTooltip: true
     minimalMode: true
   "keyboard-localization":
     useKeyboardLayoutFromPath: "/home/linucc/.atom/gb_locale.json"
+  latex:
+    enableShellEscape: true
   "multi-wrap-guide":
     columns: [
       80
