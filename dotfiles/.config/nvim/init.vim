@@ -63,6 +63,7 @@ call dein#add('junegunn/fzf.vim', {
 \     map <c-p> :Files<CR>\n
 \     map <C-@> :Buffers<CR>\n
 \     map <leader>q :BTags<CR>\n
+\     map <leader>f :Ag \n
 \     map <c-q> :Tags<CR>\n
 \   "
 \ })
