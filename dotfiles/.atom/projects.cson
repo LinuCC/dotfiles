@@ -45,8 +45,8 @@ sturo:
   paths: [
     "/home/linucc/proggen/fh/sturo"
   ]
-babesk:
-  title: "babesk"
+render_test:
+  title: "render_test"
   paths: [
-    "/opt/lampp/htdocs/babesk"
+    "/home/linucc/proggen/fh/render/test"
   ]
