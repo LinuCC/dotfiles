@@ -124,6 +124,7 @@ The `pass` command is not able to ask for the password when systemd calls it.
 * While in any of these searches:
   * `c-x`, `c-v` to split instead of opening a new buffer
 * `c-w =` Equalize size of vertically split windows
+* `v/foo` Selects everyting until `foo`
 
 #### Commands
 
@@ -140,6 +141,10 @@ one.
 
 * `:hide` "close" buffer
 * `:bd` delete buffer
+
+Random:
+
+* `:Move %<tab>` expands to current filepath
 
 ==============
 

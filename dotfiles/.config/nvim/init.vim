@@ -2,11 +2,7 @@ set runtimepath^=/home/linucc/.config/nvim/bundles/repos/github.com/Shougo/dein.
 call dein#begin(expand('/home/linucc/.config/nvim/bundles'))
 
 call dein#add('tpope/vim-repeat', {
-  \ 'lazy': 1,
   \ 'on_map': '.'})
-call dein#add('tpope/vim-surround', {
-  \ 'depends': ['vim-repeat'],
-  \ 'on_map': 'cs'})
 call dein#add('tomtom/tcomment_vim', {
   \ 'on_map': ['gc', 'g<', 'g>', '<C-_>', '<Leader>_'],
   \ })
@@ -72,9 +68,39 @@ call dein#add('valloric/youcompleteme', {'merged': 0})
 call dein#add('scrooloose/nerdtree', {
 \   'hook_add': "
 \     map <leader>n :NERDTreeToggle<CR>\n
+\     let g:ycm_server_python_interpreter = \"/usr/bin/python\"
 \   "
 \ })
 call dein#add('tpope/vim-eunuch')
+call dein#add('SirVer/ultisnips')
+call dein#add('honza/vim-snippets')
+call dein#add('mattn/emmet-vim')
+call dein#add('sheerun/vim-polyglot')
+call dein#add('tpope/vim-surround')
+
+let g:UltiSnipsExpandTrigger="<c-l>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+
+" If you want :UltiSnipsEdit to split your window.
+let g:UltiSnipsEditSplit="vertical"
+
+let g:UltiSnipsUsePythonVersion = 3
+let g:UltiSnipsListSnippets = "<c-e>"
+let g:UltiSnipsSnippetsDir = '~/.config/nvim/UltiSnips'
+
+" Expand snippets with <enter>
+" let g:UltiSnipsExpandTrigger = "<nop>"
+" let g:ulti_expand_or_jump_res = 0
+" function ExpandSnippetOrCarriageReturn()
+"     let snippet = UltiSnips#ExpandSnippetOrJump()
+"     if g:ulti_expand_or_jump_res > 0
+"         return snippet
+"     else
+"         return "\<CR>"
+"     endif
+" endfunction
+" inoremap <expr> <CR> pumvisible() ? "\<C-R>=ExpandSnippetOrCarriageReturn()\<CR>" : "\<CR>"
 
 call dein#end()
 
