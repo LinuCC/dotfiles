@@ -24,7 +24,7 @@ call dein#add('easymotion/vim-easymotion', {
 call dein#add('Raimondi/delimitMate')
 call dein#add('bling/vim-airline', {
 \  'hook_add': "
-\    let g:airline_theme=\"base16_default\"\n
+\    let g:airline_theme=\"badwolf\"\n
 \    let g:airline_powerline_fonts = 1\n
 \    let g:airline#extensions#tabline#enabled = 1\n
 \    let g:airline#extensions#branch#enabled = 1\n
@@ -68,6 +68,7 @@ call dein#add('valloric/youcompleteme', {'merged': 0})
 call dein#add('scrooloose/nerdtree', {
 \   'hook_add': "
 \     map <leader>n :NERDTreeToggle<CR>\n
+\     map <leader>m :NERDTreeFind<CR>\n
 \     let g:ycm_server_python_interpreter = \"/usr/bin/python\"
 \   "
 \ })
@@ -131,6 +132,7 @@ set ts=2 sts=2 sw=2 expandtab
 set tw=80
 set rnu
 let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
+let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 let base16colorspace=256
 colorscheme base16-railscasts
 
