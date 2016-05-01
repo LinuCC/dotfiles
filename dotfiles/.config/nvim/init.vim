@@ -45,7 +45,7 @@ call dein#add('xolox/vim-easytags', {
 \ })
 call dein#add('scrooloose/syntastic')
 call dein#add('junegunn/fzf', {'build': './install', 'merged': 0})
-call dein#add('junegunn/fzf.vim', { 
+call dein#add('junegunn/fzf.vim', {
 \   'depends': 'fzf',
 \   'hook_add': "
 \     let g:fzf_buffers_jump = 1\n
@@ -126,6 +126,7 @@ set background=dark
 syntax enable
 filetype plugin indent on
 
+map <F2> :mks! vimsession<CR>
 autocmd BufWritePre * :%s/\s\+$//e
 set listchars=tab:▸\ ,trail:·,nbsp:·
 set list
