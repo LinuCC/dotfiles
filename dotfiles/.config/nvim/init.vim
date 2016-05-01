@@ -126,6 +126,7 @@ set background=dark
 syntax enable
 filetype plugin indent on
 
+autocmd BufWritePre * :%s/\s\+$//e
 set listchars=tab:▸\ ,trail:·,nbsp:·
 set list
 set ts=2 sts=2 sw=2 expandtab

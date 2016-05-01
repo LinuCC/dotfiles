@@ -1,0 +1,11 @@
+#!/bin/bash
+ifconfig tap0 &> /dev/null
+ret=$?
+if [ $ret -eq 0 ];
+then
+  echo 'VPN Up '
+  exit 0
+else
+  echo 'VPN Down! ☣ ☢ '
+  exit 0
+fi

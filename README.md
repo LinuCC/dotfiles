@@ -22,7 +22,7 @@ Use `pass` to store the passwords that arent in the config files.
 You need to generate a key with `gnugpg`: `gpg --full-gen-key`.
 Then `pass init my-email@domain.com`.
 
-Then you can add passwords with `pass insert <key>`, for example 
+Then you can add passwords with `pass insert <key>`, for example
 `pass insert Mail/personal`.
 
 See [Arch Wiki](https://wiki.archlinux.org/index.php/OfflineIMAP#Using_pass).
@@ -39,7 +39,7 @@ correctly displayed.
 
 ### Neovim
 
-Install `dein.vim` by running the following (see the 
+Install `dein.vim` by running the following (see the
 [Repo](https://github.com/Shougo/dein.vim):
 
 ```
@@ -49,12 +49,12 @@ Install `dein.vim` by running the following (see the
 
 Also install the package `rsync`.
 
-For `fzf` you need the `the_silver_searcher`(`ag`) installed from your 
+For `fzf` you need the `the_silver_searcher`(`ag`) installed from your
 favourite package manager.
 
 #### YouCompleteMe
 
-To install the vim-plugin, see its 
+To install the vim-plugin, see its
 [Readme](https://github.com/Valloric/YouCompleteMe).
 
 Notes:
@@ -125,6 +125,7 @@ The `pass` command is not able to ask for the password when systemd calls it.
   * `c-x`, `c-v` to split instead of opening a new buffer
 * `c-w =` Equalize size of vertically split windows
 * `v/foo` Selects everyting until `foo`
+* `c-o` Escapes from insert-mode (useful for vim-multiple-cursors)
 
 #### Commands
 
@@ -146,7 +147,41 @@ Random:
 
 * `:Move %<tab>` expands to current filepath
 
+Sessions:
+
+* `:mks[!] [file]` - create Session
+* `nvim -S [file]` - restore Session
+
 ==============
 
 No problem future me :P
 
+#### Ergodox Infinity
+
+Backslash for UK-Layout:
+
+Replace in `MDErgo1-Default-0.kll`:
+
+```
+U"FUNCTION3" : U0x64;
+```
+
+And copy stuff into the custom firmware compiler:
+
+```
+cp -f ergodox-vXYZ/*.kll controller/Keyboards/ICED-L
+cp -f ergodox-vXYZ/*.kll controller/Keyboards/ICED-R
+```
+
+Compile it:
+
+```
+cd controller/Keyboards && bash ./ergodox-custom.bash
+```
+
+And flash it:
+
+```
+sudo dfu-util -D ICED-L/kiibohd.dfu.bin
+sudo dfu-util -D ICED-R/kiibohd.dfu.bin
+```

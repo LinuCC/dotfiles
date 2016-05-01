@@ -95,6 +95,14 @@ color=#859900
 interval=1
 # signal=12
 
+[separator]
+
+[vpn]
+command=~/.config/i3blocks/vpncheck
+label=
+color=#e88b0c
+interval=10
+
 # [mpd]
 # full_text=
 # instance=naYUGgDyP00dNqoq42xorUnjWXlHd1r
