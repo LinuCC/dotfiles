@@ -89,7 +89,7 @@ alias net="netctl"
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 source "$HOME/scripts/my_methods"
 # source "$HOME/scripts/system_specific"
-source "/etc/profile.d/fzf.zsh"
+# source "/etc/profile.d/fzf.zsh"
 source "$HOME/.rvm/scripts/rvm"
 
 ALTERNATIVE_BRANCH="release-0.13.0-firestarter"
