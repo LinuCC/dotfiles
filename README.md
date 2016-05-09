@@ -126,6 +126,7 @@ The `pass` command is not able to ask for the password when systemd calls it.
 * `c-w =` Equalize size of vertically split windows
 * `v/foo` Selects everyting until `foo`
 * `c-o` Escapes from insert-mode (useful for vim-multiple-cursors)
+* `gv` Reselect last selection
 
 #### Commands
 

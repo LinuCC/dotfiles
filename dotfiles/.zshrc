@@ -110,7 +110,8 @@ alias gmrc="git merge $RELEASE_CLIENT_BRANCH"
 alias bundleofsticks="bundle install"
 
 # Base16 Shell
-BASE16_SHELL="$HOME/.config/base16-shell/base16-railscasts.dark.sh"
+# BASE16_SHELL="$HOME/.config/base16-shell/base16-railscasts.dark.sh"
+BASE16_SHELL="$HOME/.config/base16-shell/base16-codeschool.dark.sh"
 # BASE16_SHELL="$HOME/.config/base16-shell/my-codeschool.sh"
 [[ -s $BASE16_SHELL ]] && source $BASE16_SHELL
 

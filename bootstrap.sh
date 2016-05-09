@@ -11,6 +11,7 @@
 [ -d ~/.sup/hooks ] || mkdir -p ~/.sup/hooks
 
 [ -d ~/.config/nvim ] || mkdir -p ~/.config/nvim
+[ -d ~/.config/nvim/colors ] || mkdir -p ~/.config/nvim/colors
 [ -d ~/.config/dein.nvim ] || mkdir -p ~/.config/dein.nvim
 
 [ -d ~/.config/twmn ] || mkdir -p ~/.config/twmn

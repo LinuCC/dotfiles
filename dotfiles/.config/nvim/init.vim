@@ -135,20 +135,8 @@ set tw=80
 set rnu
 let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
 let $NVIM_TUI_ENABLE_TRUE_COLOR=1
-let base16colorspace=256
-colorscheme base16-railscasts
+" let base16colorspace=256
+" colorscheme base16-ocean
+colorscheme luna
 
-let &t_SI = "\<Esc>]12;orange\x7"
-" use a red cursor otherwise
-let &t_EI = "\<Esc>]12;red\x7"
-silent !echo -ne "\033]12;red\007"
-if &term =~ "xterm\\|rxvt\\|xterm-termite"
-  " use an orange cursor in insert mode
-  let &t_SI = "\<Esc>]12;orange\x7"
-  " use a red cursor otherwise
-  let &t_EI = "\<Esc>]12;red\x7"
-  silent !echo -ne "\033]12;red\007"
-  " reset cursor when vim exits
-  autocmd VimLeave * silent !echo -ne "\033]112\007"
-endif
-
+nnoremap <CR> :noh<CR><CR>
