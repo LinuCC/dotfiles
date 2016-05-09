@@ -6,6 +6,6 @@ then
   echo 'VPN Up '
   exit 0
 else
-  echo 'VPN Down! ☣ ☢ '
+  echo 'VPN Down! ☢'
   exit 0
 fi

@@ -78,6 +78,7 @@ call dein#add('honza/vim-snippets')
 call dein#add('mattn/emmet-vim')
 call dein#add('sheerun/vim-polyglot')
 call dein#add('tpope/vim-surround')
+call dein#add('tpope/vim-fugitive')
 
 let g:UltiSnipsExpandTrigger="<c-l>"
 let g:UltiSnipsJumpForwardTrigger="<c-b>"

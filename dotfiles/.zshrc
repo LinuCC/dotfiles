@@ -92,11 +92,11 @@ source "$HOME/scripts/my_methods"
 # source "/etc/profile.d/fzf.zsh"
 source "$HOME/.rvm/scripts/rvm"
 
-ALTERNATIVE_BRANCH="release-0.13.0-firestarter"
-RELEASE_BRANCH="release-0.14.0-aceofspades"
+ALTERNATIVE_BRANCH="release-0.18.0-bubblegum-tate"
+RELEASE_BRANCH="release-0.19.0-white-unicorn"
 
-ALTERNATIVE_CLIENT_BRANCH="v0.13.0"
-RELEASE_CLIENT_BRANCH="v0.14.0"
+ALTERNATIVE_CLIENT_BRANCH="v0.18.0"
+RELEASE_CLIENT_BRANCH="v0.19.0"
 
 alias gcar="git checkout $ALTERNATIVE_BRANCH"
 alias gcr="git checkout $RELEASE_BRANCH"
@@ -114,6 +114,7 @@ BASE16_SHELL="$HOME/.config/base16-shell/base16-railscasts.dark.sh"
 # BASE16_SHELL="$HOME/.config/base16-shell/my-codeschool.sh"
 [[ -s $BASE16_SHELL ]] && source $BASE16_SHELL
 
-
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 export FZF_DEFAULT_COMMAND='ag -g ""'
+
+eval $(thefuck --alias)
