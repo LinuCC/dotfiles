@@ -119,3 +119,5 @@ BASE16_SHELL="$HOME/.config/base16-shell/base16-codeschool.dark.sh"
 export FZF_DEFAULT_COMMAND='ag -g ""'
 
 eval $(thefuck --alias)
+
+neofetch

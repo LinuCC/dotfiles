@@ -16,6 +16,8 @@
 
 [ -d ~/.config/twmn ] || mkdir -p ~/.config/twmn
 
+[ -d ~/.config/neofetch ] || mkdir -p ~/.config/neofetch
+
 # Manually link gitignore since stow ignores it
 [ -f ~/.gitignore ] || ln -s .dot/dotfiles/.gitignore ~/.gitignore
 
