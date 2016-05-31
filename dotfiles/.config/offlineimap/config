@@ -53,10 +53,10 @@ localfolders = ~/mail/linucc
 type=IMAP
 ssl=yes
 remotehost=hosting01.swissnode.ch
-remoteuser = linucc@mail.linu.cc
+remoteuser = linucc
 remotepasseval = get_pass('internetme')
 sslcacertfile = /etc/ssl/certs/ca-certificates.crt
-folderfilter = lambda folder: folder not in ['INBOX.Trash', 'INBOX.Junk']
+folderfilter = lambda folder: folder not in ['INBOX.Trash', 'INBOX.Junk', 'INBOX.p_ernst@linu_cc']
 
 [Repository realme-local]
 type = Maildir
@@ -66,7 +66,7 @@ localfolders = ~/mail/work
 type=IMAP
 ssl=yes
 remotehost=hosting01.swissnode.ch
-remoteuser = p.ernst@mail.linu.cc
+remoteuser = p.ernst@linu.cc
 remotepasseval = get_pass('realme')
 sslcacertfile = /etc/ssl/certs/ca-certificates.crt
 folderfilter = lambda folder: folder not in ['INBOX.Trash', 'INBOX.Junk']
