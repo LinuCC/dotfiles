@@ -12,6 +12,7 @@
 set $mod Mod4
 set $term termite
 set $menu rofi -show run
+set $window_switcher rofi -show window
 
 set $monitor1 DisplayPort-0
 set $monitor2 HDMI-0
@@ -57,6 +58,7 @@ bindsym $mod+Shift+c kill
 # start dmenu (a program launcher)
 bindsym $mod+d exec $menu
 bindsym $mod+semicolon exec $menu
+bindsym $mod+apostrophe exec $window_switcher
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
@@ -176,6 +178,9 @@ assign [class="^Firefox$"] $WS10
 assign [class="^chromium$"] $WS11
 assign [class="^Spotify$"] $WS12
 
+# Move Terminal with name scratchpad to the scratchpad
+for_window [class="^Termite$" title="scratchpad"] move scratchpad
+
 # resize window (you can also use the mouse for that)
 mode "resize" {
         # These bindings trigger as soon as you enter the resize mode
@@ -240,3 +245,9 @@ client.focused #0088CC #0088CC #ffffff #dddddd
 client.focused_inactive #333333 #333333 #888888 #292d2e
 client.unfocused #333333 #333333 #888888 #292d2e
 client.urgent #2f343a #900000 #ffffff #900000
+
+# Autostart
+
+exec termite -t scratchpad
+
+bindsym $mod+ctrl+plus exec ~/scripts/start_up/multi_work
