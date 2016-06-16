@@ -83,4 +83,4 @@ attachment_prefix=~/downloads/mail/attachments
       command = "notmuch address --output=recipients date:1Y.. AND from:p.ernst@ostfalia.de"
       regexp = (\"?(?P<name>.+)\"?)?\s*<(?P<email>.*@.+?)>
       shellcommand_external_filtering = False
-    
+

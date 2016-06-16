@@ -1,6 +1,6 @@
 [general]
 pythonfile = ~/scripts/offlineimap.py
-accounts = internetme,realme,personal,bl,ostfalia
+accounts = internetme,realme,systemme,personal,bl,ostfalia
 ui = ttyui
 maxsyncaccounts = 10
 
@@ -20,6 +20,13 @@ remoterepository = realme-remote
 status_backend = sqlite
 postsynchook = notmuch new
 
+[Account systemme]
+autorefresh = 5
+quick = 10
+localrepository = systemme-local
+remoterepository = systemme-remote
+status_backend = sqlite
+postsynchook = notmuch new
 
 [Account personal]
 autorefresh = 5
@@ -53,10 +60,10 @@ localfolders = ~/mail/linucc
 type=IMAP
 ssl=yes
 remotehost=hosting01.swissnode.ch
-remoteuser = linucc
+remoteuser = linucc@linu.cc
 remotepasseval = get_pass('internetme')
 sslcacertfile = /etc/ssl/certs/ca-certificates.crt
-folderfilter = lambda folder: folder not in ['INBOX.Trash', 'INBOX.Junk', 'INBOX.p_ernst@linu_cc']
+folderfilter = lambda folder: folder not in ['INBOX.Trash', 'INBOX.Junk']
 
 [Repository realme-local]
 type = Maildir
@@ -70,6 +77,19 @@ remoteuser = p.ernst@linu.cc
 remotepasseval = get_pass('realme')
 sslcacertfile = /etc/ssl/certs/ca-certificates.crt
 folderfilter = lambda folder: folder not in ['INBOX.Trash', 'INBOX.Junk']
+
+[Repository systemme-local]
+type = Maildir
+localfolders = ~/mail/system
+
+[Repository systemme-remote]
+type=IMAP
+ssl=yes
+remotehost=hosting01.swissnode.ch
+remoteuser = linucc
+remotepasseval = get_pass('systemme')
+sslcacertfile = /etc/ssl/certs/ca-certificates.crt
+folderfilter = lambda folder: folder not in ['INBOX.Trash', 'INBOX.Junk', 'INBOX.p_ernst@linu_cc', 'INBOX.linucc@linu_cc']
 
 [Repository personal-local]
 type = Maildir
