@@ -1,0 +1,62 @@
+#!/usr/bin/env ruby
+
+require 'yaml'
+require 'fast_gettext'
+include FastGettext::Translation
+
+FastGettext.add_text_domain(
+  'core',
+  path: '/home/linucc/proggen/brandslisten/bl/core/locales',
+  type: :po
+)
+FastGettext.text_domain = 'core'
+FastGettext.locale = 'de'
+
+filepath_en = '/home/linucc/proggen/brandslisten/bl/frontend/config/locales/en/frontend/formal.yml'
+filepath_de = '/home/linucc/proggen/brandslisten/bl/frontend/config/locales/de/frontend/formal.yml'
+key = ARGV[0]
+orig_text = ARGV[1]
+
+prefix = 'frontend.formal.'
+postfix = ''
+
+class ::Hash
+    def deep_merge(second)
+        merger = proc { |key, v1, v2| Hash === v1 && Hash === v2 ? v1.merge(v2, &merger) : v2 }
+        self.merge(second, &merger)
+    end
+end
+
+def load_yaml(filepath)
+  yaml_string = File.read(filepath)
+  YAML.load(yaml_string)
+end
+
+def write_yaml(filepath, data)
+  output = YAML.dump(data)
+  File.write(filepath, output)
+end
+
+def yaml_item_to_hash(key, translation)
+  key_items = key.split('.').reverse
+  hash = {key_items.shift => translation}
+  # Add the whole path of the translation
+  key_items.each do |key_item|
+    hash = {key_item => hash}
+  end
+  return hash
+end
+
+begin
+  data = load_yaml(filepath_en)
+  data = data.deep_merge(yaml_item_to_hash("en.#{prefix}#{key}#{postfix}", orig_text))
+  write_yaml(filepath_en, data)
+
+  data = load_yaml(filepath_de)
+  translation = _(orig_text)
+  data = data.deep_merge(yaml_item_to_hash("de.#{prefix}#{key}#{postfix}", translation))
+  write_yaml(filepath_de, data)
+rescue
+  puts "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+  exit(1)
+end

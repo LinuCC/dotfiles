@@ -108,6 +108,8 @@ alias gmr="git merge $RELEASE_BRANCH"
 alias gmarc="git merge $ALTERNATIVE_CLIENT_BRANCH"
 alias gmrc="git merge $RELEASE_CLIENT_BRANCH"
 alias bundleofsticks="bundle install"
+alias gcd="git checkout development"
+alias gmd="git merge development"
 
 # Base16 Shell
 # BASE16_SHELL="$HOME/.config/base16-shell/base16-railscasts.dark.sh"

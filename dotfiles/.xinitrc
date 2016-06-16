@@ -10,7 +10,7 @@ compton &
 
 conky &
 
-feh --bg-fill --randomize ~/pictures/walls/active
+setup_walls &
 
 twmnd &
 

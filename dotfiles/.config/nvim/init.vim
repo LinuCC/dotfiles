@@ -28,6 +28,7 @@ call dein#add('bling/vim-airline', {
 \    let g:airline_powerline_fonts = 1\n
 \    let g:airline#extensions#tabline#enabled = 1\n
 \    let g:airline#extensions#branch#enabled = 1\n
+\    let g:airline#extensions#tabline#fnamemod = ':t'
 \  "
 \ })
 call dein#add('vim-airline/vim-airline-themes')
@@ -72,11 +73,13 @@ call dein#add('scrooloose/nerdtree', {
 \     let g:ycm_server_python_interpreter = \"/usr/bin/python\"
 \   "
 \ })
+call dein#add('joshdick/onedark.vim')
 call dein#add('tpope/vim-eunuch')
 call dein#add('SirVer/ultisnips')
 call dein#add('honza/vim-snippets')
 call dein#add('mattn/emmet-vim')
 call dein#add('sheerun/vim-polyglot')
+call dein#add('tpope/vim-unimpaired')
 call dein#add('tpope/vim-surround')
 call dein#add('tpope/vim-fugitive')
 
@@ -128,6 +131,9 @@ syntax enable
 filetype plugin indent on
 
 map <F2> :mks! vimsession<CR>
+map <F5> :call GettextSelect()<CR>zzh
+map <F6> :call GettextSelectRoot()<CR>zzh
+map <F10> :call SetPrefix()<CR>
 autocmd BufWritePre * :%s/\s\+$//e
 set listchars=tab:▸\ ,trail:·,nbsp:·
 set list
@@ -138,6 +144,122 @@ let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
 let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 " let base16colorspace=256
 " colorscheme base16-ocean
-colorscheme gruvbox-custom
+" colorscheme gruvbox-custom
+colo onedark
+
+" Use old regex-engine.
+" See http://stackoverflow.com/questions/16902317/vim-slow-with-ruby-syntax-highlighting
+" for why.
+" TODO: If Neovims new Regex-Engine hits, try without this statement.
+set re=1
+
+function! s:ag_in(...)
+  call fzf#vim#ag(join(a:000[1:], ' '), extend({'dir': a:1}, g:fzf#vim#default_layout))
+endfunction
+command! -nargs=+ -complete=dir AgIn call s:ag_in(<f-args>)
+
+function! Lol()
+  execute "normal! /_(.*)\<Cr>"
+  execute "normal! nv//e\<CR>"
+endfunction
+
+function! Stuff()
+  normal! /\v([\"\'])(\\.|[^\\1]|1)+\\1\<CR>
+  normal nv//e<CR>
+  let translation = GetVisualSelection()
+  let @z = translation
+endfunction
+
+function! SetPrefix()
+  call inputsave()
+  let path = input('Enter new YAML-prefix (current: ' . @x . ') : ')
+  call inputrestore()
+  if(empty(path)) | return | endif
+  let @x = path
+endfunction
+
+function! GettextSelect()
+  let prefix = @x
+  " let method_def_search = '\v_\([^\)]{-}\)'
+  let method_def_search = "\\v_\\(([\\\"\\'])(\\\\.|[^\\1]|1){-}\\1[^\\)]{-}\\)"
+  execute "normal! /" . method_def_search . "\<CR>"
+  execute "normal! v//e\<CR>\"ay"
+  let sel = @a
+  call inputsave()
+  let yaml_path = input('Enter new YAML-Path for ' . sel . ': ' . prefix)
+  call inputrestore()
+  if(empty(yaml_path)) | return | endif
+  let @a = "'" . prefix . yaml_path . "'"
+  " {-} == non-greedy
+  execute "normal! /\\v([\\\"\\'])(\\\\.|[^\\1]|1){-}\\1\<CR>"
+  " execute "normal! \<ESC>"
+  execute "normal! v//e\<CR>\"zy"
+  let @z = escape(@z, "%#")
+  echo 'Replaced ' . @z . ' with ' .@a
+  " let translation = GetVisualSelection()
+  " let @z = translation
+  " Replace the translation-string with the yaml-path
+  silent exec "! yamler " . prefix . yaml_path . ' ' . @z
+  " Replace the string in the code
+  let @a = 't(' . @a
+  silent :s/\v_\(([\"\'])(\\.|[^\1]|1){-}\1/\=@a/
+  " silent :s/_('/t('/
+endfunction
+
+function! GettextSelectRoot()
+  let prefix = ''
+  " let method_def_search = '\v_\([^\)]{-}\)'
+  let method_def_search = "\\v_\\(([\\\"\\'])(\\\\.|[^\\1]|1){-}\\1[^\\)]{-}\\)"
+  execute "normal! /" . method_def_search . "\<CR>"
+  execute "normal! v//e\<CR>\"ay"
+  let sel = @a
+  call inputsave()
+  let yaml_path = input('Enter new YAML-Path for ' . sel . ': ')
+  call inputrestore()
+  if(empty(yaml_path)) | return | endif
+  let @a = "'" . prefix . yaml_path . "'"
+  " {-} == non-greedy
+  execute "normal! /\\v([\\\"\\'])(\\\\.|[^\\1]|1){-}\\1\<CR>"
+  " execute "normal! \<ESC>"
+  execute "normal! v//e\<CR>\"zy"
+  let @z = escape(@z, "%")
+  echo 'Replaced ' . @z . ' with ' .@a
+  " let translation = GetVisualSelection()
+  " let @z = translation
+  " Replace the translation-string with the yaml-path
+  silent exec "! yamler " . prefix . yaml_path . ' ' . @z
+  " Replace the string in the code
+  let @a = 't(' . @a
+  silent :s/\v_\(([\"\'])(\\.|[^\1]|1){-}\1/\=@a/
+  " silent :s/_('/t('/
+endfunction
+
+function! GetVisualSelection()
+  " Why is this not a built-in Vim script function?!
+  let [lnum1, col1] = getpos("'<")[1:2]
+  let [lnum2, col2] = getpos("'>")[1:2]
+  let lines = getline(lnum1, lnum2)
+  let lines[-1] = lines[-1][: col2 - (&selection == 'inclusive' ? 1 : 2)]
+  let lines[0] = lines[0][col1 - 1:]
+  return join(lines, "\n")
+endfunction
 
 nnoremap <CR> :noh<CR><CR>
+
+"
+" Some personal color changes
+"
+
+" Italic, because its cool
+highlight String gui=italic
+highlight Comment gui=italic
+
+" Make diffs easy to read
+highlight DiffAdd guibg=#445444
+highlight DiffChange guibg=#444454
+highlight DiffDelete guibg=#544444
+highlight DiffText guibg=#444D4D
+
+" Transparent background
+highlight Normal guibg=none
+highlight NonText guibg=none

@@ -6,7 +6,15 @@
 [core]
 	editor = nvim
 	excludesfile = /home/linucc/.gitignore
+	pager = diff-so-fancy | less --tabs=4 -RFX
 [push]
 	default = current
 [alias]
   br = for-each-ref --sort=committerdate refs/heads/ --format='%(HEAD) %(color:yellow)%(refname:short)%(color:reset) - %(color:red)%(objectname:short)%(color:reset) - %(contents:subject) - %(authorname) (%(color:green)%(committerdate:relative)%(color:reset))'
+
+[merge]
+  tool = vimdiff
+[mergetool]
+  prompt = true
+[mergetool "vimdiff"]
+  cmd = nvim $BASE $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'

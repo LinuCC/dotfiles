@@ -152,6 +152,9 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 bindsym $mod+Ctrl+k focus output right
 bindsym $mod+Ctrl+j focus output left
 
+bindsym $mod+bracketright focus output right
+bindsym $mod+bracketleft focus output left
+
 bindsym $mod+backslash workspace back_and_forth
 
 # Scratchpad

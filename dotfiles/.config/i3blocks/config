@@ -15,28 +15,28 @@ markup=pango
 # interval=once
 # signal=12
 
-[pivotal_story]
-command=(ruby ~/scripts/bl/pivotal.rb last_started_story name) | tr '&' '+'
-interval=30
-color=#3682d3
-label=
-
-[separator]
-
-[pivotal_done_stories]
-command=ruby ~/scripts/bl/pivotal.rb my_done_stories
-interval=30
-color=#3682d3
-label=
-
-
-[separator]
-
-[pivotal_unfinished_stories]
-command=ruby ~/scripts/bl/pivotal.rb my_open_stories
-interval=30
-color=#3682d3
-label=
+# [pivotal_story]
+# command=(ruby ~/scripts/bl/pivotal.rb last_started_story name) | tr '&' '+'
+# interval=30
+# color=#3682d3
+# label=
+#
+# [separator]
+#
+# [pivotal_done_stories]
+# command=ruby ~/scripts/bl/pivotal.rb my_done_stories
+# interval=30
+# color=#3682d3
+# label=
+#
+#
+# [separator]
+#
+# [pivotal_unfinished_stories]
+# command=ruby ~/scripts/bl/pivotal.rb my_open_stories
+# interval=30
+# color=#3682d3
+# label=
 
 [separator]
 
