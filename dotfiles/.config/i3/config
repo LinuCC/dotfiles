@@ -14,8 +14,8 @@ set $term termite
 set $menu rofi -show run
 set $window_switcher rofi -show window
 
-set $monitor1 DisplayPort-0
-set $monitor2 HDMI-0
+set $monitor1 HDMI1
+set $monitor2 eDP1
 
 set $WS1 "1:"
 set $WS2 "2:"

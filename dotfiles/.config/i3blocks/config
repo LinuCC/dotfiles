@@ -148,7 +148,7 @@ interval=10
 
 [ethernet]
 label=
-instance=enp0s31f6
+instance=enp1s0
 command=~/.config/i3blocks/iface
 color=#268bd2
 interval=30
