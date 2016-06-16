@@ -122,7 +122,7 @@ The `pass` command is not able to ask for the password when systemd calls it.
 * `c-q` - Tags
 * `c-space` - Buffers
 * While in any of these searches:
-  * `c-x`, `c-v` to split instead of opening a new buffer
+  * `c-x`, `c-v`, `c-t` to split instead of opening a new buffer
 * `c-w =` Equalize size of vertically split windows
 * `v/foo` Selects everyting until `foo`
 * `c-o` Escapes from insert-mode (useful for vim-multiple-cursors)
@@ -152,6 +152,33 @@ Sessions:
 
 * `:mks[!] [file]` - create Session
 * `nvim -S [file]` - restore Session
+
+Git Commits:
+
+* Search with `:Commits` through them, and select single files
+* `o` open split diff
+* `S` open split diff vertically
+* `O` open split diffi in new tab
+* `C` Go to the commit containing the current file
+* `s-d` Open diff comparing HEAD & index (like `git diff --staged`)
+* `U` `git checkout -- <file>`
+
+Git mergeconflicts:
+
+* Select files to merge in `:Gstatus`
+* Bring up three-way diff with `:Gdiff`
+* `[c`, `]c` prev/next hunk
+* `//3` for file from merge-branch
+* `dp` to put from currently selected to working file
+* `:Gwrite` wirte current file to index
+* `:only` close all but current selected window
+
+Folding:
+
+* `zo` Open
+* `zc` Close
+* `zR` Open all
+* `zM` Close all
 
 ==============
 
