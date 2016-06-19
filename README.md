@@ -127,6 +127,7 @@ The `pass` command is not able to ask for the password when systemd calls it.
 * `v/foo` Selects everyting until `foo`
 * `c-o` Escapes from insert-mode (useful for vim-multiple-cursors)
 * `gv` Reselect last selection
+* `q:` To copy commands (opens last commands as a buffer)
 
 #### Commands
 
