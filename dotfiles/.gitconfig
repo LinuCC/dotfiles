@@ -1,14 +1,16 @@
 [user]
-	email = linucc@linu.cc
-	name = Pascal Ernst
+  email = linucc@linu.cc
+  name = Pascal Ernst
 [editor]
-	default = nvim
+  default = nvim
 [core]
-	editor = nvim
-	excludesfile = /home/linucc/.gitignore
-	pager = diff-so-fancy | less --tabs=4 -RFX
+  editor = nvim
+  excludesfile = /home/linucc/.gitignore
+  pager = diff-so-fancy | less --tabs=4 -RFX
 [push]
-	default = current
+  default = current
+[diff]
+  compactionHeuristic = true
 [alias]
   br = for-each-ref --sort=committerdate refs/heads/ --format='%(HEAD) %(color:yellow)%(refname:short)%(color:reset) - %(color:red)%(objectname:short)%(color:reset) - %(contents:subject) - %(authorname) (%(color:green)%(committerdate:relative)%(color:reset))'
 
