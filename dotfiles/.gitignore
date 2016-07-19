@@ -8,6 +8,9 @@
 *.fls
 *.synctex.gz
 
+# Vim-Orgmode
+*.org
+
 
 *.log
 vimsession

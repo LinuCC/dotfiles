@@ -6,14 +6,14 @@ include FastGettext::Translation
 
 FastGettext.add_text_domain(
   'core',
-  path: '/home/linucc/proggen/brandslisten/bl/core/locales',
+  path: '/home/linucc/code/brandslisten/bl/core/locales',
   type: :po
 )
 FastGettext.text_domain = 'core'
 FastGettext.locale = 'de'
 
-filepath_en = '/home/linucc/proggen/brandslisten/bl/frontend/config/locales/en/frontend/formal.yml'
-filepath_de = '/home/linucc/proggen/brandslisten/bl/frontend/config/locales/de/frontend/formal.yml'
+filepath_en = '/home/linucc/code/brandslisten/bl/frontend/config/locales/en/frontend/formal.yml'
+filepath_de = '/home/linucc/code/brandslisten/bl/frontend/config/locales/de/frontend/formal.yml'
 key = ARGV[0]
 orig_text = ARGV[1]
 

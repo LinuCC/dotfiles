@@ -210,6 +210,8 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
+bindsym --release $mod+p exec "scrot -s"
+
 # Count for the 2-1 merge system :P
 bindsym $mod+ctrl+m exec "expr $(cat ~/.to-merge) - 1 > ~/.to-merge"
 bindsym $mod+ctrl+p exec "expr $(cat ~/.to-merge) + 2 > ~/.to-merge"

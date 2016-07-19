@@ -32,7 +32,11 @@ call dein#add('bling/vim-airline', {
 \  "
 \ })
 call dein#add('vim-airline/vim-airline-themes')
-" call dein#add('nathanaelkane/vim-indent-guides')
+call dein#add('nathanaelkane/vim-indent-guides', {
+\  'hook_add': "
+\     let g:indent_guides_guide_size = 1
+\  "
+\ })
 call dein#add('roryokane/detectindent')
 call dein#add('tpope/vim-rails')
 call dein#add('terryma/vim-multiple-cursors')
@@ -82,6 +86,11 @@ call dein#add('sheerun/vim-polyglot')
 call dein#add('tpope/vim-unimpaired')
 call dein#add('tpope/vim-surround')
 call dein#add('tpope/vim-fugitive')
+
+" vim-orgmode and corresponding, needed plugins
+call dein#add('jceb/vim-orgmode')
+call dein#add('tpope/vim-speeddating')
+call dein#add('majutsushi/tagbar')
 
 let g:UltiSnipsExpandTrigger="<c-l>"
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
@@ -139,6 +148,7 @@ set listchars=tab:▸\ ,trail:·,nbsp:·
 set list
 set ts=2 sts=2 sw=2 expandtab
 set tw=80
+set wrap
 set rnu
 let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
 let $NVIM_TUI_ENABLE_TRUE_COLOR=1
@@ -157,6 +167,13 @@ function! s:ag_in(...)
   call fzf#vim#ag(join(a:000[1:], ' '), extend({'dir': a:1}, g:fzf#vim#default_layout))
 endfunction
 command! -nargs=+ -complete=dir AgIn call s:ag_in(<f-args>)
+
+" Map <leader> <num> to go to the window with that num
+let i = 1
+while i <= 9
+    execute 'nnoremap <Leader>' . i . ' :' . i . 'wincmd w<CR>'
+    let i = i + 1
+endwhile
 
 function! Lol()
   execute "normal! /_(.*)\<Cr>"
@@ -178,16 +195,20 @@ function! SetPrefix()
   let @x = path
 endfunction
 
-function! GettextSelect()
+function! GettextSelect(...)
   let prefix = @x
   " let method_def_search = '\v_\([^\)]{-}\)'
   let method_def_search = "\\v_\\(([\\\"\\'])(\\\\.|[^\\1]|1){-}\\1[^\\)]{-}\\)"
   execute "normal! /" . method_def_search . "\<CR>"
   execute "normal! v//e\<CR>\"ay"
   let sel = @a
-  call inputsave()
-  let yaml_path = input('Enter new YAML-Path for ' . sel . ': ' . prefix)
-  call inputrestore()
+  if a:0 == 0
+    call inputsave()
+    let yaml_path = input('Enter new YAML-Path for ' . sel . ': ' . prefix)
+    call inputrestore()
+  else
+    let yaml_path = a:1
+  endif
   if(empty(yaml_path)) | return | endif
   let @a = "'" . prefix . yaml_path . "'"
   " {-} == non-greedy
@@ -214,7 +235,7 @@ function! GettextSelectRoot()
   execute "normal! v//e\<CR>\"ay"
   let sel = @a
   call inputsave()
-  let yaml_path = input('Enter new YAML-Path for ' . sel . ': ')
+  let yaml_path = input('Enter new YAML-Path for ' . sel . ': ' . prefix)
   call inputrestore()
   if(empty(yaml_path)) | return | endif
   let @a = "'" . prefix . yaml_path . "'"
@@ -222,7 +243,7 @@ function! GettextSelectRoot()
   execute "normal! /\\v([\\\"\\'])(\\\\.|[^\\1]|1){-}\\1\<CR>"
   " execute "normal! \<ESC>"
   execute "normal! v//e\<CR>\"zy"
-  let @z = escape(@z, "%")
+  let @z = escape(@z, "%#")
   echo 'Replaced ' . @z . ' with ' .@a
   " let translation = GetVisualSelection()
   " let @z = translation
@@ -251,8 +272,8 @@ nnoremap <CR> :noh<CR><CR>
 "
 
 " Italic, because its cool
-highlight String gui=italic
-highlight Comment gui=italic
+highlight String gui=italic cterm=italic
+highlight Comment gui=italic cterm=italic
 
 " Make diffs easy to read
 highlight DiffAdd guibg=#445444
@@ -261,5 +282,9 @@ highlight DiffDelete guibg=#544444
 highlight DiffText guibg=#444D4D
 
 " Transparent background
-highlight Normal guibg=none
-highlight NonText guibg=none
+highlight Normal guibg=none ctermbg=none
+highlight NonText guibg=none ctermbg=none
+
+hi IndentGuidesOdd  guibg=black ctermbg=black
+hi IndentGuidesEven guibg=darkgrey ctermbg=darkgrey
+

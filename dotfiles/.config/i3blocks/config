@@ -4,6 +4,8 @@ color=#586e75
 separator=false
 separator_block_width=7
 markup=pango
+command=~/code/shell/i3blocks/blocks/$BLOCK_NAME
+
 
 # [separator]
 
@@ -38,6 +40,11 @@ markup=pango
 # color=#3682d3
 # label=
 
+#[process]
+#instance=http
+#label=
+#interval=10
+
 [separator]
 
 [tomerge]
@@ -48,21 +55,25 @@ label=
 
 [separator]
 
+[countdown]
+instance=today 18:20:00
+label=
+interval=1
+
+[separator]
+
 [mediaplayer]
-command=~/.config/i3blocks/mediaplayer
 instance=spotify
 interval=5
 signal=10
 color=#d33682
 label=
 
-[separator]
-
 [volume]
 full_text=
 #label=♪
 label=:
-command=~/.config/i3blocks/volume 2
+command=~/code/shell/i3blocks/blocks/volume 2
 color=#d33682
 interval=5
 signal=12
@@ -70,17 +81,12 @@ signal=12
 [separator]
 
 [offlineimapstatus]
-command=~/.config/i3blocks/offlineimapstatus
 label=
 color=#999999
 interval=10
 # signal=12
 
-[separator]
-
-
 [mailbox]
-command=~/.config/i3blocks/mailboxstatus
 label=
 color=#b58900
 interval=10
@@ -89,7 +95,7 @@ interval=10
 [separator]
 
 [bl-running-server]
-command=~/scripts/bl_running_server
+command=~/code/shell/bl_running_server
 label=
 color=#859900
 interval=1
@@ -97,8 +103,61 @@ interval=1
 
 [separator]
 
+[brightness]
+color=#886622
+label=
+interval=5
+
+[battery]
+color=#aa8822
+label=
+instance=0
+interval=5
+
+[separator]
+
+[packages]
+label=
+interval=300
+color=#586ecc
+instance=with_sync
+
+[separator]
+
+[cpu]
+label=
+interval=1
+color=#669922
+
+[temperature]
+instance=Core
+label=
+interval=1
+color=#bb2222
+
+[separator]
+
+[memory]
+label=
+instance=mem;free
+interval=10
+color=#229966
+
+[separator]
+
+# [memory]
+# label=
+# instance=swap;total
+# interval=30
+
+[space]
+label=
+interval=30
+color=#77a7a7
+
+[separator]
+
 [vpn]
-command=~/.config/i3blocks/vpncheck
 label=
 color=#e88b0c
 interval=10
@@ -146,12 +205,40 @@ interval=10
 
 [separator]
 
-[ethernet]
+[iface]
 label=
 instance=enp1s0
-command=~/.config/i3blocks/iface
 color=#268bd2
 interval=30
+
+[bandwidth]
+instance=enp1s0;in
+label=
+interval=1
+
+[bandwidth]
+instance=enp1s0;out
+label=
+interval=1
+
+[separator]
+
+[iface]
+label=
+instance=wlp2s0
+color=#268bd2
+interval=30
+
+# [bandwidth]
+# instance=wlp2s0;in
+# label=
+# interval=1
+#
+# [bandwidth]
+# instance=wlp2s0;out
+# label=
+# interval=1
+
 
 #[separator]
 #
