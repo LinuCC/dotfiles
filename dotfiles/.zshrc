@@ -113,6 +113,8 @@ alias bundleofsticks="bundle install"
 alias gcd="git checkout development"
 alias gmd="git merge development"
 
+alias gdc="git diff --cached"
+
 # Base16 Shell
 BASE16_SHELL="$HOME/.config/base16-shell/base16-railscasts.dark.sh"
 # BASE16_SHELL="$HOME/.config/base16-shell/base16-codeschool.dark.sh"

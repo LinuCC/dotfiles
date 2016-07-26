@@ -78,6 +78,7 @@ call dein#add('scrooloose/nerdtree', {
 \   "
 \ })
 call dein#add('joshdick/onedark.vim')
+call dein#add('freeo/vim-kalisi')
 call dein#add('tpope/vim-eunuch')
 call dein#add('SirVer/ultisnips')
 call dein#add('honza/vim-snippets')
@@ -155,7 +156,8 @@ let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 " let base16colorspace=256
 " colorscheme base16-ocean
 " colorscheme gruvbox-custom
-colo onedark
+" colo onedark
+colo kalisi
 
 " Use old regex-engine.
 " See http://stackoverflow.com/questions/16902317/vim-slow-with-ruby-syntax-highlighting
