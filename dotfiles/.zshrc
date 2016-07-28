@@ -86,8 +86,10 @@ source $ZSH/oh-my-zsh.sh
 
 alias net="netctl"
 
+SCRIPTS="$HOME/code/shell"
+
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
-source "$HOME/scripts/my_methods"
+source "$SCRIPTS/my_methods"
 # source "$HOME/scripts/system_specific"
 # source "/etc/profile.d/fzf.zsh"
 source "$HOME/.rvm/scripts/rvm"
@@ -111,9 +113,11 @@ alias bundleofsticks="bundle install"
 alias gcd="git checkout development"
 alias gmd="git merge development"
 
+alias gdc="git diff --cached"
+
 # Base16 Shell
-# BASE16_SHELL="$HOME/.config/base16-shell/base16-railscasts.dark.sh"
-BASE16_SHELL="$HOME/.config/base16-shell/base16-codeschool.dark.sh"
+BASE16_SHELL="$HOME/.config/base16-shell/base16-railscasts.dark.sh"
+# BASE16_SHELL="$HOME/.config/base16-shell/base16-codeschool.dark.sh"
 # BASE16_SHELL="$HOME/.config/base16-shell/my-codeschool.sh"
 [[ -s $BASE16_SHELL ]] && source $BASE16_SHELL
 

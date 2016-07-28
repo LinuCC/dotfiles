@@ -18,6 +18,9 @@
 
 [ -d ~/.config/neofetch ] || mkdir -p ~/.config/neofetch
 
+[ -d ~/code/python ] || mkdir -p ~/code/python
+[ -d ~/code/shell ] || mkdir -p ~/code/shell
+
 # Manually link gitignore since stow ignores it
 [ -f ~/.gitignore ] || ln -s .dot/dotfiles/.gitignore ~/.gitignore
 

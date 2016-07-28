@@ -171,8 +171,13 @@ Git mergeconflicts:
 * `[c`, `]c` prev/next hunk
 * `//3` for file from merge-branch
 * `dp` to put from currently selected to working file
-* `:Gwrite` wirte current file to index
+* `:Gwrite` write current file to index
 * `:only` close all but current selected window
+
+Other Git stuff:
+
+* Blames
+  * `P` Go to parent of commit displayed in Blame
 
 Folding:
 

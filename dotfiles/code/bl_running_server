@@ -1,6 +1,6 @@
 #/bin/bash
-BLPATH="/home/linucc/proggen/brandslisten"
-servers=("douglas" "dummy" "eon" "unity_media" "ee")
+BLPATH="/home/linucc/code/brandslisten"
+servers=("douglas" "dummy" "eon" "unity_media" "ee" "white_label" "bw" "styleguide")
 
 server_running=false
 
