@@ -1,5 +1,5 @@
 [general]
-pythonfile = ~/scripts/offlineimap.py
+pythonfile = ~/code/python/offlineimap.py
 accounts = internetme,realme,systemme,personal,bl,ostfalia
 ui = ttyui
 maxsyncaccounts = 10
