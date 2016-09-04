@@ -16,9 +16,9 @@ DIFF=""
 if [[ "${DIFF_DATE}" -le 0 ]]; then
   # echo "${END_DATE}"
   # echo "${END_DATE}"
-  echo "Hey! Listen!"
+  echo "<span background='darkgreen' foreground='white'>Done</span>"
   echo ""
-  exit 33
+  exit 0
 fi
 
 if [[ "${DIFF_DATE}" -ge 86400 ]]; then
