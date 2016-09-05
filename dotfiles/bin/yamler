@@ -12,12 +12,12 @@ FastGettext.add_text_domain(
 FastGettext.text_domain = 'core'
 FastGettext.locale = 'de'
 
-filepath_en = '/home/linucc/code/brandslisten/bl/frontend/config/locales/en/frontend/formal.yml'
-filepath_de = '/home/linucc/code/brandslisten/bl/frontend/config/locales/de/frontend/formal.yml'
+filepath_en = '/home/linucc/code/brandslisten/bl/core/config/locales/en/core/formal.yml'
+filepath_de = '/home/linucc/code/brandslisten/bl/core/config/locales/de/core/formal.yml'
 key = ARGV[0]
 orig_text = ARGV[1]
 
-prefix = 'frontend.formal.'
+prefix = 'core.formal.'
 postfix = ''
 
 class ::Hash
@@ -56,7 +56,7 @@ begin
   translation = _(orig_text)
   data = data.deep_merge(yaml_item_to_hash("de.#{prefix}#{key}#{postfix}", translation))
   write_yaml(filepath_de, data)
-rescue
-  puts "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+rescue Exception => e
+  puts "#{e}"
   exit(1)
 end
