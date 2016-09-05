@@ -84,6 +84,9 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+# export HISTSIZE=50000
+# export SAVEHIST=50000
+
 alias net="netctl"
 
 SCRIPTS="$HOME/code/shell"
@@ -117,6 +120,7 @@ alias gdc="git diff --cached"
 
 # Base16 Shell
 BASE16_SHELL="$HOME/.config/base16-shell/base16-railscasts.dark.sh"
+# BASE16_SHELL="$HOME/.config/base16-shell/base16-atelierdune.dark.sh"
 # BASE16_SHELL="$HOME/.config/base16-shell/base16-codeschool.dark.sh"
 # BASE16_SHELL="$HOME/.config/base16-shell/my-codeschool.sh"
 [[ -s $BASE16_SHELL ]] && source $BASE16_SHELL
@@ -125,5 +129,9 @@ BASE16_SHELL="$HOME/.config/base16-shell/base16-railscasts.dark.sh"
 export FZF_DEFAULT_COMMAND='ag -g ""'
 
 eval $(thefuck --alias)
+
+function easy_input {
+  unsetopt nomatch
+}
 
 neofetch

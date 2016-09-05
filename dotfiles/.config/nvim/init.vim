@@ -235,7 +235,7 @@ function! GettextSelect(...)
   " Replace the translation-string with the yaml-path
   silent exec "! yamler " . prefix . yaml_path . ' ' . @z
   " Replace the string in the code
-  let @a = 't(' . @a
+  let @a = 'Bl::TranslationHelper.t(' . @a
   silent :s/\v_\(([\"\'])(\\.|[^\1]|1){-}\1/\=@a/
   " silent :s/_('/t('/
 endfunction
