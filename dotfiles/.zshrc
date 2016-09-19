@@ -50,7 +50,7 @@ DISABLE_AUTO_UPDATE="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git lol archlinux vagrant docker rails extract)
+plugins=(git lol archlinux vagrant docker rails extract docker-compose docker-compose-status)
 
 # User configuration
 
@@ -93,9 +93,12 @@ SCRIPTS="$HOME/code/shell"
 
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 source "$SCRIPTS/my_methods"
+source "$SCRIPTS/cmdhelpers"
 # source "$HOME/scripts/system_specific"
 # source "/etc/profile.d/fzf.zsh"
 source "$HOME/.rvm/scripts/rvm"
+source "/$HOME/code/shell/fzf-extras/fzf-extras.bash"
+source "/$HOME/code/shell/fzf-extras/fzf-extras.zsh"
 
 ALTERNATIVE_BRANCH="release-0.18.0-bubblegum-tate"
 RELEASE_BRANCH="release-0.19.0-white-unicorn"
@@ -116,6 +119,12 @@ alias bundleofsticks="bundle install"
 alias gcd="git checkout development"
 alias gmd="git merge development"
 
+alias dcup='docker-compose up'
+alias dcb='docker-compose build'
+alias dcrm='docker-compose rm'
+alias dcps='docker-compose ps'
+alias dcstop='docker-compose stop'
+alias dcrestart='docker-compose restart'
 alias gdc="git diff --cached"
 
 # Base16 Shell
@@ -127,6 +136,9 @@ BASE16_SHELL="$HOME/.config/base16-shell/base16-railscasts.dark.sh"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 export FZF_DEFAULT_COMMAND='ag -g ""'
+
+export BL_GEM_PATH="$HOME/code/brandslisten/bl"
+export BL_STYLEGUIDE_GEM_PATH="$HOME/code/brandslisten/bl_styleguide"
 
 eval $(thefuck --alias)
 

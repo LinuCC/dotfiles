@@ -1,0 +1,20 @@
+#!/bin/zsh
+
+function settitle() {
+  local title="$@"
+  DISABLE_AUTO_TITLE="true"
+  echo -e "\033];$title\007"
+}
+
+function downcase() {
+  local var="$@"
+  var=$((echo $var) | tr -c '[:alnum:] ' ' ' | tr '[:upper:]' '[:lower:]')
+  var=$((echo $var) | tr -s ' ' | tr ' ' '_')
+  echo $var
+}
+
+function instantfuzzy() {
+  local filter="$@"
+  local res=$(fzf --filter=$filter | head -n1)
+  echo $res
+}

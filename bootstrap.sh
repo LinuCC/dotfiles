@@ -20,6 +20,7 @@
 
 [ -d ~/code/python ] || mkdir -p ~/code/python
 [ -d ~/code/shell ] || mkdir -p ~/code/shell
+[ -d ~/code/shell/fzf-extras ] || mkdir -p ~/code/shell/fzf-extras
 
 # Manually link gitignore since stow ignores it
 [ -f ~/.gitignore ] || ln -s .dot/dotfiles/.gitignore ~/.gitignore
