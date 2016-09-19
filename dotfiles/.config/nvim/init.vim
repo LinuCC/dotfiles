@@ -49,6 +49,7 @@ call dein#add('xolox/vim-easytags', {
 \   "
 \ })
 call dein#add('scrooloose/syntastic')
+call dein#add('tpope/vim-capslock')
 call dein#add('junegunn/fzf', {'build': './install', 'merged': 0})
 call dein#add('junegunn/fzf.vim', {
 \   'depends': 'fzf',
@@ -77,6 +78,7 @@ call dein#add('scrooloose/nerdtree', {
 \     let g:ycm_server_python_interpreter = \"/usr/bin/python\"
 \   "
 \ })
+call dein#add('lervag/vimtex')
 call dein#add('joshdick/onedark.vim')
 call dein#add('freeo/vim-kalisi')
 call dein#add('tpope/vim-eunuch')
