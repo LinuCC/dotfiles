@@ -44,7 +44,7 @@ Install `dein.vim` by running the following (see the
 
 ```
  $ curl https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh > installer.sh
- $ sh ./installer.sh {specify the installation directory}
+ $ sh ./installer.sh .config/nvim/bundles
 ```
 
 Also install the package `rsync`.
@@ -108,6 +108,14 @@ Problem:
 The `pass` command is not able to ask for the password when systemd calls it.
 
 ## Cheatsheet'N Stuff
+
+### Fzf Extras:
+
+* fbr - Checkout Git branch (including remote branches)
+* fco - Checkout Git branch/tag
+* fcoc - Checkout Git commit
+* fcs - Get Git commit SHA hash
+
 
 ### Neovim
 
@@ -186,6 +194,20 @@ Folding:
 * `zc` Close
 * `zR` Open all
 * `zM` Close all
+
+Marks (using `vim-signature`):
+
+* `m.` Add available mark / remove if existing on line
+* `m<Space>` Remove all marks of buffer
+*  `]\``           Jump to next mark
+*  `[\``           Jump to prev mark
+*  `]'`           Jump to start of next line containing a mark
+*  `['`           Jump to start of prev line containing a mark
+*  `\`]`           Jump by alphabetical order to next mark
+*  `\`[`           Jump by alphabetical order to prev mark
+*  `']`           Jump by alphabetical order to start of next line having a mark
+*  `'[`           Jump by alphabetical order to start of prev line having a mark
+*  `m/`           Open location list and display marks from current buffer
 
 ==============
 

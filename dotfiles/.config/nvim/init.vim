@@ -1,4 +1,4 @@
-set runtimepath^=/home/linucc/.config/nvim/bundles/repos/github.com/Shougo/dein.vim
+set runtimepath+=/home/linucc/.config/nvim/bundles/repos/github.com/Shougo/dein.vim
 call dein#begin(expand('/home/linucc/.config/nvim/bundles'))
 
 call dein#add('tpope/vim-repeat', {
@@ -32,11 +32,12 @@ call dein#add('bling/vim-airline', {
 \  "
 \ })
 call dein#add('vim-airline/vim-airline-themes')
-call dein#add('nathanaelkane/vim-indent-guides', {
-\  'hook_add': "
-\     let g:indent_guides_guide_size = 1
-\  "
-\ })
+" call dein#add('nathanaelkane/vim-indent-guides', {
+" \  'hook_add': "
+" \     let g:indent_guides_guide_size = 1
+" \  "
+" \ })
+call dein#add('yggdroot/indentLine')
 call dein#add('roryokane/detectindent')
 call dein#add('tpope/vim-rails')
 call dein#add('terryma/vim-multiple-cursors')
@@ -80,6 +81,7 @@ call dein#add('scrooloose/nerdtree', {
 \ })
 call dein#add('lervag/vimtex')
 call dein#add('joshdick/onedark.vim')
+call dein#add('kshenoy/vim-signature')
 call dein#add('freeo/vim-kalisi')
 call dein#add('tpope/vim-eunuch')
 call dein#add('SirVer/ultisnips')
@@ -95,17 +97,6 @@ call dein#add('jceb/vim-orgmode')
 call dein#add('tpope/vim-speeddating')
 call dein#add('majutsushi/tagbar')
 
-let g:UltiSnipsExpandTrigger="<c-l>"
-let g:UltiSnipsJumpForwardTrigger="<c-b>"
-let g:UltiSnipsJumpBackwardTrigger="<c-z>"
-
-" If you want :UltiSnipsEdit to split your window.
-let g:UltiSnipsEditSplit="vertical"
-
-let g:UltiSnipsUsePythonVersion = 3
-let g:UltiSnipsListSnippets = "<c-e>"
-let g:UltiSnipsSnippetsDir = '~/.config/nvim/UltiSnips'
-
 " Expand snippets with <enter>
 " let g:UltiSnipsExpandTrigger = "<nop>"
 " let g:ulti_expand_or_jump_res = 0
@@ -120,6 +111,18 @@ let g:UltiSnipsSnippetsDir = '~/.config/nvim/UltiSnips'
 " inoremap <expr> <CR> pumvisible() ? "\<C-R>=ExpandSnippetOrCarriageReturn()\<CR>" : "\<CR>"
 
 call dein#end()
+
+let g:UltiSnipsExpandTrigger="<c-l>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+
+" If you want :UltiSnipsEdit to split your window.
+let g:UltiSnipsEditSplit="vertical"
+
+let g:UltiSnipsUsePythonVersion = 3
+let g:UltiSnipsListSnippets = "<c-e>"
+let g:UltiSnipsSnippetsDir = '~/.config/nvim/UltiSnips'
+
 
 " TODO add syntastic checking
 
@@ -168,9 +171,9 @@ endif
 
 " let base16colorspace=256
 " colorscheme base16-ocean
-" colorscheme gruvbox-custom
+colorscheme gruvbox-custom
 " colo onedark
-colo kalisi
+" colo kalisi
 
 " Use old regex-engine.
 " See http://stackoverflow.com/questions/16902317/vim-slow-with-ruby-syntax-highlighting
@@ -295,6 +298,9 @@ highlight DiffAdd guibg=#445444
 highlight DiffChange guibg=#444454
 highlight DiffDelete guibg=#544444
 highlight DiffText guibg=#444D4D
+
+" let g:indentLine_color_gui = '#444D4D'
+let g:indentLine_char = '┆'
 
 " Transparent background
 highlight Normal guibg=none ctermbg=none
