@@ -1,0 +1,13 @@
+#!/home/linucc/.rvm/rubies/ruby-2.3.0/bin/ruby
+sha = `date +%s | openssl dgst -sha256`.split(" ")[1]
+puts sha, ARGV[0]
+system("docker build #{ARGV[1]} -t #{ARGV[0]}:#{sha} .")
+$?.exitstatus == 0 or abort($?.exitstatus)
+system("docker tag #{ARGV[0]}:#{sha} registry.brandslisten.com:443/#{ARGV[0]}:#{sha}")
+$?.exitstatus == 0 or abort($?.exitstatus)
+system("docker push registry.brandslisten.com:443/#{ARGV[0]}:#{sha}")
+$?.exitstatus == 0 or abort($?.exitstatus)
+puts "\ndone"
+puts sha
+puts "registry.brandslisten.com:443/#{ARGV[0]}:#{sha}"
+exit(0)

@@ -16,3 +16,5 @@
 vimsession
 
 node_modules
+.env
+.ssh

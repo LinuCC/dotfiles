@@ -9,6 +9,11 @@ Just call `./bootstrap.sh` to setup.
 
 ## Manual Config
 
+### General Niceness
+
+To display certain things the right way (like fancy separators used in vim and
+i3blocks), install the `Input`-font which supports many things.
+
 ### ZSH
 
 I use `base16-shell` for some nice colors:

@@ -10,7 +10,7 @@ XKB_DEFAULT_LAYOUT=gb
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="gnzh"
+ZSH_THEME="gnzh-custom"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -99,6 +99,7 @@ source "$SCRIPTS/cmdhelpers"
 source "$HOME/.rvm/scripts/rvm"
 source "/$HOME/code/shell/fzf-extras/fzf-extras.bash"
 source "/$HOME/code/shell/fzf-extras/fzf-extras.zsh"
+source "/$HOME/code/shell/lutz"
 
 ALTERNATIVE_BRANCH="release-0.18.0-bubblegum-tate"
 RELEASE_BRANCH="release-0.19.0-white-unicorn"
@@ -147,3 +148,5 @@ function easy_input {
 }
 
 neofetch
+
+source /usr/share/autoenv-git/activate.sh

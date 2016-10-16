@@ -1,0 +1,3 @@
+#!/bin/bash
+
+git checkout -b `date +%y%m%d`_pe_${1}_${2}
