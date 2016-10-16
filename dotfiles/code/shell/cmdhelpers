@@ -18,3 +18,18 @@ function instantfuzzy() {
   local res=$(fzf --filter=$filter | head -n1)
   echo $res
 }
+
+function pasta() {
+  $* | xsel -bi && xdotool key --clearmodifiers 'ctrl+v'
+}
+
+function cmdpasta() {
+  $* | xsel -bi && xdotool key --clearmodifiers 'ctrl+shift+v'
+}
+
+function importenvfrom() {
+  local filename=$1
+  set -o allexport
+  source "$filename"
+  set +o allexport
+}

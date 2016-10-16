@@ -1,9 +1,14 @@
 #! /bin/zsh
 
+# Create directories so that stow links the files in them, not the whole
+# directories.
+
 [ -d ~/mail/linucc ] || mkdir -p ~/mail/linucc
 [ -d ~/mail/ernst_linucc ] || mkdir -p ~/mail/ernst_linucc
 [ -d ~/mail/personal ] || mkdir -p ~/mail/personal
 [ -d ~/mail/bl ] || mkdir -p ~/mail/bl
+
+[ -d ~/mail/.notmuch/hooks ] || mkdir -p ~/mail/.notmuch/hooks
 
 [ -d ~/pictures/icons ] || mkdir -p ~/pictures/icons
 

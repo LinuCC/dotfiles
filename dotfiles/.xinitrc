@@ -1,14 +1,16 @@
 setxkbmap -option caps:escape -layout gb
-export LANG=en_US.UTF-8
+# export LANG=en_US.UTF-8
 
 xsetroot -cursor_name left_ptr
 xrdb ~/.Xresources &
+
+unclutter &
 
 # Compositing, like transparency for windows
 # compton -b &
 compton &
 
-conky &
+# conky &
 
 setup_walls &
 
