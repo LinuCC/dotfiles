@@ -49,7 +49,7 @@ Install `dein.vim` by running the following (see the
 
 ```
  $ curl https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh > installer.sh
- $ sh ./installer.sh .config/nvim/bundles
+ $ sh ./installer.sh ~/.config/nvim/bundles
 ```
 
 Also install the package `rsync`.

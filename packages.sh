@@ -25,6 +25,8 @@ pacaur -S the_silver_searcher
 pacaur -S neovim python-neovim
 pacaur -S offlineimap alot notmuch afew-git pass
 
+pacaur -S autoenv-git
+
 pacaur -S firefox chromium spotify
 
 # Noicer diffs to look at
