@@ -97,6 +97,7 @@ call dein#add('jceb/vim-orgmode')
 call dein#add('tpope/vim-speeddating')
 call dein#add('majutsushi/tagbar')
 call dein#add('othree/yajs.vim')
+call dein#add('mxw/vim-jsx')
 
 " Expand snippets with <enter>
 " let g:UltiSnipsExpandTrigger = "<nop>"
