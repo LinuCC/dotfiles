@@ -218,7 +218,7 @@ Marks (using `vim-signature`):
 
 No problem future me :P
 
-#### Ergodox Infinity
+### Ergodox Infinity
 
 Backslash for UK-Layout:
 
@@ -247,3 +247,12 @@ And flash it:
 sudo dfu-util -D ICED-L/kiibohd.dfu.bin
 sudo dfu-util -D ICED-R/kiibohd.dfu.bin
 ```
+
+### Ruby on Rails: `pry`
+
+* Edit a method with `play --open <method_name>`, add lines to it while in
+  input and amend its lines with `amend-line`, end the edit most times with
+  `end`.
+* Execute a line with `play -l <linenumber || startline..endline>`
+  * Faster when you know what to execute and dont want to copy it (for example
+    with `whereami` / `@`)

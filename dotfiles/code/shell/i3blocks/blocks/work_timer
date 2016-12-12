@@ -1,0 +1,51 @@
+#!/bin/bash
+
+WORK_TIMER_PATH=/tmp/work_timer
+TIMER_FILE_PATH=$WORK_TIMER_PATH/timer # Date the last timer started at
+VALUE_FILE_PATH=$WORK_TIMER_PATH/value
+
+[ -d "$WORK_TIMER_PATH" ] || mkdir $WORK_TIMER_PATH
+[ -f "$TIMER_FILE_PATH" ] || echo $(date +%s) > $TIMER_FILE_PATH
+[ -f "$VALUE_FILE_PATH" ] || echo 0 > $VALUE_FILE_PATH
+
+# Stores the last start of the work_timer
+TIMER=$(cat $TIMER_FILE_PATH)
+# Saves the time thats already ticked before the last pause of the TIMER
+VALUE=$(cat $VALUE_FILE_PATH)
+
+if [ "$BLOCK_BUTTON" = "1" ]
+then
+  if [ $TIMER = "PAUSED" ]
+  then
+    echo $(($(date +%s))) > $TIMER_FILE_PATH
+  else
+    echo "PAUSED" > $TIMER_FILE_PATH
+    echo $((($(date +%s) - $TIMER) + $VALUE)) > $VALUE_FILE_PATH
+  fi
+elif [ "$BLOCK_BUTTON" = "2" ]
+then
+  rm $TIMER_FILE_PATH && echo $(date +%s) > $TIMER_FILE_PATH
+  rm $VALUE_FILE_PATH && echo 0 > $VALUE_FILE_PATH
+elif [ "$BLOCK_BUTTON" = "3" ]
+then
+  true
+fi
+
+TIMER=$(cat $TIMER_FILE_PATH)
+VALUE=$(cat $VALUE_FILE_PATH)
+
+if [ ! "$TIMER" = "PAUSED" ]
+then
+  now=$(date +%s)
+  let "current_val = ($now - $TIMER) + $VALUE"
+  H=$(printf %02d $(($current_val/60/60)))
+  M=$(printf %02d $(($current_val/60%60)))
+  S=$(printf %02d $(($current_val%60)))
+  echo "$H:$M:$S"
+else
+  H=$(printf %02d $(($VALUE/60/60)))
+  M=$(printf %02d $(($VALUE/60%60)))
+  S=$(printf %02d $(($VALUE%60)))
+  echo "= $H:$M:$S ="
+  exit 33
+fi

@@ -6,6 +6,7 @@ call dein#add('tpope/vim-repeat', {
 call dein#add('tomtom/tcomment_vim', {
   \ 'on_map': ['gc', 'g<', 'g>', '<C-_>', '<Leader>_'],
   \ })
+" NOTE: autocmd WinLeave * silent < - Could be the source of nasty bugs later on
 call dein#add('easymotion/vim-easymotion', {
 \    'on_map': [['n', '<Plug>']],
 \    'hook_add': "
@@ -15,6 +16,8 @@ call dein#add('easymotion/vim-easymotion', {
 \        nnoremap B     b\n
 \        nmap [Alt]j <Plug>(easymotion-j)\n
 \        nmap [Alt]k <Plug>(easymotion-k)\n
+\        nmap <Leader>; <Plug>(easymotion-overwin-w)\n
+\        autocmd WinLeave * silent\n
 \        nmap ' <Plug>(easymotion-prefix)\n
 \        let g:EasyMotion_startofline = 0\n
 \        let g:EasyMotion_show_prompt = 0\n
@@ -22,6 +25,9 @@ call dein#add('easymotion/vim-easymotion', {
 \    "
 \ })
 call dein#add('Raimondi/delimitMate')
+call dein#add('vim-airline/vim-airline-themes')
+"\    let g:airline_theme=\"twofirewatch\"\n
+""\    let g:airline_theme=\"hybrid\"\n
 call dein#add('bling/vim-airline', {
 \  'hook_add': "
 \    let g:airline_theme=\"badwolf\"\n
@@ -31,7 +37,6 @@ call dein#add('bling/vim-airline', {
 \    let g:airline#extensions#tabline#fnamemod = ':t'
 \  "
 \ })
-call dein#add('vim-airline/vim-airline-themes')
 " call dein#add('nathanaelkane/vim-indent-guides', {
 " \  'hook_add': "
 " \     let g:indent_guides_guide_size = 1
@@ -46,10 +51,16 @@ call dein#add('xolox/vim-easytags', {
 \   'hook_add': "
 \     let g:easytags_file = '~/.config/nvim/tags'\n
 \     set tags=./.tags\n
-\     let g:easytags_dynamic_files = 1
+\     let g:easytags_dynamic_files = 1\n
+\     let g:easytags_auto_highlight = 0
 \   "
 \ })
-call dein#add('scrooloose/syntastic')
+call dein#add('scrooloose/syntastic', {
+\    'hook_add': "
+\      let g:syntastic_sass_checkers = []\n
+\      let g:syntastic_scss_checkers = []\n
+\    "
+\ })
 call dein#add('tpope/vim-capslock')
 call dein#add('junegunn/fzf', {'build': './install', 'merged': 0})
 call dein#add('junegunn/fzf.vim', {
@@ -83,6 +94,9 @@ call dein#add('lervag/vimtex')
 call dein#add('joshdick/onedark.vim')
 call dein#add('kshenoy/vim-signature')
 call dein#add('freeo/vim-kalisi')
+call dein#add('rakr/vim-two-firewatch')
+call dein#add('kristijanhusak/vim-hybrid-material')
+call dein#add('nanotech/jellybeans.vim')
 call dein#add('tpope/vim-eunuch')
 call dein#add('SirVer/ultisnips')
 call dein#add('honza/vim-snippets')
@@ -159,6 +173,12 @@ set tw=80
 set wrap
 set rnu
 let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
+" Make sure vim uses the correc save-strategy that works with file-watchers
+" https://github.com/webpack/webpack/issues/781
+set backupcopy=yes
+
+" Put all local changes in the Quickfix-list
+command Gdiffs cexpr system('git diff \| diff-hunk-list')
 
 if (has("nvim"))
   "For Neovim 0.1.3 and 0.1.4 < https://github.com/neovim/neovim/pull/2198 >
@@ -171,11 +191,18 @@ if (has("termguicolors"))
   set termguicolors
 endif
 
+let g:two_firewatch_italics=1
+let g:enable_bold_font = 1
+
 " let base16colorspace=256
 " colorscheme base16-ocean
-colorscheme gruvbox-custom
+" colorscheme gruvbox-custom
+" colorscheme jellybeans
+" colorscheme two-firewatch
 " colo onedark
 " colo kalisi
+colo hybrid_material
+" colo hybrid_reverse
 
 " Use old regex-engine.
 " See http://stackoverflow.com/questions/16902317/vim-slow-with-ruby-syntax-highlighting
@@ -296,10 +323,10 @@ highlight String gui=italic cterm=italic
 highlight Comment gui=italic cterm=italic
 
 " Make diffs easy to read
-highlight DiffAdd guibg=#445444
-highlight DiffChange guibg=#444454
-highlight DiffDelete guibg=#544444
-highlight DiffText guibg=#444D4D
+highlight DiffAdd guibg=#445444 guifg=#ccc
+highlight DiffChange guibg=#444454 guifg=#ccc
+highlight DiffDelete guibg=#544444 guifg=#ccc
+highlight DiffText guibg=#444D4D guifg=#ccc
 
 " let g:indentLine_color_gui = '#444D4D'
 let g:indentLine_char = '┆'
@@ -310,4 +337,3 @@ highlight NonText guibg=none ctermbg=none
 
 hi IndentGuidesOdd  guibg=black ctermbg=black
 hi IndentGuidesEven guibg=darkgrey ctermbg=darkgrey
-

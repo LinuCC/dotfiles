@@ -17,13 +17,14 @@ pacaur -S npm
 
 # Goodies
 pacaur -S ranger poppler libcaca atool mediainfo pathon-chardet
-pacaur -S rofi-git
+pacaur -S rofi-git twmn-git
 pacaur -S fzf
 pacaur -S fzf-extras
 pacaur -S the_silver_searcher
+pacaur -S xclip xsel xdotool
 
 pacaur -S neovim python-neovim
-pacaur -S offlineimap alot notmuch afew-git pass
+pacaur -S offlineimap alot notmuch afew-git pass msmtp
 
 pacaur -S autoenv-git
 

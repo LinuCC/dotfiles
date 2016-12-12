@@ -22,10 +22,16 @@ attachment_prefix=~/downloads/mail/attachments
     translated = ◈
     normal = '','','light green','','light green',''
     focus = '','','light green','','light green',''
+  [[actionable]]
+    translated = ' '
+    normal = '','','light red','','light red',''
+    focus = '','','dark red','','dark red',''
 
 [bindings]
   [[search]]
     A = toggletags unread,inbox
+    w = toggletags actionable
+    W = search tag:actionable
 
 [accounts]
   [[linucc]]

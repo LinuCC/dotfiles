@@ -1,0 +1,9 @@
+#!/usr/bin/ruby
+
+if ARGV[0] == nil
+  $stderr.puts "No filepath given"
+  exit(1)
+end
+
+link = ARGV[0]
+$stdout.print File.basename(link)

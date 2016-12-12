@@ -5,6 +5,8 @@ cs_re:cyan:"(\/.+)+"
 cs_re:red,black,bold:(ActionController\:\:)?\b.*Error\b
 cs_re:red:.*Error.*
 cs_re:cyan:DEBUG
+cs_re:black,green,bold:==== START
+cs_re:black,green,bold:==== END
 filterscheme:railslog
 rule:em:.*Completed.*
 rule:em:.*DEBUG.*

@@ -2,11 +2,11 @@
 sha = `date +%s | openssl dgst -sha256`.split(" ")[1]
 puts sha, ARGV[0]
 system("docker build #{ARGV[1]} -t #{ARGV[0]}:#{sha} .")
-$?.exitstatus == 0 or abort($?.exitstatus)
+$?.exitstatus == 0 or exit($?.exitstatus)
 system("docker tag #{ARGV[0]}:#{sha} registry.brandslisten.com:443/#{ARGV[0]}:#{sha}")
-$?.exitstatus == 0 or abort($?.exitstatus)
+$?.exitstatus == 0 or exit($?.exitstatus)
 system("docker push registry.brandslisten.com:443/#{ARGV[0]}:#{sha}")
-$?.exitstatus == 0 or abort($?.exitstatus)
+$?.exitstatus == 0 or exit($?.exitstatus)
 puts "\ndone"
 puts sha
 puts "registry.brandslisten.com:443/#{ARGV[0]}:#{sha}"

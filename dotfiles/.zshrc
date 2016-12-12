@@ -107,6 +107,8 @@ RELEASE_BRANCH="release-0.19.0-white-unicorn"
 ALTERNATIVE_CLIENT_BRANCH="v0.18.0"
 RELEASE_CLIENT_BRANCH="v0.19.0"
 
+unalias gcd
+
 alias gcar="git checkout $ALTERNATIVE_BRANCH"
 alias gcr="git checkout $RELEASE_BRANCH"
 alias gcarc="git checkout $ALTERNATIVE_CLIENT_BRANCH"
@@ -117,8 +119,8 @@ alias gmr="git merge $RELEASE_BRANCH"
 alias gmarc="git merge $ALTERNATIVE_CLIENT_BRANCH"
 alias gmrc="git merge $RELEASE_CLIENT_BRANCH"
 alias bundleofsticks="bundle install"
-alias gcd="git checkout development"
-alias gmd="git merge development"
+# alias gcd="git checkout development"
+# alias gmd="git merge development"
 
 alias dcup='docker-compose up'
 alias dcb='docker-compose build'

@@ -14,14 +14,14 @@ set $term termite
 set $menu rofi -show run
 set $window_switcher rofi -show window
 
-set $monitor1 HDMI1
-set $monitor2 eDP1
+set $monitor1 HDMI-1
+set $monitor2 eDP-1
 
 set $WS1 "1:"
 set $WS2 "2:"
 set $WS3 "3:"
 set $WS4 "4:"
-set $WS5 "5:"
+set $WS5 "5:"
 set $WS6 "6:"
 set $WS7 "7:"
 set $WS8 "8:"
@@ -157,6 +157,8 @@ bindsym $mod+bracketleft focus output left
 
 bindsym $mod+backslash workspace back_and_forth
 
+bindsym $mod+x move workspace to output right
+
 # Scratchpad
 
 bindsym $mod+Shift+z move scratchpad
@@ -216,13 +218,15 @@ bindsym --release $mod+p exec "scrot -s"
 bindsym $mod+ctrl+m exec "expr $(cat ~/.to-merge) - 1 > ~/.to-merge"
 bindsym $mod+ctrl+p exec "expr $(cat ~/.to-merge) + 2 > ~/.to-merge"
 
-bindsym $mod+ctrl+shift+bracketleft exec zshdo cmdpasta ruby /home/linucc/scripts/bl/pivotal.rb last_started_story id
-bindsym $mod+ctrl+shift+bracketright exec zshdo cmdpasta ruby /home/linucc/scripts/bl/pivotal.rb last_started_story url
-bindsym $mod+ctrl+bracketleft exec zshdo pasta ruby /home/linucc/scripts/bl/pivotal.rb last_started_story id
-bindsym $mod+ctrl+bracketright exec zshdo pasta ruby /home/linucc/scripts/bl/pivotal.rb last_started_story url
+# bindsym $mod+ctrl+shift+bracketleft exec zshdo cmdpasta ruby /home/linucc/scripts/bl/pivotal.rb last_started_story id
+# bindsym $mod+ctrl+shift+bracketright exec zshdo cmdpasta ruby /home/linucc/scripts/bl/pivotal.rb last_started_story url
+# bindsym $mod+ctrl+bracketleft exec zshdo pasta ruby /home/linucc/scripts/bl/pivotal.rb last_started_story id
+# bindsym $mod+ctrl+bracketright exec zshdo pasta ruby /home/linucc/scripts/bl/pivotal.rb last_started_story url
 
 bindsym $mod+ctrl+semicolon exec zshdo pasta blgithubprstorylink
 bindsym $mod+ctrl+l exec zshdo pasta bltimeneyestorylink
+
+bindsym $mod+ctrl+bracketright exec zshdo cmdpasta last_item_of_link $(xclip -o)
 
 bindsym XF86AudioPlay exec playerctl play-pause
 bindsym XF86AudioNext exec playerctl next
