@@ -45,22 +45,27 @@ command=~/code/shell/i3blocks/blocks/$BLOCK_NAME
 #label=
 #interval=10
 
-[separator]
-
-[tomerge]
-command=cat ~/.to-merge
+[work_timer]
 color=#777777
-interval=10
-label=
-
-[separator]
-
-[countdown]
-instance=today 18:20:00
-label=
 interval=1
+label=
 
 [separator]
+
+# [tomerge]
+# command=cat ~/.to-merge
+# color=#777777
+# interval=10
+# label=
+#
+# [separator]
+
+# [countdown]
+# instance=today 18:20:00
+# label=
+# interval=1
+#
+# [separator]
 
 [mediaplayer]
 instance=spotify
@@ -86,6 +91,14 @@ color=#999999
 interval=10
 # signal=12
 
+
+[actionable-mailbox]
+label=
+color=#b58900
+interval=10
+# signal=12
+
+
 [mailbox]
 label=
 color=#b58900
@@ -95,7 +108,7 @@ interval=10
 [separator]
 
 [bl-running-server]
-command=~/code/shell/bl_running_server
+command=~/code/shell/i3blocks/blocks/bl_running_server
 label=
 color=#859900
 interval=1
@@ -207,17 +220,17 @@ interval=10
 
 [iface]
 label=
-instance=enp1s0
+instance=enp9s0
 color=#268bd2
 interval=30
 
 [bandwidth]
-instance=enp1s0;in
+instance=enp9s0;in
 label=
 interval=1
 
 [bandwidth]
-instance=enp1s0;out
+instance=enp9s0;out
 label=
 interval=1
 
@@ -225,7 +238,7 @@ interval=1
 
 [iface]
 label=
-instance=wlp2s0
+instance=wlp8s0
 color=#268bd2
 interval=30
 

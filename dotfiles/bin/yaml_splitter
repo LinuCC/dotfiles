@@ -1,0 +1,33 @@
+#!/usr/bin/env ruby
+
+require 'yaml'
+
+filepath = '/home/linucc/code/brandslisten/bl/core/config/locales/en.yml'
+maxlevel = 3
+
+def load_yaml(filepath)
+  yaml_string = File.read(filepath)
+  YAML.load(yaml_string)
+end
+
+def write_yaml(filepath, data)
+  output = YAML.dump(data)
+  File.write(filepath, output)
+end
+
+data = load_yaml(filepath)
+
+def writeout(data, tree = [])
+  if data.is_a?(Hash)
+    write_data = {}
+    data.keys.map do |key|
+      if !data[key].is_a?(Hash)
+
+      end
+    end
+  else
+
+  end
+end
+
+data

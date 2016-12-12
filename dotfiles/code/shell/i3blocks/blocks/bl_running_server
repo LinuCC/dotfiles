@@ -1,14 +1,14 @@
 #/bin/bash
 BLPATH="/home/linucc/code/brandslisten"
-servers=("douglas" "dummy" "eon" "unity_media" "ee" "white_label" "bw" "styleguide")
+servers=($(ls "$BLPATH"))
 
 server_running=false
 
 for sv in ${servers[*]}
 do
-  if [ -r "$BLPATH/bl_${sv}/tmp/pids/server.pid" ]
+  if [ -r "$BLPATH/${sv}/tmp/pids/server.pid" ]
   then
-    server_running="$sv"
+    server_running=$(echo "$sv" | sed 's/bl_//')
   fi
 done
 if [ $server_running != false ]

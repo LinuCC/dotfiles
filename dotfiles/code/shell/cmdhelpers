@@ -1,5 +1,22 @@
 #!/bin/zsh
 
+function git_branch_default() {
+  if [ ! "$GIT_BRANCH_DEFAULT" = "" ]
+  then
+    echo "$GIT_BRANCH_DEFAULT"
+  else
+    echo "development"
+  fi
+}
+
+function gcd() {
+  git checkout $(git_branch_default)
+}
+
+function gmd() {
+  git merge $(git_branch_default)
+}
+
 function settitle() {
   local title="$@"
   DISABLE_AUTO_TITLE="true"

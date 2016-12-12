@@ -1,0 +1,4 @@
+#/bin/bash
+moar=$1
+xrandr --output HDMI-1 --off
+

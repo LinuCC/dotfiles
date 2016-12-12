@@ -1,0 +1,23 @@
+#!/bin/bash
+MBOXES=(/home/linucc/mail/bl/archive/new /home/linucc/mail/personal/archive/new /home/linucc/mail/ostfalia/archive/new)
+
+STATUS=""
+COUNT=$(notmuch count --output=threads "tag:actionable AND NOT tag:killed")
+if [ $COUNT -gt 0 ];
+then
+  STATUS="$COUNT"
+fi
+
+if [ "" == "$STATUS" ];
+then
+  echo "0"
+  exit 0
+else
+  echo "$STATUS"
+  if [ $COUNT -gt 5 ];
+  then
+    exit 33
+  fi
+fi
+
+
