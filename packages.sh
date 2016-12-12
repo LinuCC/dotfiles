@@ -30,6 +30,9 @@ pacaur -S autoenv-git
 
 pacaur -S firefox chromium spotify
 
+# Awesome file cleaning
+pacaur -S ncdu
+
 # Noicer diffs to look at
 npm i -g diff-so-fancy
 
