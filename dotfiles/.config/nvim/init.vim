@@ -55,14 +55,16 @@ call dein#add('xolox/vim-easytags', {
 \     let g:easytags_auto_highlight = 0
 \   "
 \ })
-call dein#add('scrooloose/syntastic', {
-\    'hook_add': "
-\      let g:syntastic_sass_checkers = []\n
-\      let g:syntastic_scss_checkers = []\n
-\    "
-\ })
+" call dein#add('scrooloose/syntastic', {
+" \    'hook_add': "
+" \      let g:syntastic_sass_checkers = []\n
+" \      let g:syntastic_scss_checkers = []\n
+" \      let g:syntastic_javascript_checkers = ['eslint']\n
+" \    "
+" \ })
 call dein#add('tpope/vim-capslock')
 call dein#add('junegunn/fzf', {'build': './install', 'merged': 0})
+" C-@ and C-Space are the same, one is to support older terminals
 call dein#add('junegunn/fzf.vim', {
 \   'depends': 'fzf',
 \   'hook_add': "
@@ -76,6 +78,7 @@ call dein#add('junegunn/fzf.vim', {
 \     imap <c-x><c-l> <plug>(fzf-complete-line)\n
 \     map <c-p> :Files<CR>\n
 \     map <C-@> :Buffers<CR>\n
+\     map <C-Space> :Buffers<CR>\n
 \     map <leader>q :BTags<CR>\n
 \     map <leader>f :Ag \n
 \     map <c-q> :Tags<CR>\n
@@ -107,11 +110,20 @@ call dein#add('tpope/vim-surround')
 call dein#add('tpope/vim-fugitive')
 
 " vim-orgmode and corresponding, needed plugins
-call dein#add('jceb/vim-orgmode')
+" call dein#add('jceb/vim-orgmode')
+" FIXME Contains fix for python 3.6+, can be removed once PR
+"   https://github.com/jceb/vim-orgmode/pull/266 merged.
+call dein#add('detegr/vim-orgmode')
 call dein#add('tpope/vim-speeddating')
 call dein#add('majutsushi/tagbar')
 call dein#add('othree/yajs.vim')
 call dein#add('mxw/vim-jsx')
+call dein#add('vim-scripts/DrawIt')
+
+call dein#add('neomake/neomake', {
+\   'hook_add': "autocmd BufWritePre * :Neomake"
+\ })
+let g:neomake_javascript_enabled_makers = ['eslint']
 
 " Expand snippets with <enter>
 " let g:UltiSnipsExpandTrigger = "<nop>"
@@ -154,7 +166,7 @@ set tags=./.tags;,.tags;
 
 set cursorline
 if exists('+colorcolumn')
-  set colorcolumn=80
+  set colorcolumn=80,100
 endif
 set background=dark
 
@@ -169,7 +181,7 @@ autocmd BufWritePre * :%s/\s\+$//e
 set listchars=tab:▸\ ,trail:·,nbsp:·
 set list
 set ts=2 sts=2 sw=2 expandtab
-set tw=80
+set tw=100
 set wrap
 set rnu
 let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
@@ -213,7 +225,16 @@ set re=1
 function! s:ag_in(...)
   call fzf#vim#ag(join(a:000[1:], ' '), extend({'dir': a:1}, g:fzf#vim#default_layout))
 endfunction
+function! s:ag_of_word()
+  call fzf#vim#ag(expand('<cword>'))
+endfunction
 command! -nargs=+ -complete=dir AgIn call s:ag_in(<f-args>)
+" Search with \f for the current word under cursor in project
+nnoremap <silent> <Leader>f :Ag <C-R><C-W><CR>
+
+" :SAg <case-sensitive-search-string>
+command! -bang -nargs=* SAg
+  \ call fzf#vim#ag(<q-args>, '-s', <bang>0)
 
 " Map <leader> <num> to go to the window with that num
 let i = 1
@@ -311,6 +332,8 @@ function! GetVisualSelection()
   let lines[0] = lines[0][col1 - 1:]
   return join(lines, "\n")
 endfunction
+
+let g:ycm_key_invoke_completion = '<C-l>'
 
 nnoremap <CR> :noh<CR><CR>
 

@@ -50,7 +50,7 @@ DISABLE_AUTO_UPDATE="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git lol archlinux vagrant docker rails extract docker-compose docker-compose-status)
+plugins=(git lol archlinux vagrant docker rails extract docker-compose docker-compose-status kubectl)
 
 # User configuration
 
@@ -130,6 +130,10 @@ alias dcstop='docker-compose stop'
 alias dcrestart='docker-compose restart'
 alias gdc="git diff --cached"
 
+alias yt="yarn test"
+alias yb="yarn build"
+alias ys="yarn storybook"
+
 # Base16 Shell
 BASE16_SHELL="$HOME/.config/base16-shell/base16-railscasts.dark.sh"
 # BASE16_SHELL="$HOME/.config/base16-shell/base16-atelierdune.dark.sh"
@@ -152,3 +156,5 @@ function easy_input {
 neofetch
 
 source /usr/share/autoenv-git/activate.sh
+
+export PATH="$HOME/.yarn/bin:$PATH"

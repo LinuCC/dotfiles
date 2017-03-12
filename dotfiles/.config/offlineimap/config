@@ -59,7 +59,7 @@ localfolders = ~/mail/linucc
 [Repository internetme-remote]
 type=IMAP
 ssl=yes
-remotehost=hosting01.swissnode.ch
+remotehost=hosting04.swissnode.ch
 remoteuser = linucc@linu.cc
 remotepasseval = get_pass('internetme')
 sslcacertfile = /etc/ssl/certs/ca-certificates.crt
@@ -72,7 +72,7 @@ localfolders = ~/mail/work
 [Repository realme-remote]
 type=IMAP
 ssl=yes
-remotehost=hosting01.swissnode.ch
+remotehost=hosting04.swissnode.ch
 remoteuser = p.ernst@linu.cc
 remotepasseval = get_pass('realme')
 sslcacertfile = /etc/ssl/certs/ca-certificates.crt
@@ -85,7 +85,7 @@ localfolders = ~/mail/system
 [Repository systemme-remote]
 type=IMAP
 ssl=yes
-remotehost=hosting01.swissnode.ch
+remotehost=hosting04.swissnode.ch
 remoteuser = linucc
 remotepasseval = get_pass('systemme')
 sslcacertfile = /etc/ssl/certs/ca-certificates.crt

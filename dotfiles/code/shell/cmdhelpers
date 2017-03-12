@@ -50,3 +50,7 @@ function importenvfrom() {
   source "$filename"
   set +o allexport
 }
+
+function updatetime() {
+  sudo ntpd -qg
+}

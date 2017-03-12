@@ -9,7 +9,7 @@ dynamic_title = true
 urgent_on_bell = true
 clickable_url = true
 font = OperatorMonoBook 12
-scrollback_lines = 10000
+scrollback_lines = 20000
 search_wrap = true
 #icon_name = terminal
 #geometry = 640x480
@@ -32,7 +32,7 @@ cursor_shape = block
 [colors]
 foreground = #dcdccc
 foreground_bold = #ffffff
-background = rgba(35, 35, 35, 0.9)
+background = rgba(35, 35, 35, 0.8)
 #cursor = #7FC900
 
 # if unset, will reverse foreground and background

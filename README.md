@@ -214,9 +214,10 @@ Marks (using `vim-signature`):
 *  `'[`           Jump by alphabetical order to start of prev line having a mark
 *  `m/`           Open location list and display marks from current buffer
 
-==============
+### Syntastic
 
-No problem future me :P
+* For ESLint, make sure you have `eslint-cli` globally installed.
+
 
 ### Ergodox Infinity
 
@@ -256,3 +257,10 @@ sudo dfu-util -D ICED-R/kiibohd.dfu.bin
 * Execute a line with `play -l <linenumber || startline..endline>`
   * Faster when you know what to execute and dont want to copy it (for example
     with `whereami` / `@`)
+
+
+
+==============
+
+No problem future me :P
+

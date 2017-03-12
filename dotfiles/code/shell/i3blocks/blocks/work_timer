@@ -41,7 +41,7 @@ then
   H=$(printf %02d $(($current_val/60/60)))
   M=$(printf %02d $(($current_val/60%60)))
   S=$(printf %02d $(($current_val%60)))
-  echo "$H:$M:$S"
+  echo "<span color='#ccff33' font_weight='800' font='10' underline='single'>$H:$M:$S</span>"
 else
   H=$(printf %02d $(($VALUE/60/60)))
   M=$(printf %02d $(($VALUE/60%60)))

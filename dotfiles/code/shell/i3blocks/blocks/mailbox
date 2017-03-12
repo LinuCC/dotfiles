@@ -3,17 +3,12 @@ MBOXES=(/home/linucc/mail/bl/archive/new /home/linucc/mail/personal/archive/new 
 
 STATUS=""
 COUNT=$(notmuch count --output=threads "tag:inbox AND NOT tag:killed")
-if [ $COUNT -gt 0 ];
+if [ $COUNT -lt 5 ]
 then
-  STATUS="$COUNT"
-fi
-
-if [ "" == "$STATUS" ];
-then
-  echo "0"
+  echo "$COUNT"
   exit 0
 else
-  echo "$STATUS"
+  echo "$COUNT"
   exit 33
 fi
 

@@ -33,6 +33,8 @@ pacaur -S firefox chromium spotify
 # Awesome file cleaning
 pacaur -S ncdu
 
+pacaur -S dialog
+
 # Noicer diffs to look at
 npm i -g diff-so-fancy
 
