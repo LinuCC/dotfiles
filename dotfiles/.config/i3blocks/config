@@ -45,13 +45,6 @@ command=~/code/shell/i3blocks/blocks/$BLOCK_NAME
 #label=
 #interval=10
 
-[work_timer]
-color=#777777
-interval=1
-label=
-
-[separator]
-
 # [tomerge]
 # command=cat ~/.to-merge
 # color=#777777
@@ -82,6 +75,13 @@ command=~/code/shell/i3blocks/blocks/volume 2
 color=#d33682
 interval=5
 signal=12
+
+[separator]
+
+[work_timer]
+color=#cccccc
+interval=1
+label=
 
 [separator]
 

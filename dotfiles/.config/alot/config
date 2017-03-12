@@ -1,4 +1,4 @@
-theme = my_sup
+theme = mutt
 bug_on_exit = true
 colourmode = 16
 editor_cmd = /usr/bin/nvim

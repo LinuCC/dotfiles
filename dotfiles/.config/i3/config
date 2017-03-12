@@ -32,11 +32,13 @@ set $WS12 "12:"
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
+# font pango:OperatorMono 9
 font pango:input sans narrow 9
+# font pango:Monofur 9
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
-#font pango:DejaVu Sans Mono 8
+# font pango:DejaVu Sans Mono 8
 
 # Before i3 v4.8, we used to recommend this one as the default:
 # font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
@@ -214,6 +216,8 @@ bindsym $mod+r mode "resize"
 
 bindsym --release $mod+p exec "scrot -s"
 
+bindsym $mod+ctrl+l exec "twmnc 'locking...' && lock"
+
 # Count for the 2-1 merge system :P
 bindsym $mod+ctrl+m exec "expr $(cat ~/.to-merge) - 1 > ~/.to-merge"
 bindsym $mod+ctrl+p exec "expr $(cat ~/.to-merge) + 2 > ~/.to-merge"
@@ -223,10 +227,10 @@ bindsym $mod+ctrl+p exec "expr $(cat ~/.to-merge) + 2 > ~/.to-merge"
 # bindsym $mod+ctrl+bracketleft exec zshdo pasta ruby /home/linucc/scripts/bl/pivotal.rb last_started_story id
 # bindsym $mod+ctrl+bracketright exec zshdo pasta ruby /home/linucc/scripts/bl/pivotal.rb last_started_story url
 
-bindsym $mod+ctrl+semicolon exec zshdo pasta blgithubprstorylink
-bindsym $mod+ctrl+l exec zshdo pasta bltimeneyestorylink
+# bindsym $mod+ctrl+semicolon exec zshdo pasta blgithubprstorylink
+# bindsym $mod+ctrl+l exec zshdo pasta bltimeneyestorylink
 
-bindsym $mod+ctrl+bracketright exec zshdo cmdpasta last_item_of_link $(xclip -o)
+bindsym $mod+ctrl+bracketright exec basiczshdo cmdpasta bl_jirastory_markdown_link
 
 bindsym XF86AudioPlay exec playerctl play-pause
 bindsym XF86AudioNext exec playerctl next
