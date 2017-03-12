@@ -28,16 +28,16 @@
 16_green = 'dark green'
 
 # Use a slightly different mapping here to be able to use "bold" in 256c mode
-256_base03 = 'dark gray'
+256_base03 = 'default'
 256_base02 = 'black'
 256_base01 = 'light green'
 256_base00 = 'yellow'
-256_base0 = 'g50'		#808080
-256_base1 = 'g52'		#848484 - approximates #8a8a8a
+256_base0 = 'g70'
+256_base1 = 'g72'
 256_base2 = 'light gray'
 256_base3 = 'white'
 256_yellow = 'brown'
-256_orange = 'light red'
+256_orange = '#fa0'
 256_red = 'dark red'
 256_magenta = 'dark magenta'
 256_violet = 'light magenta'
@@ -70,17 +70,17 @@
 [thread]
     attachment = 'default','default','%(16_base0)s','%(16_base03)s','%(256_base0)s','%(256_base03)s'
     attachment_focus = 'underline','default','%(16_base02)s','%(16_yellow)s','%(256_base02)s','%(256_yellow)s'
-    arrow_bars = 'default','default','%(16_yellow)s','%(16_base03)s','%(256_yellow)s','%(256_base03)s'
-    arrow_heads = 'default','default','%(16_yellow)s','%(16_base03)s','%(256_yellow)s','%(256_base03)s'
+    arrow_bars = 'default','default','%(16_red)s','%(16_base03)s','%(256_red)s','%(256_base03)s'
+    arrow_heads = 'default','default','%(16_red)s','%(16_base03)s','%(256_red)s','%(256_base03)s'
     body = 'default','default','%(16_base0)s','%(16_base03)s','%(256_base0)s','%(256_base03)s'
     body_focus = 'default','default','%(16_base0)s','%(16_base03)s','%(256_base0)s','%(256_base02)s'
-    header = 'default','default','%(16_base0)s','%(16_base02)s','%(256_base0)s','%(256_base02)s'
-    header_key = 'default','default','%(16_magenta)s','%(16_base02)s','%(256_magenta)s','%(256_base02)s'
-    header_value = 'default','default','%(16_blue)s','%(16_base02)s','%(256_blue)s','%(256_base02)s'
+    header = 'default','default','%(16_base0)s','%(16_base02)s','%(256_base0)s','%(256_base03)s'
+    header_key = 'default','default','%(16_magenta)s','%(16_base02)s','%(256_magenta)s','%(256_base03)s'
+    header_value = 'default','default','%(16_blue)s','%(16_base02)s','%(256_blue)s','%(256_base03)s'
     [[summary]]
-      even = 'default','default','%(16_base0)s','%(16_base02)s','%(256_base0)s','%(256_base02)s'
-      focus = 'standout','default','%(16_base03)s','%(16_yellow)s','%(256_base03)s','%(256_yellow)s'
-      odd = 'default','default','%(16_base0)s','%(16_base03)s','%(256_base0)s','%(256_base03)s'
+      even = 'default','default','%(16_base0)s','%(16_base02)s','%(256_orange)s','%(256_base03)s'
+      focus = 'standout','default','%(16_base03)s','%(16_yellow)s','%(256_base02)s','%(256_yellow)s'
+      odd = 'default','default','%(16_base0)s','%(16_base03)s','%(256_green)s','%(256_base03)s'
 [envelope]
     body = 'default','default','%(16_base0)s','%(16_base03)s','%(256_base0)s','%(256_base03)s'
     header = 'default','default','%(16_base0)s','%(16_base02)s','%(256_base0)s','%(256_base02)s'
@@ -123,6 +123,6 @@
         [[[authors]]]
             normal = 'default,underline','default','%(16_cyan)s','%(16_base03)s','%(256_cyan)s,bold','%(256_base03)s'
         [[[subject]]]
-            normal = 'default','default','%(16_base2)s','%(16_base03)s','%(256_base2)s','%(256_base02)s'
+            normal = 'default','default','%(16_base2)s','%(16_base03)s','%(256_base2)s','%(256_base03)s'
         [[[content]]]
             normal = 'default','default','%(16_base01)s,bold','%(16_base03)s','%(256_base01)s,bold','%(256_base03)s'

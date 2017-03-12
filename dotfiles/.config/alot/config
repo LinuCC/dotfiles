@@ -1,6 +1,6 @@
-theme = mutt
+theme = my_solarized_dark
 bug_on_exit = true
-colourmode = 16
+colourmode = 256
 editor_cmd = /usr/bin/nvim
 prefer_plaintext = true
 attachment_prefix=~/downloads/mail/attachments
