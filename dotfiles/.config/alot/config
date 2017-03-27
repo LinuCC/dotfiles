@@ -22,6 +22,22 @@ attachment_prefix=~/downloads/mail/attachments
     translated = ◈
     normal = '','','light green','','light green',''
     focus = '','','light green','','light green',''
+  [[unread]]
+    translated = 
+    normal = '','','light green','','light green',''
+    focus = '','','light green','','light green',''
+  [[github]]
+    translated = 
+    normal = '','','light blue','','light blue',''
+    focus = '','','light blue','','light blue',''
+  [[bl_jira]]
+    translated = 
+    normal = '','','light blue','','light blue',''
+    focus = '','','light blue','','light blue',''
+  [[lists]]
+    translated = 
+    normal = '','','light blue','','light blue',''
+    focus = '','','light blue','','light blue',''
   [[actionable]]
     translated = ' '
     normal = '','','light red','','light red',''
@@ -30,8 +46,14 @@ attachment_prefix=~/downloads/mail/attachments
 [bindings]
   [[search]]
     A = toggletags unread,inbox
+    u = toggletags unread
     w = toggletags actionable
     W = search tag:actionable
+  [[thread]]
+    ' ' = fold;move next;unfold
+    ']' = bclose;untag unread;move down;select
+    '}' = bclose;untag inbox;untag unread;move down;select
+
 
 [accounts]
   [[linucc]]
