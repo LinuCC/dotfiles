@@ -29,7 +29,8 @@ function emo_path() {
   local emo_path=$@
   # echo "${emo_path//\/code/ }"
   echo '$(print -P %~ '\
-    '| sed -e "s/code\/brandslisten/ /g" '\
+    '| sed -e "s/code\/ruby\/brandslisten\/core/ bl /g" '\
+    '| sed -e "s/code\/ruby\/brandslisten\/clients/ bl /g" '\
     '| sed -e "s/code/ /g") '
 }
 

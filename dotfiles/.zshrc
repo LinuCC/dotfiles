@@ -92,7 +92,7 @@ alias net="netctl"
 SCRIPTS="$HOME/code/shell"
 
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
-source "$SCRIPTS/my_methods"
+# source "$SCRIPTS/my_methods"
 source "$SCRIPTS/cmdhelpers"
 # source "$HOME/scripts/system_specific"
 # source "/etc/profile.d/fzf.zsh"

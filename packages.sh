@@ -16,19 +16,22 @@ pacaur -S ruby
 pacaur -S npm
 
 # Goodies
-pacaur -S ranger poppler libcaca atool mediainfo pathon-chardet
-pacaur -S rofi-git twmn-git
+pacaur -S ranger poppler libcaca atool mediainfo pathon-chardet unzip
+pacaur -S rofi-git twmn-git feh zathura zathura-pdf-poppler
 pacaur -S fzf
 pacaur -S fzf-extras
 pacaur -S the_silver_searcher
 pacaur -S xclip xsel xdotool
 
-pacaur -S neovim python-neovim
+pacaur -S neovim python-neovim openssh
 pacaur -S offlineimap alot notmuch afew-git pass msmtp
 
 pacaur -S autoenv-git
 
-pacaur -S firefox chromium spotify
+pacaur -S xorg xorg-xinit
+pacaur -S compton unclutter i3 i3blocks ttf-input neofetch thefuck scrot
+pacaur -S alsa-utils playerctl
+pacaur -S firefox chromium spotify termite otf-fontawesome
 
 # Awesome file cleaning
 pacaur -S ncdu

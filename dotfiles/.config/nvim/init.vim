@@ -114,6 +114,12 @@ call dein#add('tpope/vim-fugitive')
 " FIXME Contains fix for python 3.6+, can be removed once PR
 "   https://github.com/jceb/vim-orgmode/pull/266 merged.
 call dein#add('detegr/vim-orgmode')
+call dein#add('xolox/vim-notes', {
+\    'hook_add': "let g:notes_directories = ['~/.lutz/notes']"
+\ })
+
+
+
 call dein#add('tpope/vim-speeddating')
 call dein#add('majutsushi/tagbar')
 call dein#add('othree/yajs.vim')
@@ -124,6 +130,7 @@ call dein#add('neomake/neomake', {
 \   'hook_add': "autocmd BufWritePre * :Neomake"
 \ })
 let g:neomake_javascript_enabled_makers = ['eslint']
+let g:neomake_javascript_eslint_exe = $PWD . '/node_modules/.bin/eslint'
 
 " Expand snippets with <enter>
 " let g:UltiSnipsExpandTrigger = "<nop>"
