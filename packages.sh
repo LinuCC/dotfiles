@@ -31,7 +31,7 @@ pacaur -S autoenv-git
 pacaur -S xorg xorg-xinit
 pacaur -S compton unclutter i3 i3blocks ttf-input neofetch thefuck scrot
 pacaur -S alsa-utils playerctl
-pacaur -S firefox chromium spotify termite otf-fontawesome
+pacaur -S firefox chromium spotify termite otf-fontawesome ttf-inziu-iosevka
 
 # Awesome file cleaning
 pacaur -S ncdu
