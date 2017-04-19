@@ -28,10 +28,10 @@ pacaur -S offlineimap alot notmuch afew-git pass msmtp
 
 pacaur -S autoenv-git
 
-pacaur -S xorg xorg-xinit
+pacaur -S xorg xorg-xinit acpi lm_sensors bc
 pacaur -S compton unclutter i3 i3blocks ttf-input neofetch thefuck scrot
 pacaur -S alsa-utils playerctl
-pacaur -S firefox chromium spotify termite otf-fontawesome ttf-inziu-iosevka
+pacaur -S firefox chromium spotify termite otf-fontawesome ttf-iosevka-term
 
 # Awesome file cleaning
 pacaur -S ncdu

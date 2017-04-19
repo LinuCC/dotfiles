@@ -89,17 +89,19 @@ source $ZSH/oh-my-zsh.sh
 
 alias net="netctl"
 
-SCRIPTS="$HOME/code/shell"
+CODE="$HOME/code"
+SCRIPTS="$CODE/shell"
 
-export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+export PATH="$HOME/.yarn/bin:$PATH"
+export PATH="$HOME/.rvm/bin:$PATH" # Add RVM to PATH for scripting
 # source "$SCRIPTS/my_methods"
 source "$SCRIPTS/cmdhelpers"
 # source "$HOME/scripts/system_specific"
 # source "/etc/profile.d/fzf.zsh"
 source "$HOME/.rvm/scripts/rvm"
-source "/$HOME/code/shell/fzf-extras/fzf-extras.bash"
-source "/$HOME/code/shell/fzf-extras/fzf-extras.zsh"
-source "/$HOME/code/shell/lutz"
+source "$SCRIPTS/fzf-extras/fzf-extras.bash"
+source "$SCRIPTS/fzf-extras/fzf-extras.zsh"
+source "$SCRIPTS/lutz"
 
 ALTERNATIVE_BRANCH="release-0.18.0-bubblegum-tate"
 RELEASE_BRANCH="release-0.19.0-white-unicorn"
@@ -157,4 +159,3 @@ neofetch
 
 source /usr/share/autoenv-git/activate.sh
 
-export PATH="$HOME/.yarn/bin:$PATH"
