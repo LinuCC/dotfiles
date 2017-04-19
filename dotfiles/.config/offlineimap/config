@@ -9,7 +9,6 @@ autorefresh = 5
 quick = 10
 localrepository = internetme-local
 remoterepository = internetme-remote
-status_backend = sqlite
 postsynchook = notmuch new
 
 [Account realme]
@@ -17,7 +16,6 @@ autorefresh = 5
 quick = 10
 localrepository = realme-local
 remoterepository = realme-remote
-status_backend = sqlite
 postsynchook = notmuch new
 
 [Account systemme]
@@ -25,7 +23,6 @@ autorefresh = 5
 quick = 10
 localrepository = systemme-local
 remoterepository = systemme-remote
-status_backend = sqlite
 postsynchook = notmuch new
 
 [Account personal]
@@ -33,7 +30,6 @@ autorefresh = 5
 quick = 10
 localrepository = personal-local
 remoterepository = personal-remote
-status_backend = sqlite
 postsynchook = notmuch new
 
 [Account bl]
@@ -41,7 +37,6 @@ autorefresh = 5
 quick = 10
 localrepository = bl-local
 remoterepository = bl-remote
-status_backend = sqlite
 postsynchook = notmuch new
 
 [Account ostfalia]
@@ -49,7 +44,6 @@ autorefresh = 5
 quick = 10
 localrepository = ostfalia-local
 remoterepository = ostfalia-remote
-status_backend = sqlite
 postsynchook = notmuch new
 
 [Repository internetme-local]
