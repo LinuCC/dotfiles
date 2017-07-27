@@ -57,7 +57,7 @@ Also install the package `rsync`.
 For `fzf` you need the `the_silver_searcher`(`ag`) installed from your
 favourite package manager.
 
-#### YouCompleteMe
+#### Ycm (YouCompleteMe)
 
 To install the vim-plugin, see its
 [Readme](https://github.com/Valloric/YouCompleteMe).
@@ -157,7 +157,7 @@ Its best to just `c-p` to open a new buffer, automatically hides the current
 one.
 
 * `:hide` "close" buffer
-* `:bd` delete buffer
+* `:bd` delete buffer (Great with `:cfdo :bd`, close all buffers opened by `:cdo`)
 
 Random:
 
