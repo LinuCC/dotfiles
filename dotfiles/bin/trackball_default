@@ -1,0 +1,14 @@
+#!/bin/bash
+
+# 1: "Button Left"
+# 2: "Button Middle"
+# 3: "Button Right"
+# 4: "Button Wheel Up"
+# 5: "Button Wheel Down"
+# 6: "Button Horiz Wheel Left"
+# 7: "Button Horiz Wheel Right"
+# 8: "Button Side"
+# 9: "Button Extra"
+
+my_mouse_id=$(xinput | grep "Expert Wireless TB" | head -1 | sed 's/^.*id=\([0-9]*\)[ \t].*$/\1/')
+xinput set-button-map $my_mouse_id 1 2 3 4 5 6 7 8 9

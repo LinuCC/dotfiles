@@ -78,6 +78,12 @@ signal=12
 
 [separator]
 
+[jira_story]
+command=bl_get_current_story_status
+interval=1
+color=#3682d3
+label=
+
 [work_timer]
 color=#cccccc
 interval=1

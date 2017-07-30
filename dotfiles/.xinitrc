@@ -4,6 +4,8 @@ setxkbmap -option caps:escape -layout gb
 xsetroot -cursor_name left_ptr
 xrdb ~/.Xresources &
 
+blueman-applet &
+
 unclutter &
 
 # Compositing, like transparency for windows

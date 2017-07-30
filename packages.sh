@@ -41,6 +41,10 @@ pacaur -S dialog
 # Noicer diffs to look at
 npm i -g diff-so-fancy
 
+# Bluetooth
+pacaur -S blueman
+echo "Dont forget to 'systemctl enable bluetooth'"
+
 # dein.vim
 curl https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh > installer.sh
 sh ./installer.sh ~/.config/nvim/bundles
