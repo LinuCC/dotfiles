@@ -98,6 +98,9 @@ call dein#add('joshdick/onedark.vim')
 call dein#add('kshenoy/vim-signature')
 call dein#add('freeo/vim-kalisi')
 call dein#add('rakr/vim-two-firewatch')
+call dein#add('AlessandroYorba/Alduin')
+call dein#add('AlessandroYorba/Arcadia')
+call dein#add('AlessandroYorba/Sierra')
 call dein#add('kristijanhusak/vim-hybrid-material')
 call dein#add('nanotech/jellybeans.vim')
 call dein#add('tpope/vim-eunuch')
@@ -123,14 +126,17 @@ call dein#add('xolox/vim-notes', {
 call dein#add('tpope/vim-speeddating')
 call dein#add('majutsushi/tagbar')
 call dein#add('othree/yajs.vim')
-call dein#add('mxw/vim-jsx')
+call dein#add('mxw/vim-jsx', {
+\   'hook_add': "let g:jsx_ext_required = 0"
+\ })
 call dein#add('vim-scripts/DrawIt')
 
 call dein#add('neomake/neomake', {
 \   'hook_add': "autocmd BufWritePre * :Neomake"
 \ })
-let g:neomake_javascript_enabled_makers = ['eslint']
+let g:neomake_javascript_enabled_makers = ['flow', 'eslint']
 let g:neomake_javascript_eslint_exe = $PWD . '/node_modules/.bin/eslint'
+let g:neomake_javascript_flow_exe = $PWD . '/node_modules/.bin/flow'
 
 " Expand snippets with <enter>
 " let g:UltiSnipsExpandTrigger = "<nop>"
@@ -213,15 +219,16 @@ endif
 let g:two_firewatch_italics=1
 let g:enable_bold_font = 1
 
-" let base16colorspace=256
+let base16colorspace=256
 " colorscheme base16-ocean
 " colorscheme gruvbox-custom
 " colorscheme jellybeans
 " colorscheme two-firewatch
 " colo onedark
 " colo kalisi
-colo hybrid_material
+" colo hybrid_material
 " colo hybrid_reverse
+colo sierra
 
 " Use old regex-engine.
 " See http://stackoverflow.com/questions/16902317/vim-slow-with-ruby-syntax-highlighting
@@ -249,6 +256,9 @@ while i <= 9
     execute 'nnoremap <Leader>' . i . ' :' . i . 'wincmd w<CR>'
     let i = i + 1
 endwhile
+
+" gp == select last pasted text
+nnoremap <expr> gp '`[' . strpart(getregtype(), 0, 1) . '`]'
 
 function! Lol()
   execute "normal! /_(.*)\<Cr>"
