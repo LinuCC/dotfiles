@@ -28,9 +28,10 @@ call dein#add('Raimondi/delimitMate')
 call dein#add('vim-airline/vim-airline-themes')
 "\    let g:airline_theme=\"twofirewatch\"\n
 ""\    let g:airline_theme=\"hybrid\"\n
+" \    let g:airline_theme=\"badwolf\"\n
 call dein#add('bling/vim-airline', {
 \  'hook_add': "
-\    let g:airline_theme=\"badwolf\"\n
+\    let g:airline_theme=\"tender\"\n
 \    let g:airline_powerline_fonts = 1\n
 \    let g:airline#extensions#tabline#enabled = 1\n
 \    let g:airline#extensions#branch#enabled = 1\n
@@ -43,6 +44,7 @@ call dein#add('bling/vim-airline', {
 " \  "
 " \ })
 call dein#add('yggdroot/indentLine')
+let g:indentLine_setColors = 0
 call dein#add('roryokane/detectindent')
 call dein#add('tpope/vim-rails')
 call dein#add('terryma/vim-multiple-cursors')
@@ -101,6 +103,7 @@ call dein#add('rakr/vim-two-firewatch')
 call dein#add('AlessandroYorba/Alduin')
 call dein#add('AlessandroYorba/Arcadia')
 call dein#add('AlessandroYorba/Sierra')
+call dein#add('jacoborus/tender.vim')
 call dein#add('kristijanhusak/vim-hybrid-material')
 call dein#add('nanotech/jellybeans.vim')
 call dein#add('tpope/vim-eunuch')
@@ -118,7 +121,10 @@ call dein#add('tpope/vim-fugitive')
 "   https://github.com/jceb/vim-orgmode/pull/266 merged.
 call dein#add('detegr/vim-orgmode')
 call dein#add('xolox/vim-notes', {
-\    'hook_add': "let g:notes_directories = ['~/.lutz/notes']"
+\    'hook_add': "
+\      let g:notes_directories = ['~/.lutz/notes']\n
+\      let g:notes_ruler_text = '●▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬● ┻━┻︵ \\(°□°)/ ︵┻━┻ ●▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬●'\n
+\    "
 \ })
 
 
@@ -126,8 +132,12 @@ call dein#add('xolox/vim-notes', {
 call dein#add('tpope/vim-speeddating')
 call dein#add('majutsushi/tagbar')
 call dein#add('othree/yajs.vim')
+call dein#add('pangloss/vim-javascript', { 'rev': 'master' })
 call dein#add('mxw/vim-jsx', {
-\   'hook_add': "let g:jsx_ext_required = 0"
+\   'hook_add': "
+\     let g:jsx_ext_required = 0\n
+\     let g:javascript_plugin_flow = 1
+\   "
 \ })
 call dein#add('vim-scripts/DrawIt')
 
@@ -137,6 +147,22 @@ call dein#add('neomake/neomake', {
 let g:neomake_javascript_enabled_makers = ['flow', 'eslint']
 let g:neomake_javascript_eslint_exe = $PWD . '/node_modules/.bin/eslint'
 let g:neomake_javascript_flow_exe = $PWD . '/node_modules/.bin/flow'
+" For BL
+" let g:neomake_scss_enabled_makers = ['stylelint']
+" let g:neomake_scss_stylelint_maker = {
+" \ 'exe': 'stylelint',
+" \ 'args': ['--syntax', 'scss', '--config', '/home/linucc/code/javascript/brandslisten/bl-fe-cli/resources/.stylelintrc', '--configBasedir', '/usr/lib/node_modules'],
+" \ 'errorformat':
+"             \ '%+P%f,' .
+"                 \ '%*\s%l:%c  %t  %m,' .
+"             \ '%-Q'
+" \ }
+"
+" call dein#add('editorconfig/editorconfig-vim', {
+" \    'hook_add': "
+" \      let g:EditorConfig_exclude_patterns = ['fugitive://.*']\n
+" \    "
+" \  })
 
 " Expand snippets with <enter>
 " let g:UltiSnipsExpandTrigger = "<nop>"
@@ -193,7 +219,7 @@ map <F10> :call SetPrefix()<CR>
 autocmd BufWritePre * :%s/\s\+$//e
 set listchars=tab:▸\ ,trail:·,nbsp:·
 set list
-set ts=2 sts=2 sw=2 expandtab
+" set ts=2 sts=2 sw=2 expandtab
 set tw=100
 set wrap
 set rnu
@@ -219,6 +245,8 @@ endif
 let g:two_firewatch_italics=1
 let g:enable_bold_font = 1
 
+set icm=split
+
 let base16colorspace=256
 " colorscheme base16-ocean
 " colorscheme gruvbox-custom
@@ -229,6 +257,7 @@ let base16colorspace=256
 " colo hybrid_material
 " colo hybrid_reverse
 colo sierra
+" colo tender
 
 " Use old regex-engine.
 " See http://stackoverflow.com/questions/16902317/vim-slow-with-ruby-syntax-highlighting
@@ -362,11 +391,23 @@ nnoremap <CR> :noh<CR><CR>
 highlight String gui=italic cterm=italic
 highlight Comment gui=italic cterm=italic
 
+" Bold, because its readable
+highlight CursorLineNr gui=bold cterm=bold
+highlight LineNr guifg=#666666
+highlight MatchParen gui=bold cterm=bold
+highlight Function gui=bold cterm=bold
+highlight Statement gui=bold cterm=bold
+highlight PreProc gui=bold cterm=bold
+highlight Type gui=bold cterm=bold
+highlight Todo gui=bold cterm=bold
+
+highlight Conceal guifg=#007766 guibg=none
+
 " Make diffs easy to read
-highlight DiffAdd guibg=#445444 guifg=#ccc
-highlight DiffChange guibg=#444454 guifg=#ccc
-highlight DiffDelete guibg=#544444 guifg=#ccc
-highlight DiffText guibg=#444D4D guifg=#ccc
+" highlight DiffAdd guibg=#445444 guifg=#ccc
+" highlight DiffChange guibg=#444454 guifg=#ccc
+" highlight DiffDelete guibg=#544444 guifg=#ccc
+" highlight DiffText guibg=#444D4D guifg=#ccc
 
 " let g:indentLine_color_gui = '#444D4D'
 let g:indentLine_char = '┆'
@@ -374,6 +415,7 @@ let g:indentLine_char = '┆'
 " Transparent background
 highlight Normal guibg=none ctermbg=none
 highlight NonText guibg=none ctermbg=none
+highlight SignColumn guibg=none ctermbg=none
 
 hi IndentGuidesOdd  guibg=black ctermbg=black
 hi IndentGuidesEven guibg=darkgrey ctermbg=darkgrey

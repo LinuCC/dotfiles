@@ -54,3 +54,19 @@ function importenvfrom() {
 function updatetime() {
   sudo ntpd -qg
 }
+
+function cdjs() {
+  cd "$CODE/javascript"
+}
+function cdrb() {
+  cd "$CODE/ruby"
+}
+
+function fbr() {
+  local heads head
+  heads=$(
+    git for-each-ref --sort=-committerdate refs/heads/ --format='%(HEAD) %(color:yellow)%(refname:short)%(color:reset) - %(color:red)%(objectname:short)%(color:reset) - %(contents:subject) - %(authorname) (%(color:green)%(committerdate:relative)%(color:reset))'
+  );
+  head=$(echo "$heads" | fzf-tmux --ansi -d $(( 2 + $(wc -l <<< "$heads") )) +m) &&
+    git checkout $(echo "$head" | sed "s/ - .*$//")
+}

@@ -50,7 +50,7 @@ DISABLE_AUTO_UPDATE="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git lol archlinux vagrant docker rails extract docker-compose docker-compose-status kubectl)
+plugins=(git lol archlinux vagrant docker rails extract docker-compose docker-compose-status)
 
 # User configuration
 
@@ -131,6 +131,7 @@ alias dcps='docker-compose ps'
 alias dcstop='docker-compose stop'
 alias dcrestart='docker-compose restart'
 alias gdc="git diff --cached"
+alias gdcw="git diff --cached --word-diff"
 
 alias yt="yarn test"
 alias yb="yarn build"
