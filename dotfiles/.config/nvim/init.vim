@@ -6,6 +6,7 @@ call dein#add('tpope/vim-repeat', {
 call dein#add('tomtom/tcomment_vim', {
   \ 'on_map': ['gc', 'g<', 'g>', '<C-_>', '<Leader>_'],
   \ })
+" NOTE: Does not play well with vim-multiple-cursors
 " NOTE: autocmd WinLeave * silent < - Could be the source of nasty bugs later on
 call dein#add('easymotion/vim-easymotion', {
 \    'on_map': [['n', '<Plug>']],
@@ -49,14 +50,20 @@ call dein#add('roryokane/detectindent')
 call dein#add('tpope/vim-rails')
 call dein#add('terryma/vim-multiple-cursors')
 call dein#add('xolox/vim-misc')
-call dein#add('xolox/vim-easytags', {
+call dein#add('ludovicchabant/vim-gutentags', {
 \   'hook_add': "
-\     let g:easytags_file = '~/.config/nvim/tags'\n
-\     set tags=./.tags\n
-\     let g:easytags_dynamic_files = 1\n
-\     let g:easytags_auto_highlight = 0
+\     let g:gutentags_ctags_executable_javascript = 'jsctags'\n
+\     let g:gutentags_project_root = ['.gutctags', 'tags']\n
 \   "
 \ })
+" call dein#add('xolox/vim-easytags', {
+" \   'hook_add': "
+" \     let g:easytags_file = '~/.config/nvim/tags'\n
+" \     set tags=./.tags\n
+" \     let g:easytags_dynamic_files = 1\n
+" \     let g:easytags_auto_highlight = 0
+" \   "
+" \ })
 " call dein#add('scrooloose/syntastic', {
 " \    'hook_add': "
 " \      let g:syntastic_sass_checkers = []\n
@@ -87,7 +94,25 @@ call dein#add('junegunn/fzf.vim', {
 \   "
 \ })
 call dein#add('chriskempson/base16-vim')
-call dein#add('valloric/youcompleteme', {'merged': 0})
+" call dein#add('valloric/youcompleteme', {'merged': 0})
+call dein#add('Shougo/deoplete.nvim', {
+\   'hook_add': "
+\     let g:deoplete#enable_at_startup = 1\n
+\     function! Multiple_cursors_before()\n
+\         if exists('g:deoplete#disable_auto_complete')\n
+\     	   let g:deoplete#disable_auto_complete = 1\n
+\         endif\n
+\     endfunction\n
+\\n
+\     function! Multiple_cursors_after()\n
+\         if exists('g:deoplete#disable_auto_complete')\n
+\     	   let g:deoplete#disable_auto_complete = 0\n
+\         endif\n
+\     endfunction\n
+\   "
+\ })
+" imap <expr><TAB> pumvisible() ? "\<C-n>" : neosnippet#expandable_or_jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+" smap <expr><TAB> neosnippet#expandable_or_jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
 call dein#add('scrooloose/nerdtree', {
 \   'hook_add': "
 \     map <leader>n :NERDTreeToggle<CR>\n
@@ -114,6 +139,7 @@ call dein#add('sheerun/vim-polyglot')
 call dein#add('tpope/vim-unimpaired')
 call dein#add('tpope/vim-surround')
 call dein#add('tpope/vim-fugitive')
+call dein#add('AndrewRadev/splitjoin.vim')
 
 " vim-orgmode and corresponding, needed plugins
 " call dein#add('jceb/vim-orgmode')
@@ -158,11 +184,23 @@ let g:neomake_javascript_flow_exe = $PWD . '/node_modules/.bin/flow'
 "             \ '%-Q'
 " \ }
 "
-" call dein#add('editorconfig/editorconfig-vim', {
-" \    'hook_add': "
-" \      let g:EditorConfig_exclude_patterns = ['fugitive://.*']\n
-" \    "
-" \  })
+call dein#add('editorconfig/editorconfig-vim', {
+\    'hook_add': "
+\      let g:EditorConfig_exclude_patterns = ['fugitive://.*']\n
+\    "
+\  })
+" \    let g:gitgutter_sign_added = ''\n
+" \    let g:gitgutter_sign_modified = ''\n
+" \    let g:gitgutter_sign_removed = ''\n
+call dein#add('airblade/vim-gitgutter', {
+\    'hook_add': "
+\      let g:gitgutter_sign_added = ''\n
+\      let g:gitgutter_sign_modified = ''\n
+\      let g:gitgutter_sign_removed = ''\n
+\      let g:gitgutter_realtime = 0\n
+\      let g:gitgutter_eager = 0
+\    "
+\  })
 
 " Expand snippets with <enter>
 " let g:UltiSnipsExpandTrigger = "<nop>"
@@ -178,6 +216,22 @@ let g:neomake_javascript_flow_exe = $PWD . '/node_modules/.bin/flow'
 " inoremap <expr> <CR> pumvisible() ? "\<C-R>=ExpandSnippetOrCarriageReturn()\<CR>" : "\<CR>"
 
 call dein#end()
+
+
+nmap w <Plug>(easymotion-lineforward)
+nnoremap W     w
+nmap b <Plug>(easymotion-linebackward)
+nnoremap B     b
+nmap [Alt]j <Plug>(easymotion-j)
+nmap [Alt]k <Plug>(easymotion-k)
+nmap <Leader>; <Plug>(easymotion-overwin-w)
+autocmd WinLeave * silent
+nmap ' <Plug>(easymotion-prefix)
+let g:EasyMotion_startofline = 0
+let g:EasyMotion_show_prompt = 0
+let g:EasyMotion_verbose = 0
+
+
 
 let g:UltiSnipsExpandTrigger="<c-l>"
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
@@ -205,7 +259,7 @@ set tags=./.tags;,.tags;
 
 set cursorline
 if exists('+colorcolumn')
-  set colorcolumn=80,100
+  set colorcolumn=80,100,120,160
 endif
 set background=dark
 
@@ -228,6 +282,9 @@ let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
 " https://github.com/webpack/webpack/issues/781
 set backupcopy=yes
 
+set ttyfast
+set lazyredraw
+
 " Put all local changes in the Quickfix-list
 command Gdiffs cexpr system('git diff \| diff-hunk-list')
 
@@ -247,23 +304,28 @@ let g:enable_bold_font = 1
 
 set icm=split
 
-let base16colorspace=256
+" let base16colorspace=256
 " colorscheme base16-ocean
-" colorscheme gruvbox-custom
+colorscheme gruvbox-custom
 " colorscheme jellybeans
 " colorscheme two-firewatch
 " colo onedark
 " colo kalisi
 " colo hybrid_material
 " colo hybrid_reverse
-colo sierra
-" colo tender
+" colo sierra
+colo tender
 
 " Use old regex-engine.
 " See http://stackoverflow.com/questions/16902317/vim-slow-with-ruby-syntax-highlighting
 " for why.
 " TODO: If Neovims new Regex-Engine hits, try without this statement.
-set re=1
+" set re=1
+
+set updatetime=250
+
+" Use noice mouse functionality
+set mouse=a
 
 function! s:ag_in(...)
   call fzf#vim#ag(join(a:000[1:], ' '), extend({'dir': a:1}, g:fzf#vim#default_layout))
@@ -288,6 +350,22 @@ endwhile
 
 " gp == select last pasted text
 nnoremap <expr> gp '`[' . strpart(getregtype(), 0, 1) . '`]'
+
+" Duplicate tab. Nice when you need a different view of the current one but keep
+" the current one so you can come back to it at a later point.
+command! -bar DuplicateTabpane
+      \ let s:sessionoptions = &sessionoptions |
+      \ try |
+      \   let &sessionoptions = 'blank,help,folds,winsize,localoptions' |
+      \   let s:file = tempname() |
+      \   execute 'mksession ' . s:file |
+      \   tabnew |
+      \   execute 'source ' . s:file |
+      \ finally |
+      \   silent call delete(s:file) |
+      \   let &sessionoptions = s:sessionoptions |
+      \   unlet! s:file s:sessionoptions |
+      \ endtry
 
 function! Lol()
   execute "normal! /_(.*)\<Cr>"
@@ -378,6 +456,7 @@ function! GetVisualSelection()
   let lines[0] = lines[0][col1 - 1:]
   return join(lines, "\n")
 endfunction
+
 
 let g:ycm_key_invoke_completion = '<C-l>'
 
