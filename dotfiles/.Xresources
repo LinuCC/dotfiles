@@ -1,37 +1,88 @@
 Xcursor.theme: gruppled_black
 
-! ------------------------------------------------------------------------------
-! ROFI Color theme
-! ------------------------------------------------------------------------------
+! Copyright (c) 2016-present Arctic Ice Studio <development@arcticicestudio.com>
+! Copyright (c) 2016-present Sven Greb <code@svengreb.de>
 
-! Use extended color scheme
-rofi.color-enabled:                  true
-! Color scheme for normal row
-rofi.color-normal:                   argb:00000000, #1aa, argb:11FFFFFF, #1aa,#333
-! Color scheme for urgent row
-rofi.color-urgent:                   argb:00000000, #f99, argb:11FFFFFF, #f99,#333
-! Color scheme for active row
-rofi.color-active:                   argb:00000000, #aa1, argb:11FFFFFF, #aa1,#333
-! Color scheme window
-rofi.color-window:                   argb:ee333333, #1aa,#1aa
-! Separator style (none, dash, solid)
-rofi.separator-style:                dash
+! Project:    Nord XResources
+! Version:    0.1.0
+! Repository: https://github.com/arcticicestudio/nord-xresources
+! License:    MIT
 
-rofi.opacity: 95
-rofi.width: 100
-rofi.lines: 5
-rofi.columns: 1
-rofi.font: operator mono 10
-rofi.bw: 2
-rofi.location: 1
-rofi.padding: 2
-rofi.yoffset: -2
-rofi.xoffset: 0
-rofi.fixed-num-lines: false
-rofi.hmode: false
-rofi.terminal: termite
-rofi.ssh-set-title: true
-rofi.key: F12
-rofi.rkey: mod1+F2
-rofi.skey: mod1+F3
+#define nord0 #2E3440
+#define nord1 #3B4252
+#define nord2 #434C5E
+#define nord3 #4C566A
 
+#define nord4 #D8DEE9
+#define nord5 #E5E9F0
+#define nord6 #ECEFF4
+
+#define nord7 #8FBCBB
+#define nord8 #88C0D0
+#define nord9 #81A1C1
+#define nord10 #5E81AC
+
+#define nord11 #BF616A
+#define nord12 #D08770
+#define nord13 #EBCB8B
+#define nord14 #A3BE8C
+#define nord15 #B48EAD
+
+*.foreground:   nord4
+*.background:   nord0
+*.cursorColor:  nord4
+*fading: 35
+*fadeColor: nord3
+
+*.color0: nord1
+*.color1: nord11
+*.color2: nord14
+*.color3: nord13
+*.color4: nord9
+*.color5: nord15
+*.color6: nord8
+*.color7: nord5
+*.color8: nord3
+*.color9: nord11
+*.color10: nord14
+*.color11: nord13
+*.color12: nord9
+*.color13: nord15
+*.color14: nord7
+*.color15: nord6
+
+! ! ------------------------------------------------------------------------------
+! ! ROFI Color theme
+! ! ------------------------------------------------------------------------------
+!
+! ! Use extended color scheme
+! rofi.color-enabled:                  true
+! ! Color scheme for normal row
+! rofi.color-normal:                   argb:00000000, #1aa, argb:11FFFFFF, #1aa,#333
+! ! Color scheme for urgent row
+! rofi.color-urgent:                   argb:00000000, #f99, argb:11FFFFFF, #f99,#333
+! ! Color scheme for active row
+! rofi.color-active:                   argb:00000000, #aa1, argb:11FFFFFF, #aa1,#333
+! ! Color scheme window
+! rofi.color-window:                   argb:ee333333, #1aa,#1aa
+! ! Separator style (none, dash, solid)
+! rofi.separator-style:                dash
+!
+! rofi.opacity: 95
+! rofi.width: 100
+! rofi.lines: 5
+! rofi.columns: 1
+! rofi.font: Dina 7
+! rofi.bw: 2
+! rofi.location: 1
+! rofi.padding: 2
+! rofi.yoffset: -2
+! rofi.xoffset: 0
+! rofi.fixed-num-lines: false
+! rofi.hmode: false
+! rofi.terminal: alacritty
+! rofi.ssh-set-title: true
+! rofi.key: F12
+! rofi.rkey: mod1+F2
+! rofi.skey: mod1+F3
+!

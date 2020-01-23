@@ -8,12 +8,13 @@ sudo pacman -S git tig
 
 # Install pacaur, then continue
 echo "Please install pacaur and edit the source :P"
-exit 1
 
 pacaur -S python
 
 pacaur -S ruby
 pacaur -S npm
+pacaur -S zsh
+pacaur -S zsh-syntax-highlighting
 
 # Goodies
 pacaur -S ranger poppler libcaca atool mediainfo pathon-chardet unzip
@@ -29,9 +30,13 @@ pacaur -S offlineimap alot notmuch afew-git pass msmtp
 pacaur -S autoenv-git
 
 pacaur -S xorg xorg-xinit acpi lm_sensors bc
-pacaur -S compton unclutter i3 i3blocks ttf-input neofetch thefuck scrot
+pacaur -S compton unclutter i3 i3blocks neofetch thefuck scrot
 pacaur -S alsa-utils playerctl
-pacaur -S firefox chromium spotify termite otf-fontawesome ttf-iosevka-term
+pacaur -S firefox chromium spotify termite
+pacaur -S otf-fontawesome ttf-iosevka-term otf-hasklig ttf-monoid ttf-input
+
+# Output highlighting
+sudo pacman -S grc
 
 # Awesome file cleaning
 pacaur -S ncdu
@@ -51,7 +56,6 @@ sh ./installer.sh ~/.config/nvim/bundles
 
 # Run NeoVim inbetween
 echo "Please run neovim and edit the source :P"
-exit 1
 
 # YouCompleteMe (After running Neovim for the first time)
 cd ~/.config/nvim/bundles/repos/github.com/valloric/youcompleteme

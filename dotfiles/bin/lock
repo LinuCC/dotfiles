@@ -1,5 +1,7 @@
 #!/bin/bash
 
+playerctl pause spotify
+
 scrot /tmp/screen.png
 convert /tmp/screen.png -scale 10% -scale 1000% /tmp/screen.png
 ICONPATH=$HOME/pictures/icons/lock.png
@@ -29,5 +31,4 @@ then
     done
 fi
 # i3lock  -I 10 -d -e -u -n -i /tmp/screen.png
-playerctl pause spotify
 i3lock -e -n -i /tmp/screen.png

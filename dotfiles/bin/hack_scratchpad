@@ -1,0 +1,5 @@
+i3-msg "workspace 1; append_layout /home/linucc/code/shell/i3/dev_scratchpad_tpl.json"
+termite -t " DevServer" &
+termite -t " DevCompiler" &
+termite -t " Util" &
+termite -t " Util2" &

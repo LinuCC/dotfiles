@@ -1,0 +1,19 @@
+#!/bin/bash
+
+WORK_ID_PATH=$HOME/documents/CURRENT_GOETHE_ID
+ID=$(cat "$WORK_ID_PATH")
+
+if [ "$BLOCK_BUTTON" = "1" ]
+then
+  $(echo $ID | xclip -selection clipboard)
+elif [ "$BLOCK_BUTTON" = "2" ]
+then
+  true
+elif [ "$BLOCK_BUTTON" = "3" ]
+then
+  true
+else
+  true
+fi
+
+echo "$ID"

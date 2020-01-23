@@ -31,28 +31,43 @@ query = 'from:notifications@github.com,body:You are receiving this because you w
 tags = +github
 
 [Filter.6]
-message = bl jira
-query = 'from:jira@brandslisten.atlassian.net'
-tags = +bl_jira
+message = Tag Hugendubel
+query = 'cc:*hugendubel*'
+tags = +hudu
 
 [Filter.7]
-message = bl jira ticket sprint update
-query = 'from:jira@brandslisten.atlassian.net,atlassian ADJ updated'
-tags = +ticket_update
+message = Tag as Libri
+query = 'cc:*aspteam* OR to:*libri.de'
+tags = +libri
 
 [Filter.8]
-message = bl jira ticket sprint update
-query = 'from:jira@brandslisten.atlassian.net,atlassian ADJ updated ADJ/3 Sprint ADJ/2 was'
-tags = +sprint_update
+message = Tag as Mantis from Libri
+query = 'from:noreply@libri.de AND from:Mantis'
+tags = +mantis-libri,-libri
 
-[Filter.9]
-message = bl jira ticket comment
-query = 'from:jira@brandslisten.atlassian.net,atlassian ADJ/20 commented'
-tags = +ticket_commented
+# [Filter.6]
+# message = bl jira
+# query = 'from:jira@brandslisten.atlassian.net'
+# tags = +bl_jira
 
-[Filter.10]
-message = bl jira ticket reassigned
-query = 'from:jira@brandslisten.atlassian.net,atlassian ADJ reassigned'
-tags = +ticket_assign
+# [Filter.7]
+# message = bl jira ticket sprint update
+# query = 'from:jira@brandslisten.atlassian.net,atlassian ADJ updated'
+# tags = +ticket_update
+#
+# [Filter.8]
+# message = bl jira ticket sprint update
+# query = 'from:jira@brandslisten.atlassian.net,atlassian ADJ updated ADJ/3 Sprint ADJ/2 was'
+# tags = +sprint_update
+#
+# [Filter.9]
+# message = bl jira ticket comment
+# query = 'from:jira@brandslisten.atlassian.net,atlassian ADJ/20 commented'
+# tags = +ticket_commented
+#
+# [Filter.10]
+# message = bl jira ticket reassigned
+# query = 'from:jira@brandslisten.atlassian.net,atlassian ADJ reassigned'
+# tags = +ticket_assign
 
 [InboxFilter]

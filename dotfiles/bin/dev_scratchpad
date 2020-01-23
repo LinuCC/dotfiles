@@ -1,5 +1,27 @@
-i3-msg "workspace 1; append_layout /home/linucc/code/shell/i3/dev_scratchpad_tpl.json"
-termite -t " DevServer" &
-termite -t " DevCompiler" &
-termite -t " Util" &
-termite -t " Util2" &
+#!/bin/zsh
+
+set -e
+
+i3-msg "workspace 1; append_layout /home/linucc/code/shell/i3/dev_scratchpad.json"
+
+sleep 0.2
+
+alacritty -t " DockerDevSandbox" -e "/bin/zsh" "-ilc" 'cdfhwid; svflemu; zsh -i' &
+alacritty -t " DockerCompiler" -e "/bin/zsh" "-ilc" 'echo "sleeping..."; cdfhwid; sleep 10; svflrun; zsh -i' &
+alacritty -t " DockerRootSandbox" -e "/bin/zsh" "-il" "-c" 'echo "sleeping..."; cdfhwid; sleep 20; svflana; zsh -i' &
+alacritty -t " Util" &
+alacritty -t " Util2" &
+alacritty -t " DevCompiler" &
+alacritty -t " DevUtil" &
+
+sleep 0.5
+
+xdotool key "ctrl+a"
+xdotool key "ctrl+a"
+xdotool key "super+shift+z"
+
+
+xdotool key "super+z"
+
+# killall compton
+# compton &

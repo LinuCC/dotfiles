@@ -188,6 +188,12 @@ Git mergeconflicts:
 * `:Gwrite` write current file to index
 * `:only` close all but current selected window
 
+Git select what needs to be committed:
+* Select files to merge in `:Gstatus`
+* Select your file with `<Enter>`
+* Go through your git hunks with vim-gitgutters `]c` and `[c`
+* Stage single hunks with `<Leader>hs` or remove them outright with `<Leader>hu` (*dangerous*)
+
 Other Git stuff:
 
 * Blames

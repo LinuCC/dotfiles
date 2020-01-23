@@ -10,31 +10,35 @@
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 
 set $mod Mod4
-set $term termite
-set $menu rofi -show run
+set $term alacritty
+set $menu rofi -show run -theme ~/documents/custom-nord.rasi
 set $window_switcher rofi -show window
+set $notification_display rofication-gui.py
 
-set $monitor1 HDMI-1
-set $monitor2 eDP-1
+set $monitor1 DP-3
+set $monitor2 DP-4
 
-set $WS1 "1:"
+set $WS1 "1:"
 set $WS2 "2:"
-set $WS3 "3:"
+set $WS3 "3:"
 set $WS4 "4:"
 set $WS5 "5:"
 set $WS6 "6:"
-set $WS7 "7:"
+set $WS7 "7:"
 set $WS8 "8:"
-set $WS9 "9:"
+set $WS9 "9:"
 set $WS10 "10:"
-set $WS11 "11:"
+set $WS11 "11:"
 set $WS12 "12:"
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-# font pango:OperatorMono 9
-# font pango:input sans compressed 9
-font pango:Iosevka 10
+# font pango:OperatorMono 6
+# font pango:input sans compressed 7
+# font pango:input sans 6
+# font pango:InputSansCompressed Font Awesome 6
+font pango:gohufont 6
+# font pango:Dina 5
 # font pango:Monofur 9
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
@@ -62,6 +66,7 @@ bindsym $mod+Shift+c kill
 bindsym $mod+d exec $menu
 bindsym $mod+semicolon exec $menu
 bindsym $mod+apostrophe exec $window_switcher
+bindsym $mod+t exec $notification_display
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
@@ -109,7 +114,7 @@ bindsym $mod+e layout toggle split
 bindsym $mod+Shift+space floating toggle
 
 # change focus between tiling / floating windows
-bindsym $mod+space focus mode_toggle
+bindsym $mod+Tab focus mode_toggle
 
 # focus the parent container
 bindsym $mod+a focus parent
@@ -161,6 +166,7 @@ bindsym $mod+bracketleft focus output left
 bindsym $mod+backslash workspace back_and_forth
 
 bindsym $mod+x move workspace to output right
+bindsym $mod+Shift+x move workspace to output up
 
 # Scratchpad
 
@@ -183,11 +189,22 @@ workspace $WS12 output $monitor2
 
 assign [class="^Atom$"] $WS9
 assign [class="^Firefox$"] $WS10
-assign [class="^chromium$"] $WS11
-assign [class="^Spotify$"] $WS12
+assign [class="^Chromium$"] $WS11
 
+# For some reason we need `for_window` for spotify
+# https://www.reddit.com/r/i3wm/comments/5oxosf/assigning_spotify_to_a_workspace/dcnwxcg/
+for_window [class="^Spotify$"] move to workspace $WS12
 # Move Terminal with name scratchpad to the scratchpad
-for_window [class="^Termite$" title="scratchpad"] move scratchpad
+for_window [class="^(Termite|Alacritty)$" title="scratchpad"] move scratchpad
+for_window [class="gnome-pie.*"] floating enable
+# for_window [title="^Spacerun.*"] floating enable
+# browser pop-ups
+for_window [window_role="pop-up"] floating enable
+
+assign [title="Android Emulator"] $WS11
+for_window [title="Android Emulator"] floating enable
+
+bindsym $mod+g [class="go-for-it"] focus
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -197,16 +214,16 @@ mode "resize" {
         # Pressing right will grow the window’s width.
         # Pressing up will shrink the window’s height.
         # Pressing down will grow the window’s height.
-        bindsym h resize shrink width 10 px or 10 ppt
-        bindsym j resize grow height 10 px or 10 ppt
-        bindsym k resize shrink height 10 px or 10 ppt
-        bindsym l resize grow width 10 px or 10 ppt
+        bindsym h resize shrink width 5 px or 5 ppt
+        bindsym j resize grow height 5 px or 5 ppt
+        bindsym k resize shrink height 5 px or 5 ppt
+        bindsym l resize grow width 5 px or 5 ppt
 
         # same bindings, but for the arrow keys
-        bindsym Left resize shrink width 10 px or 10 ppt
-        bindsym Down resize grow height 10 px or 10 ppt
-        bindsym Up resize shrink height 10 px or 10 ppt
-        bindsym Right resize grow width 10 px or 10 ppt
+        bindsym Left resize shrink width 5 px or 5 ppt
+        bindsym Down resize grow height 5 px or 5 ppt
+        bindsym Up resize shrink height 5 px or 5 ppt
+        bindsym Right resize grow width 5 px or 5 ppt
 
         # back to normal: Enter or Escape
         bindsym Return mode "default"
@@ -214,10 +231,11 @@ mode "resize" {
 }
 
 bindsym $mod+r mode "resize"
+bindsym $mod+space exec spacerun
 
 bindsym --release $mod+p exec "scrot -s"
 
-bindsym $mod+ctrl+l exec "twmnc 'locking...' && lock"
+bindsym $mod+ctrl+l exec "notify-send 'locking...' && lock"
 
 # Count for the 2-1 merge system :P
 bindsym $mod+ctrl+m exec "expr $(cat ~/.to-merge) - 1 > ~/.to-merge"
@@ -236,6 +254,33 @@ bindsym $mod+ctrl+bracketright exec basiczshdo cmdpasta bl_jirastory_markdown_li
 bindsym XF86AudioPlay exec playerctl play-pause
 bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
+bindsym XF86MonBrightnessUp exec inc_brightness
+bindsym XF86MonBrightnessDown exec dec_brightness
+bindsym XF86AudioMute exec --no-startup-id toggle_mute_volume
+# bindsym XF86AudioMicMute exec ???
+bindsym XF86AudioRaiseVolume exec --no-startup-id inc_volume
+bindsym XF86AudioLowerVolume exec --no-startup-id dec_volume
+# bindsym XF86LaunchA exec ???
+# bindsym XF86Explorer exec ???
+
+# Nord theme colors
+
+set $nord0   #2E3440
+set $nord1   #3B4252
+set $nord2   #434C5E
+set $nord3   #4C566A
+set $nord4   #D8DEE9
+set $nord5   #E5E9F0
+set $nord6   #ECEFF4
+set $nord7   #8FBCBB
+set $nord8   #88C0D0
+set $nord9   #81A1C1
+set $nord10  #5E81AC
+set $nord11  #BF616A
+set $nord12  #D08770
+set $nord13  #EBCB8B
+set $nord14  #A3BE8C
+set $nord15  #B48EAD
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
@@ -246,19 +291,198 @@ bar {
   position top
   colors {
     separator #666666
-    background #222222
-    statusline #dddddd
-    focused_workspace #0088CC #0088CC #ffffff
-    active_workspace #333333 #333333 #ffffff
-    inactive_workspace #333333 #333333 #888888
-    urgent_workspace #2f343a #900000 #ffffff
+    # background #222222
+    # statusline #dddddd
+    # focused_workspace #0088CC #0088CC #ffffff
+    # active_workspace #333333 #333333 #ffffff
+    # inactive_workspace #333333 #333333 #888888
+    # urgent_workspace #2f343a #900000 #ffffff
+
+    background $nord0
+	  statusline $nord8
+
+    focused_workspace  $nord3  $nord8
+	  active_workspace   $nord3  $nord8
+	  inactive_workspace $nord8  $nord3
+    urgent_workspace $nord3 $nord15
   }
 }
 
-client.focused #0088CC #0088CC #ffffff #dddddd
-client.focused_inactive #333333 #333333 #888888 #292d2e
-client.unfocused #333333 #333333 #888888 #292d2e
-client.urgent #2f343a #900000 #ffffff #900000
+#class                      border         backgr	  text	   indicator
+# client.focused #0088CC #0088CC #ffffff #dddddd
+# client.focused_inactive #333333 #333333 #888888 #292d2e
+# client.unfocused #333333 #333333 #888888 #292d2e
+# client.urgent #2f343a #900000 #ffffff #900000
+
+client.focused $nord10 $nord10 $nord6 #dddddd
+client.focused_inactive $nord2 $nord2 $nord4 #292d2e
+client.unfocused $nord0 $nord0 $nord4 #292d2e
+client.urgent #2f343a $nord11 $nord4 #900000
+
+# client.focused		        #2C313D        #2e3440        $background  $background
+# client.focused_inactive	    #2C313D        #303743        $background  $background
+# client.unfocused	        #2C313D        #303743        $background  $background
+# client.urgent		        $background    #282d37    $background  $background
+# client.placeholder $background #282D37 $background $background
+
+#
+# Gaps specific stuff
+#
+
+# You can also use any non-zero value if you'd like to have a border
+for_window [class=".*"] border pixel 0
+
+smart_borders on
+smart_gaps on
+
+gaps outer 2
+gaps inner 12
+
+
+
+#
+# ==== Custom modes ====
+#
+
+set $mode_sysmenu "system:  [r]eload  [l]ogout  [p]oweroff  re[b]oot"
+mode $mode_sysmenu {
+    bindsym r         restart
+    bindsym l         exit
+    bindsym p         exec shutdown -P now
+    bindsym b         exec shutdown -r now
+    bindsym Return    mode "default"
+    bindsym Escape    mode "default"
+}
+
+set $mode_devhint \
+  "Devhint: [e]dit [s]erver"
+mode $mode_devhint {
+    bindsym e          exec $term -t "Edit devhint" -e /bin/bash -ilc "cd ~/code/markdown/devhint && nvim ." ; mode "default"
+    bindsym s          exec $term -t "Server devhint" -e "/bin/bash" -ilc "cd ~/code/markdown/devhint && docker-compose up" ; mode "default"
+
+    # back to normal: Enter or Escape
+    bindsym Return     mode "default"
+    bindsym Escape     mode "default"
+}
+
+set $mode_multi_runner \
+  "<Multi>Runner (Esc/Return: go back): Custom:(Run[<1-3>]/Edit[Shift+<1-3>]) \
+| Edit: \
+[i]3Config [n]eovim \
+| More Options: \
+[d]evhint \
+[o]fflineimap \
+[a]lot \
+[f]irefox \
+[v]ivaldi \
+[c]hromium \
+"
+mode $mode_multi_runner {
+    bindsym 1    exec run-temp-script 1
+    bindsym 2    exec run-temp-script 2
+    bindsym 3    exec run-temp-script 3
+
+    bindsym Shift+1    exec $term -e "/bin/bash" -ilc "edit-temp-script 1"
+    bindsym Shift+2    exec $term -e "/bin/bash" -ilc "edit-temp-script 2"
+    bindsym Shift+3    exec $term -e "/bin/bash" -ilc "edit-temp-script 3"
+
+    bindsym d          mode $mode_devhint
+    bindsym n          exec $term -e "/bin/bash" -ilc "nvim ~/.config/nvim/init.vim"
+    bindsym i          exec $term -e "/bin/bash" -ilc "nvim ~/.config/i3/config"
+    bindsym o          exec $term -e "/bin/bash" -ilc "offlineimap"
+    bindsym a          exec $term -e "/bin/bash" -ilc "alot"
+    bindsym f          exec firefox
+    bindsym v          exec vivaldi-stable
+    bindsym c          exec chromium
+
+    # back to normal: Enter or Escape
+    bindsym Return     mode "default"
+    bindsym Escape     mode "default"
+}
+
+set $mode_runner \
+  "Script runner/editor: Custom:(Run[<1-3>]/Edit[Shift+<1-3>]) \
+| Edit: \
+[i]3Config [n]eovim \
+| More Options: \
+c[m]dr \
+[d]evhint \
+[o]fflineimap \
+[a]lot \
+[f]irefox \
+[v]ivaldi \
+[c]hromium \
+ [p]projects \
+ [<space>] Multirunner mode \
+"
+mode $mode_runner {
+    bindsym 1    exec run-temp-script 1 ; mode "default"
+    bindsym 2    exec run-temp-script 2 ; mode "default"
+    bindsym 3    exec run-temp-script 3 ; mode "default"
+
+    bindsym Shift+1    exec $term -e "/bin/bash" -ilc "edit-temp-script 1" ; mode "default"
+    bindsym Shift+2    exec $term -e "/bin/bash" -ilc "edit-temp-script 2" ; mode "default"
+    bindsym Shift+3    exec $term -e "/bin/bash" -ilc "edit-temp-script 3" ; mode "default"
+
+    bindsym m          exec $term -e /bin/zsh -ilc "cmdr" ; mode "default"
+
+    bindsym d          mode $mode_devhint
+    bindsym n          exec $term -t "NeoVim config" -e "/bin/bash" -ilc "nvim ~/.config/nvim/init.vim" ; mode "default"
+    bindsym i          exec $term -t "i3 config" -e "/bin/bash" -ilc "nvim ~/.config/i3/config" ; mode "default"
+    bindsym o          exec $term -t "offlineimap" -e "/bin/bash" -ilc "offlineimap" ; mode "default"
+    bindsym a          exec $term -t "alot" -e "/bin/bash" -ilc "alot" ; mode "default"
+    bindsym f          exec firefox ; mode "default"
+    bindsym v          exec vivaldi-stable ; mode "default"
+    bindsym c          exec chromium ; mode "default"
+
+    # Multi runner
+    bindsym space      mode $mode_multi_runner
+    bindsym p          mode $mode_projects
+
+    # back to normal: Enter or Escape
+    bindsym Return     mode "default"
+    bindsym Escape     mode "default"
+}
+
+set $mode_projects \
+  "Projects: [f]dc [k]f"
+mode $mode_projects {
+    bindsym f          mode $mode_fdc_projects
+    bindsym k          mode $mode_kf_projects
+
+    # back to normal: Enter or Escape
+    bindsym Return     mode "default"
+    bindsym Escape     mode "default"
+}
+
+set $mode_fdc_projects \
+  "FDC Projects: [c]heckout-responsive"
+mode $mode_fdc_projects {
+    bindsym c          exec $term -t "Edit CheckoutResponsive" -e /bin/zsh -ilc "edflcre" ; mode "default"
+
+    # back to normal: Enter or Escape
+    bindsym Return     mode "default"
+    bindsym Escape     mode "default"
+}
+
+set $mode_kf_projects \
+  "Käsefüße Projects: graphql-[s]erver react-[c]lient [g]raphql-types"
+mode $mode_kf_projects {
+    bindsym s          exec $term -t " KF Server" -e /bin/zsh -ilc "edkfsrv" ; mode "default"
+    bindsym c          exec $term -t " KF Client" -e /bin/zsh -ilc "edkfcli" ; mode "default"
+    bindsym g          exec $term -t " KF GQL Types" -e /bin/zsh -ilc "edkfgql" ; mode "default"
+
+    # back to normal: Enter or Escape
+    bindsym Return     mode "default"
+    bindsym Escape     mode "default"
+}
+
+bindsym $mod+Delete      mode $mode_sysmenu
+bindsym $mod+period      mode $mode_runner
+
+#
+# ====/Custom modes ====
+#
 
 # Autostart
 

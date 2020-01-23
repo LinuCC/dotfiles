@@ -15,3 +15,63 @@ rule:ev:.*asset.*|.*media.*
 rule:em:.*Started.*
 rule:em:    \d{1,3}\:.*
 usefilterscheme:railslog:\*\/development.log
+
+# Say what
+
+colorscheme:tomcatwsapilog
+cs_re:blue:DEBUG
+cs_re:blue:INFO
+cs_re:red:ERROR
+cs_re:cyan:DLX
+cs_re:yellow:WARN
+cs_re:black,green,bold:==== START
+cs_re:black,green,bold:==== END
+
+colorscheme:wsapisqllog
+cs_re:blue:DEBUG
+cs_re:blue:INFO
+cs_re:red:ERROR
+cs_re:yellow:WARN
+cs_re:black,green:select
+cs_re:black,cyan:insert
+cs_re:black,red:delete
+cs_re:black,cyan:update
+cs_re:cyan,black:from [^ ]+
+cs_re:cyan,black:where
+cs_re:cyan,black:order by
+
+
+colorscheme:wsapicalllog
+cs_re:blue:DEBUG
+cs_re:blue:INFO
+cs_re:red:ERROR
+cs_re:cyan:DLX
+cs_re:yellow:WARN
+cs_re:cyan:Called: ?\S+
+cs_re:black,green,bold:==== START
+cs_re:black,green,bold:==== END
+
+colorscheme:pmmssearchlog
+cs_re:blue:DEBUG
+cs_re:blue:INFO
+cs_re:red:ERROR
+cs_re:cyan:DLX
+cs_re:yellow:WARN
+cs_re:black,green,bold:==== START
+cs_re:black,green,bold:==== END
+cs_re:blue:Executing search query
+cs_re:blue:delivered result
+cs_re:cyan:"kontext"
+cs_re:cyan:"libriQuery"
+cs_re:cyan:"sort"
+cs_re:cyan:"_source"
+cs_re:green:status 200
+cs_re:red:status (404|422|500)
+
+colorscheme:trackinglogs
+cs_re:red:ERROR_EVENT
+cs_re:blue:CLICK_EVENT
+cs_re:blue:APPLICATION_END
+cs_re:blue:PAGE_LOAD_STARTED
+cs_re:cyan:\|
+cs_re:yellow:\|[^|]*$

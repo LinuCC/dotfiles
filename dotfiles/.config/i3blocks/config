@@ -64,30 +64,44 @@ command=~/code/shell/i3blocks/blocks/$BLOCK_NAME
 instance=spotify
 interval=5
 signal=10
-color=#d33682
+color=#81a1c1
 label=
 
-[volume]
-full_text=
-#label=♪
-label=:
-command=~/code/shell/i3blocks/blocks/volume 2
-color=#d33682
-interval=5
-signal=12
+# [volume]
+# full_text=
+# #label=♪
+# label=:
+# command=~/code/shell/i3blocks/blocks/volume 2
+# color=#d33682
+# interval=5
+# signal=12
+
+# [separator]
+# [jira_story]
+# command=bl_get_current_story_status
+# interval=1
+# color=#3682d3
+# label=
 
 [separator]
 
-[jira_story]
-command=bl_get_current_story_status
-interval=1
-color=#3682d3
-label=
+[timewarrior current]
+color=#d08770
+interval=3
+label=
+command=timewarrior_current_task
 
-[work_timer]
-color=#cccccc
-interval=1
-label=
+[separator]
+
+[work_status]
+color=#B48EAD
+interval=3
+label=
+
+# [work_timer]
+# color=#cccccc
+# interval=1
+# label=
 
 [separator]
 
@@ -100,7 +114,7 @@ interval=10
 
 [actionable-mailbox]
 label=
-color=#b58900
+color=#d08770
 interval=10
 # signal=12
 
@@ -113,46 +127,46 @@ interval=10
 
 [separator]
 
-[bl-running-server]
-command=~/code/shell/i3blocks/blocks/bl_running_server
-label=
-color=#859900
-interval=1
+# [bl-running-server]
+# command=~/code/shell/i3blocks/blocks/bl_running_server
+# label=
+# color=#859900
+# interval=1
 # signal=12
-
-[separator]
+#
+# [separator]
 
 [brightness]
-color=#886622
+color=#5E81AC
 label=
 interval=5
 
 [battery]
-color=#aa8822
 label=
+color=#8FBCBB
 instance=0
 interval=5
 
 [separator]
 
-[packages]
-label=
-interval=300
-color=#586ecc
-instance=with_sync
-
-[separator]
-
+# [packages]
+# label=
+# interval=300
+# color=#586ecc
+# instance=with_sync
+#
+# [separator]
+#
 [cpu]
-label=
+label=
 interval=1
-color=#669922
+color=#8fbcbb
 
 [temperature]
 instance=Core
 label=
 interval=1
-color=#bb2222
+color=#bf616a
 
 [separator]
 
@@ -160,7 +174,7 @@ color=#bb2222
 label=
 instance=mem;free
 interval=10
-color=#229966
+color=#5E81AC
 
 [separator]
 
@@ -172,14 +186,14 @@ color=#229966
 [space]
 label=
 interval=30
-color=#77a7a7
+color=#5E81AC
 
 [separator]
 
-[vpn]
-label=
-color=#e88b0c
-interval=10
+# [vpn]
+# label=
+# color=#e88b0c
+# interval=10
 
 # [mpd]
 # full_text=
@@ -226,17 +240,19 @@ interval=10
 
 [iface]
 label=
-instance=enp9s0
-color=#268bd2
+instance=enp0s31f6
+color=#81a1c1
 interval=30
 
 [bandwidth]
-instance=enp9s0;in
+instance=enp0s31f6;in
+color=#8fbcbb
 label=
 interval=1
 
 [bandwidth]
-instance=enp9s0;out
+instance=enp0s31f6;out
+color=#8fbcbb
 label=
 interval=1
 
@@ -244,8 +260,7 @@ interval=1
 
 [iface]
 label=
-instance=wlp8s0
-color=#268bd2
+instance=wlp4s0
 interval=30
 
 # [bandwidth]
@@ -275,7 +290,7 @@ interval=30
 
 [datetime]
 command=date "+%Y<span color='#586e75'>-</span>%m<span color='#586e75'>-</span>%d<span color='#586e75'> </span> %H<span color='#586e75'>:</span>%M<span color='#586e75'>:</span>%S"
-color=#ffffff
+color=#D8DEE9
 interval=1
 
 # [rss]

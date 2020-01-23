@@ -1,0 +1,6 @@
+xbacklight -inc 5
+exit
+
+NEW_BRIGHTNESS=$(($(cat /sys/class/backlight/nv_backlight/brightness) + 5))
+sudo tee /sys/class/backlight/nv_backlight/brightness <<< $NEW_BRIGHTNESS
+echo "Increased brightness to $NEW_BRIGHTNESS"

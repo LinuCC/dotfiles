@@ -14,6 +14,5 @@ opacity-rule = [
   "70:class_g = 'Spotify' && !_NET_WM_STATE@:32a",
   "70:class_g = 'pcmanfm' && !_NET_WM_STATE@:32a",
   "90:name *= ' ' && !_NET_WM_STATE@:32a",
-  "100:name *= 'Android Emulator' && !_NET_WM_STATE@:32a",
   "0:_NET_WM_STATE@:32a *= '_NET_WM_STATE_HIDDEN'"
 ];

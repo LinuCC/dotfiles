@@ -1,3 +1,5 @@
 #/bin/bash
 moar=$1
-xrandr --output HDMI-1 --left-of eDP-1 $moar
+# xrandr --output DP-3.8 --left-of DP-4 $moar
+# xrandr --output DP-1 --left-of DP-4
+xrandr --output DP-5.2 --left-of DP-4

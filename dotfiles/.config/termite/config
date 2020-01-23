@@ -8,7 +8,13 @@ allow_bold = true
 dynamic_title = true
 urgent_on_bell = true
 clickable_url = true
-font = IosevkaTerm 12
+; font = FiraCode 11
+font = dina 8
+; font = IosevkaTermSs04 12
+; font = Inconsolata 13
+; font = hack 11
+; font = camingocode 12
+; font = operatormonobook 12
 scrollback_lines = 20000
 search_wrap = true
 #icon_name = terminal
@@ -36,7 +42,7 @@ background = rgba(35, 35, 35, 0.8)
 #cursor = #7FC900
 
 # if unset, will reverse foreground and background
-highlight = #2f2f2f
+# highlight = #2f2f2f
 
 # colors from color0 to color254 can be set
 # color0 = #3f3f3f

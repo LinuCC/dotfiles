@@ -1,5 +1,13 @@
 #!/bin/zsh
 
+function start_ide() {
+  nvim -S vimsession .
+}
+
+function fancy_say() {
+  print -P "%F{yellow}$@%f"
+}
+
 function git_branch_default() {
   if [ ! "$GIT_BRANCH_DEFAULT" = "" ]
   then
@@ -17,10 +25,14 @@ function gmd() {
   git merge $(git_branch_default)
 }
 
+function grrh() {
+  git reset HEAD~${1} --hard
+}
+
 function settitle() {
   local title="$@"
   DISABLE_AUTO_TITLE="true"
-  echo -e "\033];$title\007"
+  echo -e "\033]0;$title\007"
 }
 
 function downcase() {
@@ -60,6 +72,102 @@ function cdjs() {
 }
 function cdrb() {
   cd "$CODE/ruby"
+}
+
+function cdflcom() {
+  cd "$CODE/javascript/blessed-books-commander"
+}
+
+
+function edflcom() {
+  cdflcom
+  nvim -S vimsession .
+}
+
+function cdkfcli() {
+  cd "$CODE/javascript/kfamv-geass/packages/react-client"
+}
+
+function edkfcli() {
+  cdkfcli
+  start_ide
+}
+
+function cdkfsrv() {
+  cd "$CODE/javascript/kfamv-geass/packages/gql-server"
+}
+
+function edkfsrv() {
+  cdkfsrv
+  start_ide
+}
+
+function cdkfgql() {
+  cd "$CODE/javascript/kfamv-geass/packages/gql-schema"
+}
+
+function edkfgql() {
+  cdkfgql
+  start_ide
+}
+
+function cdccshi() {
+  cd "$CODE/rust/shirei"
+}
+
+function edccshi() {
+  cdccshi
+  start_ide
+}
+
+function cdcchei() {
+  cd "$CODE/javascript/heishi-react"
+}
+
+function edcchei() {
+  cdcchei
+  start_ide
+}
+
+
+function cdccspr() {
+  cd "$CODE/rust/spacerun"
+}
+
+function edccspr() {
+  cdccspr
+  start_ide
+}
+
+function cdccdra() {
+  cd "$CODE/rust/drang"
+}
+
+function edccdra() {
+  cdccdra
+  start_ide
+}
+
+function cdccstu() {
+  cd "$CODE/javascript/sturm"
+}
+
+function edccstu() {
+  cdccstu
+  start_ide
+}
+
+function cdccrho() {
+  cd "$CODE/javascript/react-hooks-pres"
+}
+
+function cdjbfro() {
+  cd "$CODE/javascript/jb-next"
+}
+
+function edjbfro() {
+  cdjbfro
+  start_ide
 }
 
 function fbr() {

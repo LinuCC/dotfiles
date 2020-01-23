@@ -1,6 +1,9 @@
 *.sublime-*
 *.userprefs
 .tags
+tags
+tags.lock
+tags.temp
 
 # Latex
 *.fdb_latexmk
@@ -15,9 +18,18 @@
 *.log
 vimsession
 
-node_modules
 .env
 .ssh
 
 # Ruby
 .byebug_history
+
+# Import-js config files
+.importjs.js
+
+.hgignore
+.nvimrc
+.dir-locals.el
+.projectile
+
+flutter_run_pid
