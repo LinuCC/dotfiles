@@ -136,7 +136,11 @@ return require('packer').startup(function(use)
   use 'justinmk/vim-dirvish'
 
   -- Theme
-  use 'arcticicestudio/nord-vim'
+  -- use 'arcticicestudio/nord-vim'
+  use 'shaunsingh/nord.nvim'
+
+  -- Editorconfig
+  use("editorconfig/editorconfig-vim")
 
   -- Formatting files
   use {'mhartington/formatter.nvim', config = [[require('config.format')]]}

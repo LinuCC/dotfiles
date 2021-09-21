@@ -55,7 +55,8 @@ lspkind.init {symbol_map = kind_symbols}
 lsp.handlers['textDocument/publishDiagnostics'] = lsp.with(lsp.diagnostic.on_publish_diagnostics, {
   virtual_text = {
     spacing = 4,
-    prefix = "｢ﮂ｣─➤"
+    -- prefix = "｢ﮂ｣─➤"
+    prefix = " ",
   },
   signs = true,
   update_in_insert = false,
@@ -64,6 +65,7 @@ lsp.handlers['textDocument/publishDiagnostics'] = lsp.with(lsp.diagnostic.on_pub
 saga.init_lsp_saga {use_saga_diagnostic_sign = false}
 
 local servers = {
+  -- Flutter / dart lsp is set up by flutter_tools separately (see `flutters_tools.lua`)
   bashls = {},
   clangd = {
     cmd = {
