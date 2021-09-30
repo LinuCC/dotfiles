@@ -20,8 +20,7 @@ return require('packer').startup(function(use)
   use {'kshenoy/vim-signature', config = [[require('config.signature')]], disable = true}
 
   -- Movement
-  -- use {'chaoren/vim-wordmotion', {'justinmk/vim-sneak', config = [[require('config.sneak')]]}}
-  use { 'easymotion/vim-easymotion', config = [[require('config.easymotion')]] } 
+  use { 'phaazon/hop.nvim', as = 'hop', config = [[require('config.hop')]] } 
 
 
   use {'tpope/vim-dispatch', cmd = {'Dispatch', 'Make', 'Focus', 'Start'}}

@@ -56,7 +56,7 @@ lsp.handlers['textDocument/publishDiagnostics'] = lsp.with(lsp.diagnostic.on_pub
   virtual_text = {
     spacing = 4,
     -- prefix = "｢ﮂ｣─➤"
-    prefix = " ",
+    prefix = "",
   },
   signs = true,
   update_in_insert = false,

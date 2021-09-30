@@ -23,4 +23,9 @@ local function map(modes, lhs, rhs, opts)
   for _, mode in ipairs(modes) do map_key(mode, lhs, rhs, opts) end
 end
 
-return {opt = opt, autocmd = autocmd, map = map}
+function file_exists(name)
+   local f=io.open(name,"r")
+   if f~=nil then io.close(f) return true else return false end
+end
+
+return {opt = opt, autocmd = autocmd, map = map, file_exists = file_exists}

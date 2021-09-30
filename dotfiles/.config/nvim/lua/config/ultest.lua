@@ -5,7 +5,7 @@ local map = require('utils').map
 vim.cmd("let test#strategy = 'neovim'")
 vim.cmd("let test#javascript#jest#file_pattern ='.*\\.ts$'")
 vim.cmd("let test#javascript#runner = 'jest'")
-vim.cmd("let test#javascript#jest#executable = 'node_modules/.bin/vue-cli-service test:unit --maxWorkers=1'")
+-- vim.cmd("let test#javascript#jest#executable = 'node_modules/.bin/vue-cli-service test:unit --maxWorkers=1'")
 
 vim.cmd('let test#javascript#jest#options = "--color=always"')
 vim.cmd("let test#go#gotest#executable = 'grc --colour=on -c conf.gotest go test'")

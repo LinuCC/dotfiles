@@ -5,7 +5,12 @@ require("flutter-tools").setup{
     enabled = true,
   },
   lsp = {
-    flutter_lookup_cmd = "asdf where flutter",
     on_attach = custom_on_attach,
+    settings = {
+      dart = {
+        enableSdkFormatter = true,
+        lineLength = 120,
+      },
+    },
   },
 }
