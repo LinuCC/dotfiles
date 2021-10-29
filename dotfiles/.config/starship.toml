@@ -1,0 +1,80 @@
+format = """
+[╭─](bold black) $username\
+$hostname\
+$shlvl\
+$kubernetes\
+$directory\n\
+[├─](bold black) ${custom.wip}[｢](bold black)$git_branch[｣](bold black)\
+$git_commit\
+$git_state\
+$git_status\
+$hg_branch\
+$docker_context\
+$package\
+$cmake\
+$dart\
+$dotnet\
+$elixir\
+$elm\
+$erlang\
+$golang\
+$helm\
+$java\
+$julia\
+$nim\
+$nodejs\
+$ocaml\
+$perl\
+$php\
+$purescript\
+$python\
+$ruby\
+$rust\
+$swift\
+$terraform\
+$zig\
+$nix_shell\
+$conda\
+$memory_usage\
+$aws\
+$gcloud\
+$openstack\
+$env_var\
+$crystal\
+$cmd_duration\
+$custom\
+$line_break\
+$lua\
+$jobs\
+$battery\
+$time\
+$status\
+$character"""
+
+[character]
+success_symbol = "[╰](bold black)[❯](bold green)"
+error_symbol = "\n[╰](bold red)[❯](bold red)"
+vicmd_symbol = "[╰](bold black)[❮](bold green)"
+
+[directory]
+truncate_to_repo = false
+truncation_length = 999
+truncation_symbol = "…/"
+
+[dart]
+format = "via [🔰 $version](bold red) "
+
+[git_commit]
+commit_hash_length = 4
+tag_symbol = "🔖 "
+
+
+[status]
+format = "[├─](bold red) [$symbol: $status $common_meaning$signal_name$maybe_int](bold red)"
+map_symbol = true
+disabled = false
+
+[custom.wip]
+command = "echo WIP"
+format = "[｢$output｣](red bold)"
+when = 'git log -n 1 2>/dev/null | grep -c -q \\-\\-wip\\-\\-'
