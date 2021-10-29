@@ -6,48 +6,48 @@
 
 sudo pacman -S git tig
 
-# Install pacaur, then continue
-echo "Please install pacaur and edit the source :P"
+# Install yay, then continue
+echo "Please install yay and edit the source :P"
 
-pacaur -S python
+yay -S python
 
-pacaur -S ruby
-pacaur -S npm
-pacaur -S zsh
-pacaur -S zsh-syntax-highlighting
+yay -S ruby
+yay -S npm
+yay -S zsh
+yay -S zsh-syntax-highlighting
 
 # Goodies
-pacaur -S ranger poppler libcaca atool mediainfo pathon-chardet unzip
-pacaur -S rofi-git twmn-git feh zathura zathura-pdf-poppler
-pacaur -S fzf
-pacaur -S fzf-extras
-pacaur -S the_silver_searcher
-pacaur -S xclip xsel xdotool
+yay -S ranger poppler libcaca atool mediainfo pathon-chardet unzip
+yay -S twmn feh zathura zathura-pdf-poppler
+yay -S fzf
+yay -S fzf-extras
+yay -S the_silver_searcher
+yay -S xclip xsel xdotool
 
-pacaur -S neovim python-neovim openssh
-pacaur -S offlineimap alot notmuch afew-git pass msmtp
+yay -S neovim python-neovim openssh
+yay -S offlineimap alot notmuch afew-git pass msmtp
 
-pacaur -S autoenv-git
+yay -S autoenv-git
 
-pacaur -S xorg xorg-xinit acpi lm_sensors bc
-pacaur -S compton unclutter i3 i3blocks neofetch thefuck scrot
-pacaur -S alsa-utils playerctl
-pacaur -S firefox chromium spotify termite
-pacaur -S otf-fontawesome ttf-iosevka-term otf-hasklig ttf-monoid ttf-input
+yay -S xorg xorg-xinit acpi lm_sensors bc
+yay -S compton unclutter i3 i3blocks neofetch thefuck scrot
+yay -S alsa-utils playerctl
+yay -S firefox chromium spotify termite
+yay -S otf-fontawesome ttf-iosevka-term otf-hasklig ttf-monoid ttf-input
 
 # Output highlighting
 sudo pacman -S grc
 
 # Awesome file cleaning
-pacaur -S ncdu
+yay -S ncdu
 
-pacaur -S dialog
+yay -S dialog
 
 # Noicer diffs to look at
 npm i -g diff-so-fancy
 
 # Bluetooth
-pacaur -S blueman
+yay -S blueman
 echo "Dont forget to 'systemctl enable bluetooth'"
 
 # dein.vim

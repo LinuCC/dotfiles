@@ -1,29 +1,13 @@
 # Path to your oh-my-zsh installation.
-ZSH=/home/linucc/.oh-my-zsh
-
-# Add ruby-executables to the path
-export PATH=$HOME/.gem/ruby/2.5.0/bin:$PATH
+ZSH=$HOME/.oh-my-zsh
 
 source ~/bin/git-prompt.sh
 
 XKB_DEFAULT_LAYOUT=gb
 
-
-
-POWERLEVEL9K_MODE="nerdfont-complete"
-POWERLEVEL9K_FOREGROUND="black"
-# POWERLEVEL9K_PROMPT_ON_NEWLINE=true
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(os_icon user dir_writable  vcs newline dir)
-# POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status command_execution_time root_indicator background_jobs time disk_usage ram)
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status command_execution_time root_indicator background_jobs time)
-#POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX="%(?:%{$fg_bold[green]%}➜ :%{$fg_bold[red]%}➜ )"
-#POWERLEVEL9K_MULTILINE_FIRST_PROMPT_PREFIX=""
-#POWERLEVEL9K_USER_ICON="\uF415" # 
-POWERLEVEL9K_ROOT_ICON="\uF09C"
-POWERLEVEL9K_SUDO_ICON=$'\uF09C' # 
-POWERLEVEL9K_TIME_FORMAT="%D{%H:%M}"
-#POWERLEVEL9K_VCS_GIT_ICON='\uF408 '
-#POWERLEVEL9K_VCS_GIT_GITHUB_ICON='\uF408 '
+export GPG_TTY="$(tty)"
+export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
+gpgconf --launch gpg-agent
 
 # source /usr/share/zsh-theme-powerlevel9k/powerlevel9k.zsh-theme
 
@@ -117,7 +101,7 @@ alias net="netctl"
 CODE="$HOME/code"
 SCRIPTS="$CODE/shell"
 
-source '/usr/share/undistract-me/long-running.bash'
+# source '/usr/share/undistract-me/long-running.bash'
 
 [[ -s "/etc/grc.zsh" ]] && source /etc/grc.zsh
 
@@ -183,7 +167,7 @@ alias lt='exa --long --git --tree'
 alias tws='timew sum :ids'
 
 # Base16 Shell
-BASE16_SHELL="$HOME/.config/base16-shell/base16-railscasts.dark.sh"
+# BASE16_SHELL="$HOME/.config/base16-shell/base16-railscasts.dark.sh"
 # BASE16_SHELL="$HOME/.config/base16-shell/base16-atelierdune.dark.sh"
 # BASE16_SHELL="$HOME/.config/base16-shell/base16-codeschool.dark.sh"
 # BASE16_SHELL="$HOME/.config/base16-shell/my-codeschool.sh"
@@ -194,9 +178,6 @@ export FZF_DEFAULT_COMMAND='ag -g ""'
 
 # Overrides FZF shortcut, do I want that?
 # source /usr/share/doc/mcfly/mcfly.bash
-
-export BL_GEM_PATH="$HOME/code/brandslisten/bl"
-export BL_STYLEGUIDE_GEM_PATH="$HOME/code/brandslisten/bl_styleguide"
 
 # Disable scaling of font for alacritty
 export WINIT_HIDPI_FACTOR=1
@@ -212,6 +193,11 @@ function easy_input {
 neofetch
 
 source /usr/share/autoenv-git/activate.sh
+source /opt/asdf-vm/asdf.sh
 
-notify_when_long_running_commands_finish_install
+# initialise completions with ZSH's compinit
+autoload -Uz compinit && compinit
 
+# notify_when_long_running_commands_finish_install
+
+eval "$(starship init zsh)"

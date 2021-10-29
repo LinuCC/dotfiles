@@ -1,12 +1,22 @@
 [user]
   email = linucc@linu.cc
   name = Pascal Ernst
+	signingkey = 0xF70D46C3DCB20E20
 [editor]
   default = nvim
 [core]
   editor = nvim
   excludesfile = /home/linucc/.gitignore
-  pager = diff-so-fancy | less --tabs=4 -RFX
+[include]
+  path = ~/.config/delta/themes.gitconfig
+[delta]
+  features = calochortus-lyallii
+  side-by-side = true
+[pager]
+    diff = delta
+    log = delta
+    reflog = delta
+    show = delta
 [push]
   default = current
 [diff]
@@ -14,7 +24,6 @@
 [alias]
   br = for-each-ref --sort=committerdate refs/heads/ --format='%(HEAD) %(color:yellow)%(refname:short)%(color:reset) - %(color:red)%(objectname:short)%(color:reset) - %(contents:subject) - %(authorname) (%(color:green)%(committerdate:relative)%(color:reset))'
 	undo = "!f() { \\\n    git reset --hard $(git rev-parse --abbrev-ref HEAD)@{${1-1}}; \\\n}; f"
-
 [merge]
   tool = vimdiff
 [mergetool]
@@ -22,4 +31,4 @@
 [mergetool "vimdiff"]
   cmd = nvim $BASE $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
 [interactive]
-	diffFilter = diff-so-fancy | less --tabs=4 -RFX
+    diffFilter = delta --color-only

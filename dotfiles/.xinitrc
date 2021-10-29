@@ -19,7 +19,7 @@ dunst &
 
 # dropboxd &
 
-
+playerctld daemon &
 
 # Compositing, like transparency for windows
 compton --opengl --sw-opti --paint-on-overlay -cCGb -r 10 -o 0.5 -t-12 -i 0.8 &
