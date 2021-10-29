@@ -65,7 +65,7 @@ instance=spotify
 interval=5
 signal=10
 color=#81a1c1
-label=
+label= 
 
 # [volume]
 # full_text=
@@ -88,7 +88,7 @@ label=
 [timewarrior current]
 color=#d08770
 interval=3
-label=
+label= 
 command=timewarrior_current_task
 
 [separator]
@@ -96,7 +96,7 @@ command=timewarrior_current_task
 [work_status]
 color=#B48EAD
 interval=3
-label=
+label= 
 
 # [work_timer]
 # color=#cccccc
@@ -106,21 +106,21 @@ label=
 [separator]
 
 [offlineimapstatus]
-label=
+label= 
 color=#999999
 interval=10
 # signal=12
 
 
 [actionable-mailbox]
-label=
+label= 
 color=#d08770
 interval=10
 # signal=12
 
 
 [mailbox]
-label=
+label= 
 color=#b58900
 interval=10
 # signal=12
@@ -138,11 +138,11 @@ interval=10
 
 [brightness]
 color=#5E81AC
-label=
+label= 
 interval=5
 
 [battery]
-label=
+label= 
 color=#8FBCBB
 instance=0
 interval=5
@@ -158,20 +158,20 @@ interval=5
 # [separator]
 #
 [cpu]
-label=
+label= 
 interval=1
 color=#8fbcbb
 
 [temperature]
 instance=Core
-label=
+label= 
 interval=1
 color=#bf616a
 
 [separator]
 
 [memory]
-label=
+label= 
 instance=mem;free
 interval=10
 color=#5E81AC
@@ -184,7 +184,7 @@ color=#5E81AC
 # interval=30
 
 [space]
-label=
+label= 
 interval=30
 color=#5E81AC
 
@@ -223,7 +223,7 @@ color=#5E81AC
 #
 #[wireless]
 #label=
-#instance=wlp3s0
+#instance=wlp0s20f3
 #command=~/.config/i3blocks/iface
 #color=#00FF00
 #interval=30
@@ -239,19 +239,19 @@ color=#5E81AC
 [separator]
 
 [iface]
-label=
-instance=enp0s31f6
+label= 
+instance=wlp0s20f3
 color=#81a1c1
 interval=30
 
 [bandwidth]
-instance=enp0s31f6;in
+instance=wlp0s20f3;in
 color=#8fbcbb
 label=
 interval=1
 
 [bandwidth]
-instance=enp0s31f6;out
+instance=wlp0s20f3;out
 color=#8fbcbb
 label=
 interval=1
@@ -259,8 +259,8 @@ interval=1
 [separator]
 
 [iface]
-label=
-instance=wlp4s0
+label= 
+instance=wlp0s20f3
 interval=30
 
 # [bandwidth]

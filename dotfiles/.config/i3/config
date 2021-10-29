@@ -11,25 +11,26 @@
 
 set $mod Mod4
 set $term alacritty
-set $menu rofi -show run -theme ~/documents/custom-nord.rasi
+# set $menu rofi -show run -theme ~/documents/custom-nord.rasi
+set $menu rofi -show run
 set $window_switcher rofi -show window
 set $notification_display rofication-gui.py
 
 set $monitor1 DP-3
 set $monitor2 DP-4
 
-set $WS1 "1:"
-set $WS2 "2:"
-set $WS3 "3:"
-set $WS4 "4:"
-set $WS5 "5:"
-set $WS6 "6:"
-set $WS7 "7:"
-set $WS8 "8:"
-set $WS9 "9:"
-set $WS10 "10:"
-set $WS11 "11:"
-set $WS12 "12:"
+set $WS1 "1: "
+set $WS2 "2: "
+set $WS3 "3: "
+set $WS4 "4: "
+set $WS5 "5: "
+set $WS6 "6: "
+set $WS7 "7: "
+set $WS8 "8: "
+set $WS9 "9: "
+set $WS10 "10: "
+set $WS11 "11: "
+set $WS12 "12: "
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
@@ -37,7 +38,8 @@ set $WS12 "12:"
 # font pango:input sans compressed 7
 # font pango:input sans 6
 # font pango:InputSansCompressed Font Awesome 6
-font pango:gohufont 6
+# font pango:gohufont 8
+font pango:iosevka nerd font 10
 # font pango:Dina 5
 # font pango:Monofur 9
 
@@ -173,6 +175,10 @@ bindsym $mod+Shift+x move workspace to output up
 bindsym $mod+Shift+z move scratchpad
 bindsym $mod+z scratchpad show
 
+bindsym $mod+g exec "jk chat"
+bindsym $mod+b exec "jk code"
+bindsym $mod+p exec "jk party"
+
 # Workspace position
 
 workspace $WS1 output $monitor1
@@ -204,7 +210,7 @@ for_window [window_role="pop-up"] floating enable
 assign [title="Android Emulator"] $WS11
 for_window [title="Android Emulator"] floating enable
 
-bindsym $mod+g [class="go-for-it"] focus
+# bindsym $mod+g [class="go-for-it"] focus
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -233,7 +239,7 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 bindsym $mod+space exec spacerun
 
-bindsym --release $mod+p exec "scrot -s"
+bindsym --release $mod+shift+p exec "scrot -s"
 
 bindsym $mod+ctrl+l exec "notify-send 'locking...' && lock"
 
