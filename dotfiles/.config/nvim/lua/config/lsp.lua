@@ -2,6 +2,7 @@ local lspconfig = require('lspconfig')
 local lsp_status = require('lsp-status')
 local saga = require('lspsaga')
 local lspkind = require('lspkind')
+local lsp_signature = require("lsp_signature")
 local custom_on_attach = require('lsp_utils').on_attach
 local lsp = vim.lsp
 local buf_keymap = vim.api.nvim_buf_set_keymap
@@ -93,6 +94,7 @@ local servers = {
   jsonls = {cmd = {'json-languageserver', '--stdio'}},
   pyright = {settings = {python = {formatting = {provider = 'yapf'}}}},
   rust_analyzer = {},
+  phpactor = {},
   sumneko_lua = {
     cmd = {'lua-language-server'},
     settings = {
@@ -122,3 +124,5 @@ for server, config in pairs(servers) do
                                             lsp_status.capabilities, snippet_capabilities)
   lspconfig[server].setup(config)
 end
+
+lsp_signature.setup()

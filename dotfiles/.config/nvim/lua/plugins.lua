@@ -120,7 +120,7 @@ return require('packer').startup(function(use)
   -- Completion and linting
   use {
     'onsails/lspkind-nvim', 'neovim/nvim-lspconfig', 'nvim-lua/lsp-status.nvim',
-    'glepnir/lspsaga.nvim'
+    'glepnir/lspsaga.nvim', 'ray-x/lsp_signature.nvim'
   }
 
   use { 
