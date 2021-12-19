@@ -8,6 +8,11 @@ local lsp = vim.lsp
 local buf_keymap = vim.api.nvim_buf_set_keymap
 local cmd = vim.cmd
 
+local cmp_capabilities = require('cmp_nvim_lsp')
+  .update_capabilities(vim.lsp.protocol.make_client_capabilities())
+
+saga.init_lsp_saga {use_saga_diagnostic_sign = false}
+
 local kind_symbols = {
   Text = '',
   Method = 'Ƒ',
@@ -63,7 +68,6 @@ lsp.handlers['textDocument/publishDiagnostics'] = lsp.with(lsp.diagnostic.on_pub
   update_in_insert = false,
   underline = true
 })
-saga.init_lsp_saga {use_saga_diagnostic_sign = false}
 
 local servers = {
   -- Flutter / dart lsp is set up by flutter_tools separately (see `flutters_tools.lua`)
@@ -91,7 +95,7 @@ local servers = {
     root_dir = lspconfig.util.root_pattern("package.json", ".git")
   },
   html = {},
-  jsonls = {cmd = {'json-languageserver', '--stdio'}},
+  jsonls = {cmd = {'vscode-json-language-server', '--stdio'}},
   pyright = {settings = {python = {formatting = {provider = 'yapf'}}}},
   rust_analyzer = {},
   phpactor = {},
@@ -120,8 +124,13 @@ local snippet_capabilities = {
 
 for server, config in pairs(servers) do
   config.on_attach = custom_on_attach
-  config.capabilities = vim.tbl_deep_extend('keep', config.capabilities or {},
-                                            lsp_status.capabilities, snippet_capabilities)
+  config.capabilities = vim.tbl_deep_extend(
+    'keep',
+    config.capabilities or {},
+    lsp_status.capabilities,
+    snippet_capabilities,
+    cmp_capabilities
+  )
   lspconfig[server].setup(config)
 end
 

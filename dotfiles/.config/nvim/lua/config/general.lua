@@ -57,7 +57,7 @@ init = function()
 	opt('shada', [['20,<50,s10,h,/100]])
 	opt('hidden', true)
 	opt('shortmess', o.shortmess .. 'c')
-	opt('completeopt', 'menuone,noselect')
+	opt('completeopt', 'menu,menuone,noselect')
 	opt('joinspaces', false)
 	opt('guicursor', [[n-v-c:block,i-ci-ve:ver25,r-cr:hor20,o:hor50]])
 	opt('updatetime', 500)
@@ -72,6 +72,10 @@ init = function()
 	opt('mouse', 'nivh')
 	opt('signcolumn', 'yes:1', window)
 	opt('title', true) -- Update window title dynamically
+
+  opt('list', true)
+  vim.opt.listchars:append("space:⋅")
+  vim.opt.listchars:append("eol:↴")
 
 	-- Keybindings
 	local silent = {silent = true}

@@ -3,7 +3,7 @@ require("plugins")
 general_config = require("config.general")
 
 general_config.init()
-require('config.lsp')
+-- require('config.lsp')
 
 if utils.file_exists("./project_configs.lua") then
   require("project_configs")

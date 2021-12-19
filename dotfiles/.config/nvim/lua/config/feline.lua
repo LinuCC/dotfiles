@@ -1,5 +1,9 @@
 local get_diag = function(str)
-    local count = vim.lsp.diagnostic.get_count(0, str)
+    local diag = vim.diagnostic.get(0, {severity = str})
+    local count = 0
+    for _ in pairs(diag) do
+        count = count + 1
+    end
     return (count > 0) and ' ' .. count .. ' ' or ' '
 end
 
@@ -63,20 +67,20 @@ table.insert(components.inactive, {
 -- right active
 table.insert(components.active, {
     {
-        provider = function() return get_diag("Error") end,
+        provider = function() return get_diag(vim.diagnostic.ERROR) end,
         hl = {fg = 'bg', bg = 'red', style = 'bold'},
         left_sep = {str = '', hl = {fg = 'red', bg = 'black'}},
         right_sep = {str = '', hl = {fg = 'yellow', bg = 'red'}}
     }, {
-        provider = function() return get_diag("Warning") end,
+        provider = function() return get_diag(vim.diagnostic.WARN) end,
         hl = {fg = 'bg', bg = 'yellow', style = 'bold'},
         right_sep = {str = '', hl = {fg = 'cyan', bg = 'yellow'}}
     }, {
-        provider = function() return get_diag("Information") end,
+        provider = function() return get_diag(vim.diagnostic.INFO) end,
         hl = {fg = 'bg', bg = 'cyan', style = 'bold'},
         right_sep = {str = '', hl = {fg = 'oceanblue', bg = 'cyan'}}
     }, {
-        provider = function() return get_diag("Hint") end,
+        provider = function() return get_diag(vim.diagnostic.HINT) end,
         hl = {fg = 'bg', bg = 'oceanblue', style = 'bold'},
         right_sep = {str = '', hl = {fg = 'bg', bg = 'oceanblue'}}
     }, {provider = 'file_encoding', left_sep = ' '},
